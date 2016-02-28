@@ -4,4 +4,4 @@
                (:file "package")
                (:file "config")
                (:file "initialize"))
-  :depends-on (:helpers))
+  :depends-on (:helpers :cl-who :parenscript))
