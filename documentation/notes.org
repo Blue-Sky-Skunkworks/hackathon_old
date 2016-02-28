@@ -1,0 +1,5 @@
+#+TITLE: Notes for the static-web library
+#+CATEGORY: notes
+#+FILETAGS: static-web
+
+* static-web library notes
