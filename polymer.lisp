@@ -17,9 +17,6 @@
 (defmacro icon-button (&body body)
   `(html (:paper-icon-button ,@body)))
 
-(defmacro icon-button (&body body)
-  `(html (:paper-icon-button ,@body)))
-
 (defmacro p-dialog (id (&key entry exit) &body body)
   `(html (:paper-dialog :id ,id
                         ,@(when entry `(:entry-animation ,entry))
@@ -47,7 +44,7 @@
 (defmacro menu (&body body)
   `(html (:paper-menu ,@body)))
 
-(defmacro ripple (&optional (&key) &body body)
+(defmacro ripple (&body body)
   `(html (:paper-ripple ,@body)))
 
 (defmacro material (&body body)
