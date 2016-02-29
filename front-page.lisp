@@ -24,8 +24,12 @@
        (:script :src "js/js.js" :type "text/javascript"))
 
       (:body :class "fullbleed layout vertical"
-             (header-panel :mode "seamed"
-                           (toolbar (:title ("Missoula Civic Hackathon")))
-                           (:center (card (:img :src "/images/missoula-civic-hackathon-logo-1.png"))))))))
+             (animated-pages
+               :entry-animation "fade-in-animation"
+               :exit-animation "fade-out-animation"
+               :selected 0
+               (animatable
+                 (card (:img :src "/images/missoula-civic-hackathon-logo-1.png"))
+                 (card (:img :src "/images/missoula-civic-hackathon-logo-1-small.png"))))))))
 
 
