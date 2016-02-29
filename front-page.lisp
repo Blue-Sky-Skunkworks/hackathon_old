@@ -42,12 +42,12 @@
                                                (button (ps (visit-tickets))
                                                  :style "padding:30px;" :class "buy-ticket"
                                                  (:div :class "layout vertical center"
-                                                       "Click Here" (:br) "for Tickets!"
+                                                       "Get your Tickets Here!"
                                                        (vertical-break "20px")
                                                        (fab :icon "notification:confirmation-number"))))
                                          (card :class "card" :style "padding:20px;"
                                                (button (ps (visit-wiki)) :style "padding:30px;"
-                                                       :class "visit-wiki" "The Missoula Civic Hackathon Wiki"))
+                                                       :class "visit-wiki" "The Hackathon Wiki"))
                                          (card :class "card" :style "padding:20px;"
                                                (button (ps (select-page 2))
                                                  :style "padding:30px;" :class "schedule" "The Event Schedule"))
@@ -59,12 +59,11 @@
                                                  :style "padding:30px;" :class "email-list" "Join the Email List"))
                                          (card :class "card" :style "padding:20px;"
                                                (button (ps (visit-source-code))
-                                                 :style "padding:30px;" :class "source-code" "View The Source Code For This Website")))
+                                                 :style "padding:30px;" :class "source-code" "View The Code For This Site")))
                              (animatable (render-press-release stream))
                              (animatable (render-schedule stream))
                              (animatable (render-sharing stream))))
                              (:script (str (ps (when-ready (lambda ()
                                              (show "pages")
                                              (setup-packing "top-grid" "card" 20))))))))))
-
 
