@@ -6,13 +6,16 @@
 (defmacro icon (&body body)
   `(html (:iron-icon ,@body)))
 
-(defmacro toolbar ((&key icon class title args) &body body)
-  `(html (:paper-toolbar
-          ,@args
-          ,@(when class `(:class ,class))
-          ,@(when icon `((icon :class "toolbar-icon" :icon ,icon)))
-          ,@(when title `((:div :style "margin-left:0px;" :class "title" ,@title)))
-          ,@body)))
+(defmacro toolbar (&body body)
+  `(html (:paper-toolbar ,@body)))
+
+;; (defmacro toolbar ((&key icon class title args) &body body)
+;;   `(html (:paper-toolbar
+;;           ,@args
+;;           ,@(when class `(:class ,class))
+;;           ,@(when icon `((icon :class "toolbar-icon" :icon ,icon)))
+;;           ,@(when title `((:div :style "margin-left:0px;" :class "title" ,@title)))
+;;           ,@body)))
 
 (defmacro icon-button (&body body)
   `(html (:paper-icon-button ,@body)))
