@@ -1,4 +1,4 @@
-(in-package :static-web)
+(in-package :hackathon)
 
 (defun initialize ()
-  (format t "Welcome to Static-Web!~%"))
+  (format t "Welcome to the Hackathon!~%"))

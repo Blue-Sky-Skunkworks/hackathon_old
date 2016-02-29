@@ -1,4 +1,4 @@
-(in-package :static-web)
+(in-package :hackathon)
 
 (defvar *web-acceptor* nil)
 
@@ -20,10 +20,10 @@
   (setf *web-acceptor*
         (make-instance 'web-acceptor
                        :port 3000
-                       :access-log-destination (static-web-file (format nil "log/access-~A.log" (now)))
-                       :message-log-destination (static-web-file (format nil "log/message-~A.log" (now)))
+                       :access-log-destination (hackathon-file (format nil "log/access-~A.log" (now)))
+                       :message-log-destination (hackathon-file (format nil "log/message-~A.log" (now)))
                        :dispatch-table (mapcar 'format-dispatch
-                                               `((:folder "/" ,(static-web-file "build/"))))))
+                                               `((:folder "/" ,(hackathon-file "build/"))))))
   (hunchentoot:start *web-acceptor*))
 
 (defmethod hunchentoot:acceptor-dispatch-request ((acceptor web-acceptor) request)

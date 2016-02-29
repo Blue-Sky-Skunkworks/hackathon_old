@@ -1,4 +1,4 @@
-(in-package :static-web)
+(in-package :hackathon)
 
 (defun render-press-release (stream)
   (html

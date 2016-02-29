@@ -1,7 +1,7 @@
 {
-  "name": "static-web",
-  "homepage": "https://github.com/whalliburton/static-web,
-  "description": "",
+  "name": "hackathon",
+  "homepage": "https://github.com/Blue-Sky-Skunkworks/hackathon.git",
+  "description": "Static website generator for the Missoula Civic Hackathon 2016.",
   "main": "",
   "moduleType": [],
   "authors": [

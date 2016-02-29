@@ -8,11 +8,11 @@ cd $(cd `dirname $(test -L "$0" && readlink "$0" || echo "$0")` && pwd -P)
 LC_CTYPE=en_US.UTF-8
 export LC_CTYPE
 
-if [ ! -f "/mnt/projects/cores/static-web.core" ] ; then
+if [ ! -f "/mnt/projects/cores/hackathon.core" ] ; then
 /usr/local/bin/sbcl \
   --noinform \
   --dynamic-space-size 1024 \
-  --eval "(progn (defparameter cl-user::*project* :static-web) (load \"start.lisp\") (in-package :static-web))" \
+  --eval "(progn (defparameter cl-user::*project* :hackathon) (load \"start.lisp\") (in-package :hackathon))" \
   "$@"
 if [[ $? != 0 ]]; then
 echo Error with core creation.
@@ -21,8 +21,8 @@ fi
 fi
 
 /usr/local/bin/sbcl \
-  --core "/mnt/projects/cores/static-web.core" \
+  --core "/mnt/projects/cores/hackathon.core" \
   --noinform \
   --dynamic-space-size 1024 \
-  --eval "(progn (defparameter cl-user::*project* :static-web) (load \"start.lisp\") (in-package :static-web))" \
+  --eval "(progn (defparameter cl-user::*project* :hackathon) (load \"start.lisp\") (in-package :hackathon))" \
   "$@"

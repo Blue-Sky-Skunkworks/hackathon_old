@@ -1,4 +1,4 @@
-(in-package :static-web)
+(in-package :hackathon)
 
 (defmacro header-panel (&body body)
   `(html (:paper-header-panel ,@body)))

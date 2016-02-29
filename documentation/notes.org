@@ -1,5 +1,5 @@
-#+TITLE: Notes for the static-web library
+#+TITLE: Notes for the Hackathon website generator
 #+CATEGORY: notes
-#+FILETAGS: static-web
+#+FILETAGS: hackathon
 
 * static-web library notes

@@ -1,6 +1,6 @@
-(defsystem :static-web
+(defsystem :hackathon
   :serial t
-  :components ((:static-file "static-web.asd")
+  :components ((:static-file "hackathon.asd")
                (:file "package")
                (:file "config")
                (:file "utility")

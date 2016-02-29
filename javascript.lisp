@@ -1,4 +1,4 @@
-(in-package :static-web-js)
+(in-package :hackathon-js)
 
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (defparameter *slash-representative-character* #\UE000))

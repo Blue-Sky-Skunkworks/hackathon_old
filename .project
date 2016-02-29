@@ -1,1 +1,1 @@
-(static-web sbcl ("static-web") "Welcome to Static-Web!" #\BLACK_SQUARE "black")
+(hackathon sbcl ("hackathon") "Welcome to the Hackathon!" #\BLACK_SQUARE "black")

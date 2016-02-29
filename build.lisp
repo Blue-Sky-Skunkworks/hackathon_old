@@ -1,10 +1,10 @@
-(in-package :static-web)
+(in-package :hackathon)
 
 (defun build-webpage-directory (path fn)
   )
 
 (defun populate-javascript ()
-  (cl-fad:list-directory (static-web-file "bower_components/")))
+  (cl-fad:list-directory (hackathon-file "bower_components/")))
 
 (defun build-webpage-generated (path fn)
   (ensure-directories-exist path)
@@ -21,7 +21,7 @@
 (defun build-website (description)
   (iter (for (path fn) in description)
         (build-webpage
-         (static-web-file
+         (hackathon-file
           (concatenate 'string
                        "build/"
                        (if (char= (char path 0) #\/)
@@ -36,7 +36,7 @@
                    ("/css/custom.html" build-custom-stylesheet)
                    ("/index.html" render-front-page))))
 
-(defun build-javascript () (static-web-js::js-file))
+(defun build-javascript () (hackathon-js::js-file))
 
 
 
