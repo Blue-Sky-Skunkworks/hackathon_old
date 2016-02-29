@@ -86,6 +86,21 @@
 
        (defvar *trace-level* 0)
 
+       (defun get-by-id (id &optional (error t))
+         (let ((hit ((@ document get-element-by-id) id)))
+           (if hit
+               (return hit)
+               (if error (console "ERROR: get-by-id" id)))))
+
+       (defun setup-packing (container-id item &optional (gutter 10))
+         (let* ((container (get-by-id container-id))
+                (pack (new (*packery container
+                                     (create :item-selector (+ "." item)
+                                             :gutter gutter)))))
+           (setf (@ container pack) pack)))
+
+
+
 
 )))))
 

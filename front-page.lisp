@@ -14,22 +14,23 @@
                             "iron-flex-layout"
                             "iron-icons"
                             "paper-styles"
-                            "paper-header-panel"
-                            "paper-toolbar"
                             "paper-button"
                             "paper-card"
                             "neon-animation"))
              (htm (:link :rel "import" :href (format nil "js/~A/~A.html" name name))))
 
+       (:script :src "js/packery/dist/packery.pkgd.min.js" :type "text/javascript")
        (:script :src "js/js.js" :type "text/javascript"))
 
-      (:body :class "fullbleed layout vertical"
+      (:body :class "fullbleed layout vertical" :style "padding:20px;"
              (animated-pages
                :entry-animation "fade-in-animation"
                :exit-animation "fade-out-animation"
                :selected 0
-               (animatable
-                 (card (:img :src "/images/missoula-civic-hackathon-logo-1.png"))
-                 (card (:img :src "/images/missoula-civic-hackathon-logo-1-small.png"))))))))
+               (animatable :id "top-grid"
+                 (card :class "card" (:img :src "/images/missoula-civic-hackathon-logo-1.png"))
+                 (card :class "card" (:img :src "/images/missoula-civic-hackathon-logo-1-small.png"))))
+             (:script (str (ps (setup-packing "top-grid" "card"))))
+             ))))
 
 
