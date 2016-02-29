@@ -30,6 +30,6 @@
              (header-panel :mode "seamed"
                            (toolbar (:title ("basebox"))
                              (icon-button :icon "menu" :style "margin-right:0px;" :onclick "showDialog(\"i-sign-in\");"))
-                           (:div :class "image" (:center (:img :src "/images/missoula-civic-hackathon-logo-1.png"))))))))
+                           (:center (card (:img :src "/images/missoula-civic-hackathon-logo-1.png"))))))))
 
 
