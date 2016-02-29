@@ -8,6 +8,6 @@
                (:file "polymer")
                (:file "javascript")
                (:file "build")
-               (:file "first")
+               (:file "front-page")
                (:file "initialize"))
   :depends-on (:helpers :cl-who :parenscript :hunchentoot))

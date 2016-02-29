@@ -4,10 +4,10 @@
   (html-to-string
     (:html
       (:head
-       (:title "Static Web")
-
+       (:title "Missoula Civic Hackathon")
        (:script :src "js/webcomponentsjs/webcomponents-lite.js" :type "text/javascript")
        (:link :rel "import" :href "js/polymer/polymer.html")
+       (:link :rel "import" :href "css/custom.html")
        (:link :rel "stylesheet" :type "text/css" :href "css/css.css")
 
        (iter (for name in '("polymer"
@@ -16,11 +16,8 @@
                             "paper-styles"
                             "paper-header-panel"
                             "paper-toolbar"
-                            "paper-icon-button"
-                            "paper-scroll-header-panel"
                             "paper-button"
-                            "paper-dialog"
-                            "paper-input"
+                            "paper-card"
                             "neon-animation"))
              (htm (:link :rel "import" :href (format nil "js/~A/~A.html" name name))))
 
@@ -28,8 +25,7 @@
 
       (:body :class "fullbleed layout vertical"
              (header-panel :mode "seamed"
-                           (toolbar (:title ("basebox"))
-                             (icon-button :icon "menu" :style "margin-right:0px;" :onclick "showDialog(\"i-sign-in\");"))
+                           (toolbar (:title ("Missoula Civic Hackathon")))
                            (:center (card (:img :src "/images/missoula-civic-hackathon-logo-1.png"))))))))
 
 
