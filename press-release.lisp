@@ -6,7 +6,7 @@
       (toolbar
         (:span :style "margin-left:0px;" :class "title" "Missoula Civic Hackathon Press Release")
         (icon-button :class "toolbar-icon" :style "margin-left:0px;" :icon "arrow-back" :onclick (ps (select-page 0))))
-      (:div :style "padding:20px;"
+      (:div :style "padding:20px;font-family:Roboto;"
             (:h1 "FOR IMMEDIATE RELEASE")
             (:pre "Event Name: Missoula Civic Hackathon
 
@@ -23,7 +23,7 @@ Phone Number: (406) 830-5031
 
 E-mail Address: <a href=\"mailto:will@blueskystewardship.org\">will@blueskystewardship.org</a>
 
-Website Address: <a href=\"http://missoulacivichackathon.org\">http://missoulacivichackathon.org</a>")
+Website Address: <a target=\"_blank\" href=\"http://missoulacivichackathon.org\">http://missoulacivichackathon.org</a>")
 
             (:br)
             (:h1 "Missoula Civic Hackathon Hosts Area Technical Developers and Citizens
@@ -68,7 +68,7 @@ Robinson.")
 
             (:h2 "How is it done?")
 
-            (:p "Beginning with an <a style=\"display:inline-block\" href=\"https://en.wikipedia.org/wiki/Open_Space_Technology\">open space technology</a>
+            (:p "Beginning with an <a style=\"display:inline-block\" target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Open_Space_Technology\">open space technology</a>
 unconference on Saturday morning, attendees bring their best ideas and
 inspire others to join their team. Over Saturday and Sunday teams
 focus on developing solutions, validating their ideas, and building a
@@ -78,7 +78,7 @@ receive valuable feedback from a panel of experts.")
             (:h2 "When and where is it?")
 
             (:p "The detailed Missoula Civic Hackathon Schedule can be found online at
-<a href=\"http://missoulacivichackathon/\">http://missoulacivichackathon/</a>. The hours of the event are Saturday,
+<a target=\"_blank\" href=\"http://missoulacivichackathon/\">http://missoulacivichackathon/</a>. The hours of the event are Saturday,
 March 26, 2016 from 9:00 a.m. through the night to 6:00 p.m Sunday,
 March 27.  It will be held on the University of Montana Campus at the
 Phillis J. Washington Education Center, 32 Campus Drive, Missoula,
@@ -90,7 +90,7 @@ Montana 59812.")
 
             (:h2 "How can I sign up?")
 
-            (:p "Interested parties can register at <a href=\"http://missoulacivichackathon/\">http://missoulacivichackathon/</a>
+            (:p "Interested parties can register at <a target=\"_blank\" href=\"http://missoulacivichackathon/\">http://missoulacivichackathon/</a>
 Registration includes breakfast, lunch, and dinner on Saturday as well
 as breakfast and lunch on Sunday. Attendees will also receive
 exclusive Missoula Civic Hackathon perks.")
@@ -115,7 +115,7 @@ us at <a href=\"mailto:info@blueskystewardship.org\">info@blueskystewardship.org
 
             (:h2 "ABOUT BLUE SKY STEWARDSHIP:")
 
-            (:p "<a href=\"http://blueskystewardship.org\">Blue Sky Stewardship</a> is a local food non-profit focused on
+            (:p "<a target=\"_blank\" href=\"http://blueskystewardship.org\">Blue Sky Stewardship</a> is a local food non-profit focused on
 researching and demonstrating solutions to Missoula's food production,
 processing, distribution, and waste systems. Blue Sky Stewardship is
 supported by the High Stakes Foundation, the Montana Institute for
