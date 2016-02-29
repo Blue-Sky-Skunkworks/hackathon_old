@@ -13,7 +13,10 @@
        (iter (for el in '("polymer"
                           "iron-flex-layout"
                           "iron-icons"
+                          ("iron-icons" "places-icons")
+                          ("iron-icons" "editor-icons")
                           ("iron-icons" "notification-icons")
+                          ("iron-icons" "communication-icons")
                           "paper-styles"
                           "paper-button"
                           "paper-icon-button"
@@ -43,23 +46,40 @@
                                                  :style "padding:30px;" :class "buy-ticket"
                                                  (:div :class "layout vertical center"
                                                        "Get your Tickets Here!"
-                                                       (vertical-break "20px")
+                                                       (vertical-break)
                                                        (fab :icon "notification:confirmation-number"))))
                                          (card :class "card" :style "padding:20px;"
                                                (button (ps (visit-wiki)) :style "padding:30px;"
-                                                       :class "visit-wiki" "The Hackathon Wiki"))
+                                                       :class "visit-wiki layout vertical center"
+                                                       (icon :icon "editor:mode-edit")
+                                                       (vertical-break)
+                                                       "The Hackathon Wiki"))
                                          (card :class "card" :style "padding:20px;"
                                                (button (ps (select-page 2))
-                                                 :style "padding:30px;" :class "schedule" "The Event Schedule"))
+                                                 :style "padding:30px;" :class "schedule layout vertical center"
+                                                 (icon :icon "date-range")
+                                                 (vertical-break)
+                                                 "The Event Schedule"))
                                          (card :class "card" :style "padding:20px;"
                                                (button (ps (select-page 3))
-                                                 :style "padding:30px;" :class "sharing" "Ride & Couch Sharing"))
+                                                 :style "padding:30px;" :class "sharing layout vertical center"
+                                                 (:div :class "layout horizontal center"
+                                                       (icon :icon "places:airport-shuttle") "&nbsp;&nbsp;"
+                                                       (icon :icon "notification:airline-seat-individual-suite"))
+                                                 (vertical-break)
+                                                 "Ride & Couch Sharing"))
                                          (card :class "card" :style "padding:20px;"
                                                (button (ps (visit-email-list))
-                                                 :style "padding:30px;" :class "email-list" "Join the Email List"))
+                                                 :style "padding:30px;" :class "email-list layout vertical center"
+                                                 (icon :icon "communication:email")
+                                                 (vertical-break)
+                                                 "Join the Email List"))
                                          (card :class "card" :style "padding:20px;"
                                                (button (ps (visit-source-code))
-                                                 :style "padding:30px;" :class "source-code" "View The Code For This Site")))
+                                                 :style "padding:30px;" :class "source-code layout vertical center"
+                                                 (icon :icon "code")
+                                                 (vertical-break)
+                                                 "View The Code For This Site")))
                              (animatable (render-press-release stream))
                              (animatable (render-schedule stream))
                              (animatable (render-sharing stream))))
