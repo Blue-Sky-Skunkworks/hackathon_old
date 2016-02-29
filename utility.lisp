@@ -6,4 +6,8 @@
 (defun hackathon-file (base)
   (concatenate 'string (asdf-base-path :hackathon) base))
 
+(defmacro vertical-break (&optional (height "10px"))
+  `(html (:div :style ,(format nil "height:~A;" height))))
+
+
 
