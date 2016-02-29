@@ -1,6 +1,6 @@
 (in-package :static-web)
 
-(defparameter *web-acceptor* nil)
+(defvar *web-acceptor* nil)
 
 (defclass web-acceptor (hunchentoot:acceptor)
   ((dispatch-table :reader dispatch-table :initarg :dispatch-table)))
@@ -16,12 +16,15 @@
 (defun start-server ()
   (when *web-acceptor*
     (warn "Server already started. Restarting")
-     (hunchentoot:stop *web-acceptor*))
+    (hunchentoot:stop *web-acceptor*))
   (setf *web-acceptor*
-        (hunchentoot:start (make-instance 'web-acceptor :port 3000
-                                          :dispatch-table
-                                          (mapcar 'format-dispatch
-                                                  `((:folder "/" ,(static-web-file "build/"))))))))
+        (make-instance 'web-acceptor
+                       :port 3000
+                       :access-log-destination (static-web-file (format nil "log/access-~A.log" (now)))
+                       :message-log-destination (static-web-file (format nil "log/message-~A.log" (now)))
+                       :dispatch-table (mapcar 'format-dispatch
+                                               `((:folder "/" ,(static-web-file "build/"))))))
+  (hunchentoot:start *web-acceptor*))
 
 (defmethod hunchentoot:acceptor-dispatch-request ((acceptor web-acceptor) request)
   (bugout acceptor (dispatch-table acceptor) request)

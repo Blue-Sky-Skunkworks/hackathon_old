@@ -29,13 +29,7 @@
       (:body :class "fullbleed layout vertical"
              (header-panel :mode "seamed"
                            (toolbar (:title ("basebox"))
-                             (icon-button :icon "exit-to-app" :style "margin-right:0px;" :onclick "showDialog(\"i-sign-in\");"))
-                           (:div :class "image" (:center (:img :src "/images/missoula-civic-hackathon.png"))))
-             (p-dialog "i-sign-in" (:entry "fade-in-animation" :exit "fade-out-animation")
-               (:h1 "Sign in")
-               (input :id "i-username" :label "Username" :autofocus t)
-               (input :id "i-password" :type "password" :label "Password")
-               (:div :class "buttons"
-                     (button "closeDialog(\"i-sign-in\");" "CANCEL")
-                     (button "signIn();" "ACCEPT")))))))
+                             (icon-button :icon "menu" :style "margin-right:0px;" :onclick "showDialog(\"i-sign-in\");"))
+                           (:div :class "image" (:center (:img :src "/images/missoula-civic-hackathon-logo-1.png"))))))))
+
 

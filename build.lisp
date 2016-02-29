@@ -8,7 +8,7 @@
 
 (defun build-webpage-generated (path fn)
   (ensure-directories-exist path)
-  (with-output-to-file (stream path :if-exists :overwrite :if-does-not-exist :create)
+  (with-output-to-file (stream path :if-exists :supersede :if-does-not-exist :create)
     (let ((body (funcall fn)))
       (when body (write-string (funcall fn) stream)))))
 
