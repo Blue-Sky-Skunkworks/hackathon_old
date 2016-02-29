@@ -11,5 +11,7 @@
                (:file "build")
                (:file "front-page")
                (:file "press-release")
+               (:file "schedule")
+               (:file "sharing")
                (:file "initialize"))
   :depends-on (:helpers :cl-who :parenscript :hunchentoot))

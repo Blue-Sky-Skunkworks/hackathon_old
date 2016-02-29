@@ -115,6 +115,20 @@
          ((@ document add-event-listener) "WebComponentsReady"
           (lambda () (funcall fn))))
 
+       (defun visit-url (url)
+         ((@ window open) url "_blank"))
+
+       (defun visit-email-list ()
+         (visit-url "https://groups.google.com/forum/#!forum/blue-sky-skunkworks"))
+
+       (defun visit-wiki ()
+         (visit-url "https://github.com/Blue-Sky-Skunkworks/missoula-civic-hackathon-notes/wiki"))
+
+       (defun visit-tickets ()
+         (visit-url "https://www.eventbrite.com/e/missoula-civic-hackathon-2016-tickets-21898542129"))
+
+       (defun visit-source-code ()
+         (visit-url "https://www.eventbrite.com/e/missoula-civic-hackathon-2016-tickets-21898542129"))
 
        )))))
 

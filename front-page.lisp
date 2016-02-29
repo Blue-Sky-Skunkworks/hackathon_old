@@ -38,19 +38,32 @@
                                          (card :class "card" :style "cursor:pointer;" :onclick (ps (select-page 1))
                                                (:div :class "card-content" (:img :src "/images/missoula-civic-hackathon-logo-1.png") (ripple))
                                                (:div :class "card-actions" (button (ps (select-page 1)) "Press Release")))
-                                         ;; (card :class "card" (:img :src "/images/missoula-civic-hackathon-logo-1.png") (ripple))
-                                         (card :class "card" :style "padding:20px;" (button (ps (select-page 2)) :style "padding:30px;"
-                                                                                            :class "buy-ticket"
-                                                                                            (:div :class "layout vertical center"
-                                                                                                  "Click Here" (:br) "for Tickets!"
-                                                                                                  (vertical-break "20px")
-                                                                                                  (fab :icon "notification:confirmation-number"))))
-                                         (card :class "card" :style "padding:20px;" (button (ps (select-page 3)) :style "padding:30px;"
-                                                                                            :class "visit-wiki" "View the" (:br) "Missoula Civic Hackathon" (:br) "Wiki")))
+                                         (card :class "card" :style "padding:20px;"
+                                               (button (ps (visit-tickets))
+                                                 :style "padding:30px;" :class "buy-ticket"
+                                                 (:div :class "layout vertical center"
+                                                       "Click Here" (:br) "for Tickets!"
+                                                       (vertical-break "20px")
+                                                       (fab :icon "notification:confirmation-number"))))
+                                         (card :class "card" :style "padding:20px;"
+                                               (button (ps (visit-wiki)) :style "padding:30px;"
+                                                       :class "visit-wiki" "The Missoula Civic Hackathon Wiki"))
+                                         (card :class "card" :style "padding:20px;"
+                                               (button (ps (select-page 2))
+                                                 :style "padding:30px;" :class "schedule" "The Event Schedule"))
+                                         (card :class "card" :style "padding:20px;"
+                                               (button (ps (select-page 3))
+                                                 :style "padding:30px;" :class "sharing" "Ride & Couch Sharing"))
+                                         (card :class "card" :style "padding:20px;"
+                                               (button (ps (visit-email-list))
+                                                 :style "padding:30px;" :class "email-list" "Join the Email List"))
+                                         (card :class "card" :style "padding:20px;"
+                                               (button (ps (visit-source-code))
+                                                 :style "padding:30px;" :class "source-code" "View The Source Code For This Website")))
                              (animatable (render-press-release stream))
-                             (animatable (card (str "tickets")))
-                             (animatable (card (str "wiki"))))
-             (:script (str (ps (when-ready (lambda ()
+                             (animatable (render-schedule stream))
+                             (animatable (render-sharing stream))))
+                             (:script (str (ps (when-ready (lambda ()
                                              (show "pages")
                                              (setup-packing "top-grid" "card" 20))))))))))
 
