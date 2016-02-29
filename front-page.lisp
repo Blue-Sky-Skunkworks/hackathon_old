@@ -32,7 +32,9 @@
                :exit-animation "fade-out-animation"
                :selected 0
                (animatable :id "top-grid"
-                           (card :class "card" :onclick (ps (select-page 1)) (:img :src "/images/missoula-civic-hackathon-logo-1-small.png") (ripple))
+                           (card :class "card" :style "cursor:pointer;" :onclick (ps (select-page 1))
+                                 (:div :class "card-content" (:img :src "/images/missoula-civic-hackathon-logo-1.png") (ripple))
+                                 (:div :class "card-actions" (button (ps (select-page 1)) "Press Release")))
                            ;; (card :class "card" (:img :src "/images/missoula-civic-hackathon-logo-1.png") (ripple))
                            (card :class "card" :style "padding:20px;" (button (ps (select-page 2)) :style "padding:30px;"
                                                                               :class "buy-ticket" "Click Here" (:br) "for Tickets!"))
