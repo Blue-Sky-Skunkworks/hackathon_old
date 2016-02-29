@@ -8,3 +8,5 @@
 (defun build-stylesheet ()
   (run-program-to-string *scss-script* (list (static-web-file "css.scss"))))
 
+(defun build-custom-stylesheet ()
+ (helpers:slurp-file (static-web-file "custom.html")))

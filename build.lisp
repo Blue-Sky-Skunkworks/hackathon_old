@@ -33,6 +33,7 @@
   (build-website '(("/js/js.js" build-javascript)
                    ("/js/" populate-javascript)
                    ("/css/css.css" build-stylesheet)
+                   ("/css/custom.html" build-custom-stylesheet)
                    ("/index.html" render-front-page))))
 
 (defun build-javascript () (static-web-js::js-file))
