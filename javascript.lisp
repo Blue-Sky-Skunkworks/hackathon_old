@@ -99,10 +99,24 @@
                                              :gutter gutter)))))
            (setf (@ container pack) pack)))
 
+       (defun select-page (index)
+         (let ((pages (get-by-id "pages")))
+           (setf (@ pages selected) index)))
+
+       (defun show (id)
+         (with-id (o id)
+           (setf (@ o style visibility) "visible")))
+
+       (defun hide (id)
+         (with-id (o id)
+           (setf (@ o style visibility) "hidden")))
+
+       (defun when-ready (fn)
+         ((@ document add-event-listener) "WebComponentsReady"
+          (lambda () (funcall fn))))
 
 
-
-)))))
+       )))))
 
 (defun js-file ()
   *js-file*)

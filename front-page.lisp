@@ -16,6 +16,7 @@
                             "paper-styles"
                             "paper-button"
                             "paper-card"
+                            "paper-ripple"
                             "neon-animation"))
              (htm (:link :rel "import" :href (format nil "js/~A/~A.html" name name))))
 
@@ -23,14 +24,19 @@
        (:script :src "js/js.js" :type "text/javascript"))
 
       (:body :class "fullbleed layout vertical" :style "padding:20px;"
-             (animated-pages
+             (animated-pages :id "pages" :style "visibility:hidden;"
                :entry-animation "fade-in-animation"
                :exit-animation "fade-out-animation"
                :selected 0
                (animatable :id "top-grid"
-                 (card :class "card" (:img :src "/images/missoula-civic-hackathon-logo-1.png"))
-                 (card :class "card" (:img :src "/images/missoula-civic-hackathon-logo-1-small.png"))))
-             (:script (str (ps (setup-packing "top-grid" "card"))))
-             ))))
+                           (card :class "card" :onclick (ps (select-page 1)) (:img :src "/images/missoula-civic-hackathon-logo-1-small.png") (ripple))
+                           (card :class "card" (:img :src "/images/missoula-civic-hackathon-logo-1.png") (ripple))
+                           (card :class "card" :style "padding:20px;" (button (ps (buy-ticket)) :style "padding:30px;"
+                                                                              :class "buy-ticket" "Click Here for Tickets!")))
+               (animatable (card (str "foo")))
+               )
+             (:script (str (ps (when-ready (lambda ()
+                                             (show "pages")
+                                             (setup-packing "top-grid" "card"))))))))))
 
 
