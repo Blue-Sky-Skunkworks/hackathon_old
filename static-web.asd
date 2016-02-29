@@ -6,6 +6,7 @@
                (:file "utility")
                (:file "server")
                (:file "polymer")
+               (:file "javascript")
                (:file "first")
                (:file "initialize"))
   :depends-on (:helpers :cl-who :parenscript :hunchentoot))

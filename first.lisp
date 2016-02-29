@@ -6,9 +6,9 @@
       (:head
        (:title "Static Web")
 
-       (:script :src "/js/webcomponentsjs/webcomponents-lite.js" :type "text/javascript")
-       (:link :rel "import" :href "/js/polymer/polymer.html")
-       (:link :rel "stylesheet" :type "text/css" :href "/css.css")
+       (:script :src "js/webcomponentsjs/webcomponents-lite.js" :type "text/javascript")
+       (:link :rel "import" :href "js/polymer/polymer.html")
+       (:link :rel "stylesheet" :type "text/css" :href "css/css.css")
 
        (iter (for name in '("polymer"
                             "iron-flex-layout"
@@ -22,15 +22,15 @@
                             "paper-dialog"
                             "paper-input"
                             "neon-animation"))
-             (htm (:link :rel "import" :href (format nil  "/js/~A/~A.html" name name))))
+             (htm (:link :rel "import" :href (format nil "js/~A/~A.html" name name))))
 
-       (:script :src "/js/js.js" :type "text/javascript"))
+       (:script :src "js/js.js" :type "text/javascript"))
 
       (:body :class "fullbleed layout vertical"
              (header-panel :mode "seamed"
                            (toolbar (:title ("basebox"))
                              (icon-button :icon "exit-to-app" :style "margin-right:0px;" :onclick "showDialog(\"i-sign-in\");"))
-                           (:div :class "image" (:center (:img :src "/images/mockup-001.png"))))
+                           (:div :class "image" (:center (:img :src "/images/missoula-civic-hackathon.png"))))
              (p-dialog "i-sign-in" (:entry "fade-in-animation" :exit "fade-out-animation")
                (:h1 "Sign in")
                (input :id "i-username" :label "Username" :autofocus t)
@@ -40,7 +40,11 @@
                      (button "signIn();" "ACCEPT")))))))
 
 (defun build-webpage-directory (path fn)
+
   )
+
+(defun populate-javascript ()
+  (cl-fad:list-directory (static-web-file "bower_components/")))
 
 (defun build-webpage-generated (path fn)
   (ensure-directories-exist path)
@@ -49,6 +53,7 @@
       (when body (write-string (funcall fn) stream)))))
 
 (defun build-webpage (path fn)
+  (note "Building ~S." path)
   (if (uiop:directory-pathname-p path)
       (build-webpage-directory path fn)
       (build-webpage-generated path fn)))
@@ -70,5 +75,6 @@
                    ("/css/css.css" build-stylesheet)
                    ("/index.html" render-front-page))))
 
-(defun build-javascript ())
-(defun build-stylesheet ())
+(defun build-javascript () (static-web-js::js-file))
+
+
