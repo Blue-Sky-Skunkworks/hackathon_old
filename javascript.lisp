@@ -128,7 +128,7 @@
          (visit-url "https://www.eventbrite.com/e/missoula-civic-hackathon-2016-tickets-21898542129"))
 
        (defun visit-source-code ()
-         (visit-url "https://www.eventbrite.com/e/missoula-civic-hackathon-2016-tickets-21898542129"))
+         (visit-url "https://github.com/Blue-Sky-Skunkworks/hackathon"))
 
        )))))
 
