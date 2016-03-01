@@ -107,7 +107,7 @@ at the event is locally grown, grass-fed and grass-finished.")
 
             (:p "Thanks to our local sponsors the Washington Companies, Phillis
 J. Washington Foundation, Moonlight Kitchens, Nora McDougall-Collins
-Cartering , Blue Sky Stewardship, Montana Code School, and the
+Catering , Blue Sky Stewardship, Montana Code School, and the
 University of Montana.")
 
             (:p "Sponsorship opportunities are still available,
