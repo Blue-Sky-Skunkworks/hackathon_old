@@ -1,3 +1,5 @@
+[[https://github.com/Blue-Sky-Skunkworks/missoula-civic-hackathon-notes/blob/master/images/missoula-civic-hackathon-logo-1-small.png]]
+
 ## Static Website Generator for the Missoula Civic Hackathon
 
 This simple lisp program generates a static
@@ -17,6 +19,6 @@ is used to develop the page out before deployment.
 It's a simple sketch and is open for much further development.
 
 It is
-[licensed](https://github.com/Blue-Sky-Skunkworks/hackathon/blob/master/LICENSE)
+[licensed](https://github.com/Blue-Sky-Skunkworks/hackathon/blob/master/build.lisp)
 for use under a
 [BSD 2-Clause License](https://opensource.org/licenses/bsd-license.php).
