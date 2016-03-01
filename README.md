@@ -1,4 +1,4 @@
-[[https://github.com/Blue-Sky-Skunkworks/missoula-civic-hackathon-notes/blob/master/images/missoula-civic-hackathon-logo-1-small.png]]
+![Hackathon Image](https://github.com/Blue-Sky-Skunkworks/missoula-civic-hackathon-notes/blob/master/images/missoula-civic-hackathon-logo-1-small.png)
 
 ## Static Website Generator for the Missoula Civic Hackathon
 
