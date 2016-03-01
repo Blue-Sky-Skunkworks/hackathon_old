@@ -16,3 +16,7 @@ is used to develop the page out before deployment.
 
 It's a simple sketch and is open for much further development.
 
+It is
+[licensed](https://github.com/Blue-Sky-Skunkworks/hackathon/blob/master/LICENSE)
+for use under a
+[BSD 2-Clause License](https://opensource.org/licenses/bsd-license.php).
