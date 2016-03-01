@@ -130,6 +130,15 @@
        (defun visit-source-code ()
          (visit-url "https://github.com/Blue-Sky-Skunkworks/hackathon"))
 
+       (defun setup-routing ()
+        ((@ page base) "")
+        (page "/" (lambda () (select-page 0)))
+        (page "/press-release" (lambda () (select-page 1)))
+        (page "/schedule" (lambda () (select-page 2)))
+        (page "/sharing" (lambda () (select-page 3)))
+        (page "/sponsors" (lambda () (select-page 4)))
+        (page (create :hashbang t)))
+
        )))))
 
 (defun js-file ()

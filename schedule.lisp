@@ -5,7 +5,7 @@
     (header-panel :mode "seamed"
       (toolbar :class "schedule"
         (:span :style "margin-left:0px;" :class "title" "Missoula Civic Hackathon Event Schedule")
-        (icon-button :class "toolbar-icon" :style "margin-left:0px;" :icon "arrow-back" :onclick (ps (select-page 0))))
+        (icon-button :class "toolbar-icon" :style "margin-left:0px;" :icon "arrow-back" :onclick "page(\"/\");"))
       (:div :style "padding:20px;" :class "schedule layout vertical"
             (:h1 "Friday, March 25")
             (:h3 "<span class='schedule'>6:00 PM - 8:00 PM</span>Social Gathering - Location TBD")

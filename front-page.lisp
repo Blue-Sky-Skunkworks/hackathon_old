@@ -37,6 +37,7 @@
                            (if *use-cdn* (cdn-url dir (format nil "~A.html" name)) (format nil "js/~A/~A.html" dir name))))))
 
        (:script :src "js/packery/dist/packery.pkgd.min.js" :type "text/javascript")
+       (:script :src "js/page.js/page.js" :type "text/javascript")
        (:script :src "js.js" :type "text/javascript")
        (:link :rel "import" :href "custom.html"))
 
@@ -46,10 +47,10 @@
                              :exit-animation "fade-out-animation"
                              :selected 0
                              (animatable :id "top-grid"
-                                         (card :class "card" :style "cursor:pointer;" :onclick (ps (select-page 1))
+                                         (card :class "card" :style "cursor:pointer;" :onclick "page(\"/press-release\")"
                                                (:div :class "card-content layout vertical center" :style "padding:30px;"
                                                      (:img :style "margin-bottom:20px;" :src "/images/missoula-civic-hackathon-logo-1.png") (ripple)
-                                                     (button (ps (select-page 1)) "Press Release")))
+                                                     (button "page(\"/press-release\"); " "Press Release")))
                                          (card :class "card"
                                                (:div :class "card-content" :style "padding:20px;"
                                                      (button (ps (visit-tickets))
@@ -60,13 +61,13 @@
                                                              (fab :tabindex -1 :class "big" :icon "notification:confirmation-number")))))
                                          (iter (for (name onclick icon text) in
                                                     `(("visit-wiki" ,(ps (visit-wiki)) "editor:mode-edit" "The Hackathon Wiki")
-                                                      ("schedule" ,(ps (select-page 2)) "date-range" "The Event Schedule")
-                                                      ("sharing" ,(ps (select-page 3)) ("places:airport-shuttle"
+                                                      ("schedule" "page(\"/schedule\");" "date-range" "The Event Schedule")
+                                                      ("sharing" "page(\"/sharing/\");" ("places:airport-shuttle"
                                                                                         "notification:airline-seat-individual-suite")
                                                                  "Ride & Couch Sharing")
                                                       ("email-list" ,(ps (visit-email-list)) "communication:email" "Join the Email List")
                                                       ("sponsors"
-                                                       "selectPage(4);setupPacking(\"sponsors\",\"card\",20);"
+                                                       "page(\"/sponsors\");setupPacking(\"sponsors\",\"card\",20);"
                                                        "card-giftcard" "Our Sponsors")
                                                       ("source-code" ,(ps (visit-source-code)) "code" "Code For This Site")))
                                                (card :class "card"
@@ -86,5 +87,6 @@
                              (animatable (render-sponsors stream))))
                              (:script (str (ps (when-ready (lambda ()
                                              (show "pages")
-                                             (setup-packing "top-grid" "card" 20))))))))))
+                                             (setup-packing "top-grid" "card" 20)
+                                             (setup-routing))))))))))
 

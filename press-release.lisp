@@ -5,7 +5,7 @@
     (header-panel :mode "seamed"
       (toolbar
         (:span :style "margin-left:0px;" :class "title" "Missoula Civic Hackathon Press Release")
-        (icon-button :class "toolbar-icon" :style "margin-left:0px;" :icon "arrow-back" :onclick (ps (select-page 0))))
+        (icon-button :class "toolbar-icon" :style "margin-left:0px;" :icon "arrow-back" :onclick "page(\"/\");"))
       (:div :style "padding:20px;"
             (:h1 "FOR IMMEDIATE RELEASE")
             (:table

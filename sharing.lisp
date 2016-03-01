@@ -5,7 +5,7 @@
     (header-panel :mode "seamed"
       (toolbar :class "sharing"
         (:span :style "margin-left:0px;" :class "title" "Missoula Civic Hackathon Ride & Couch Sharing")
-        (icon-button :class "toolbar-icon" :style "margin-left:0px;" :icon "arrow-back" :onclick (ps (select-page 0))))
+        (icon-button :class "toolbar-icon" :style "margin-left:0px;" :icon "arrow-back" :onclick "page(\"/\");"))
       (:div :style "padding:20px;"
             "Please use the <a target='_blank'
             href='https://groups.google.com/forum/#!forum/blue-sky-skunkworks'>mailing
