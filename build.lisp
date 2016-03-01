@@ -30,11 +30,13 @@
          fn)))
 
 (defun build ()
-  (build-website '(("/js/js.js" build-javascript)
+  (build-website '(("/js.js" build-javascript)
                    ("/js/" populate-javascript)
-                   ("/css/css.css" build-stylesheet)
-                   ("/css/custom.html" build-custom-stylesheet)
+                   ("/custom.html" build-custom-stylesheet)
                    ("/index.html" render-front-page))))
+
+(defun build-custom-stylesheet ()
+  (helpers:slurp-file (hackathon-file "custom.html")))
 
 (defun build-javascript () (hackathon-js::js-file))
 

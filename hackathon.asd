@@ -7,7 +7,6 @@
                (:file "server")
                (:file "polymer")
                (:file "javascript")
-               (:file "css")
                (:file "build")
                (:file "front-page")
                (:file "press-release")

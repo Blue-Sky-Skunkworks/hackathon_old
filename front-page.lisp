@@ -7,8 +7,7 @@
        (:title "Missoula Civic Hackathon")
        (:script :src "js/webcomponentsjs/webcomponents-lite.js" :type "text/javascript")
        (:link :rel "import" :href "js/polymer/polymer.html")
-       (:link :rel "import" :href "css/custom.html")
-       (:link :rel "stylesheet" :type "text/css" :href "css/css.css")
+       (:link :rel "import" :href "custom.html")
 
        (iter (for el in '("polymer"
                           "iron-flex-layout"
