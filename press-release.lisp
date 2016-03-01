@@ -105,10 +105,10 @@ at the event is locally grown, grass-fed and grass-finished.")
 
             (:h2 "About our local sponsors:")
 
-            (:p "Thanks to our local sponsors the Washington Companies, Phillis
-J. Washington Foundation, Moonlight Kitchens, Nora McDougall-Collins
-Catering , Blue Sky Stewardship, Montana Code School, and the
-University of Montana.")
+            (:p "Thanks to our local sponsors the Washington
+Companies, Dennis & Phyllis Washington Foundation, Moonlight Kitchens,
+Nora McDougall-Collins Catering , Blue Sky Stewardship, Montana Code
+School, and the University of Montana.")
 
             (:p "Sponsorship opportunities are still available,
 interested parties please contact us at <a href=\"mailto:info@blueskystewardship.org\">info@blueskystewardship.org</a>.")
