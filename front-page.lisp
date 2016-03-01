@@ -39,9 +39,9 @@
                              :selected 0
                              (animatable :id "top-grid"
                                          (card :class "card" :style "cursor:pointer;" :onclick (ps (select-page 1))
-                                               (:div :class "card-content" :style "padding:30px;"
-                                                     (:img :src "/images/missoula-civic-hackathon-logo-1.png") (ripple))
-                                               (:div :class "card-actions" (button (ps (select-page 1)) "Press Release")))
+                                               (:div :class "card-content layout vertical center" :style "padding:30px;"
+                                                     (:img :style "margin-bottom:20px;" :src "/images/missoula-civic-hackathon-logo-1.png") (ripple)
+                                                     (button (ps (select-page 1)) "Press Release")))
                                          (card :class "card" :style "padding:20px;"
                                                (button (ps (visit-tickets))
                                                  :style "padding:30px;width:230px;height:200px;" :class "buy-ticket"
