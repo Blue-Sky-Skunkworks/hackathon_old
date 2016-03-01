@@ -4,16 +4,17 @@
 ;(defparameter *use-cdn* nil)
 
 (defun cdn-url (dir name)
-  (format nil "https://cdn.rawgit.com/download/polymer-cdn/~A/lib/~A/~A.html" *use-cdn* dir name))
+  (format nil "https://cdn.rawgit.com/download/polymer-cdn/~A/lib/~A/~A" *use-cdn* dir name))
 
 (defun render-front-page ()
   (html-to-string
     (:html
       (:head
        (:title "Missoula Civic Hackathon")
-       (:script :src "js/webcomponentsjs/webcomponents-lite.js" :type "text/javascript")
+       (:script :type "text/javascript" :src (if *use-cdn* (cdn-url "webcomponentsjs" "webcomponents-lite.js")
+                                                 "js/webcomponentsjs/webcomponents-lite.js") )
        (:link :rel "icon" :href "images/favicon.png" :type "image/png")
-       (:link :rel "import" :href (if *use-cdn* (cdn-url "polymer" "polymer") "js/polymer/polymer.html"))
+       (:link :rel "import" :href (if *use-cdn* (cdn-url "polymer" "polymer.html") "js/polymer/polymer.html"))
        (iter (for el in '("polymer"
                           "iron-flex-layout"
                           "iron-icons"
@@ -33,11 +34,10 @@
              (let ((name (if (consp el) (second el) el))
                    (dir (if (consp el) (first el) el)))
                (htm (:link :rel "import" :href
-                           (if *use-cdn* (cdn-url dir name) (format nil "js/~A/~A.html" dir name))))))
+                           (if *use-cdn* (cdn-url dir (format nil "~A.html" name)) (format nil "js/~A/~A.html" dir name))))))
 
        (:script :src "js/packery/dist/packery.pkgd.min.js" :type "text/javascript")
-       (:script :src "js/js.js" :type "text/javascript")
-       (:link :rel "import" :href "places-icons-mod.html")
+       (:script :src "js.js" :type "text/javascript")
        (:link :rel "import" :href "custom.html"))
 
       (:body :class "fullbleed layout vertical"
