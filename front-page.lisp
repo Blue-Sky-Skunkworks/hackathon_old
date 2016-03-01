@@ -49,7 +49,7 @@
                                                  (:div :class "layout vertical center"
                                                        "Get your Tickets Here!"
                                                        (vertical-break)
-                                                       (fab :class "big" :icon "notification:confirmation-number"))))
+                                                       (fab :tabindex -1 :class "big" :icon "notification:confirmation-number"))))
                                          (iter (for (name onclick icon text) in
                                                     `(("visit-wiki" ,(ps (visit-wiki)) "editor:mode-edit" "The Hackathon Wiki")
                                                       ("schedule" ,(ps (select-page 2)) "date-range" "The Event Schedule")
