@@ -13,5 +13,6 @@
                (:file "press-release")
                (:file "schedule")
                (:file "sharing")
+               (:file "sponsors")
                (:file "initialize"))
   :depends-on (:helpers :cl-who :parenscript :hunchentoot))

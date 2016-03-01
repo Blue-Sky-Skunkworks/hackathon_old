@@ -57,6 +57,7 @@
                                                                                         "notification:airline-seat-individual-suite")
                                                                  "Ride & Couch Sharing")
                                                       ("email-list" ,(ps (visit-email-list)) "communication:email" "Join the Email List")
+                                                      ("sponsors" ,(ps (select-page 4)) "card-giftcard" "Our Sponsors")
                                                       ("source-code" ,(ps (visit-source-code)) "code" "Code For This Site")))
                                                (card :class "card" :style "padding:20px;"
                                                      (button onclick :style "padding:30px;width:230px;height:140px;"
@@ -70,7 +71,8 @@
                                                              (vertical-break) (esc text)))))
                              (animatable (render-press-release stream))
                              (animatable (render-schedule stream))
-                             (animatable (render-sharing stream))))
+                             (animatable (render-sharing stream))
+                             (animatable (render-sponsors stream))))
                              (:script (str (ps (when-ready (lambda ()
                                              (show "pages")
                                              (setup-packing "top-grid" "card" 20))))))))))
