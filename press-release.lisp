@@ -8,22 +8,18 @@
         (icon-button :class "toolbar-icon" :style "margin-left:0px;" :icon "arrow-back" :onclick (ps (select-page 0))))
       (:div :style "padding:20px;font-family:Roboto;"
             (:h1 "FOR IMMEDIATE RELEASE")
-            (:pre "Event Name: Missoula Civic Hackathon
-
-Event Dates: March 26-27, 2016
-
-Event Location: Phyllis J. Washington Education Center
-                32 Campus Drive
-                University of Montana
-                Missoula, Montana 59812
-
-Contact: William Halliburton, Co-Organizer
-
-Phone Number: (406) 830-5031
-
-E-mail Address: <a href=\"mailto:will@blueskystewardship.org\">will@blueskystewardship.org</a>
-
-Website Address: <a target=\"_blank\" href=\"http://missoulacivichackathon.org\">http://missoulacivichackathon.org</a>")
+            (:table
+             (:tr (:td :style "padding-right:20px;" "Event Name:") (:td "Missoula Civic Hackathon"))
+             (:tr (:td :style "padding-right:20px;" "Event Dates:") (:td "March 26-27, 2016"))
+             (:tr (:td :style "padding-right:20px;vertical-align:top;" "Event Location:") (:td
+                                          "Phyllis J. Washington Education Center" (:br)
+                                          "32 Campus Drive" (:br)
+                                          "University of Montana" (:br)
+                                          "Missoula, Montana 59812"))
+             (:tr (:td :style "padding-right:20px;" "Contact:") (:td "William Halliburton, Co-Organizer"))
+             (:tr (:td :style "padding-right:20px;" "Phone Number:") (:td "(406) 830-5031"))
+             (:tr (:td :style "padding-right:20px;" "E-mail Address:") (:td "<a href=\\\"mailto:will@blueskystewardship.org\\\">will@blueskystewardship.org</a>"))
+             (:tr (:td :style "padding-right:20px;" "Website Address:") (:td "<a target=\"_blank\" href=\"http://missoulacivichackathon.org\">http://missoulacivichackathon.org</a>")))
 
             (:br)
             (:h1 "Missoula Civic Hackathon Hosts Area Technical Developers and Citizens
