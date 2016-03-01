@@ -24,6 +24,7 @@
                           "paper-ripple"
                           "paper-fab"
                           "paper-toolbar"
+                          "paper-header-panel"
                           "neon-animation"))
              (let ((name (if (consp el) (second el) el))
                    (dir (if (consp el) (first el) el)))
