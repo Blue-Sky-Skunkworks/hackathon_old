@@ -4,8 +4,6 @@ This simple lisp program generates a static
 [polymer](https://www.polymer-project.org) website to showcase the
 first [Missoula Civic Hackathon](http://missoulacivichackathon.org).
 
-It's a simple sketch and is open for much further development.
-
 It
 [builds](https://github.com/Blue-Sky-Skunkworks/hackathon/blob/master/build.lisp)
 a few web pages using
@@ -15,4 +13,6 @@ a few web pages using
 The
 [server](https://github.com/Blue-Sky-Skunkworks/hackathon/blob/master/server.lisp)
 is used to develop the page out before deployment.
+
+It's a simple sketch and is open for much further development.
 
