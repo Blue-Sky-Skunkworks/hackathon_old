@@ -39,47 +39,48 @@
                              :selected 0
                              (animatable :id "top-grid"
                                          (card :class "card" :style "cursor:pointer;" :onclick (ps (select-page 1))
-                                               (:div :class "card-content" (:img :src "/images/missoula-civic-hackathon-logo-1.png") (ripple))
+                                               (:div :class "card-content" :style "padding:30px;"
+                                                     (:img :src "/images/missoula-civic-hackathon-logo-1.png") (ripple))
                                                (:div :class "card-actions" (button (ps (select-page 1)) "Press Release")))
                                          (card :class "card" :style "padding:20px;"
                                                (button (ps (visit-tickets))
-                                                 :style "padding:30px;" :class "buy-ticket"
+                                                 :style "padding:30px;width:230px;height:200px;" :class "buy-ticket"
                                                  (:div :class "layout vertical center"
                                                        "Get your Tickets Here!"
                                                        (vertical-break)
-                                                       (fab :icon "notification:confirmation-number"))))
+                                                       (fab :class "big" :icon "notification:confirmation-number"))))
                                          (card :class "card" :style "padding:20px;"
-                                               (button (ps (visit-wiki)) :style "padding:30px;"
+                                               (button (ps (visit-wiki)) :style "padding:30px;width:230px;height:140px;"
                                                        :class "visit-wiki layout vertical center"
-                                                       (icon :icon "editor:mode-edit")
+                                                       (icon :class "big" :icon "editor:mode-edit")
                                                        (vertical-break)
                                                        "The Hackathon Wiki"))
-                                         (card :class "card" :style "padding:20px;"
+                                         (card :class "card" :style "padding:20px"
                                                (button (ps (select-page 2))
-                                                 :style "padding:30px;" :class "schedule layout vertical center"
-                                                 (icon :icon "date-range")
+                                                 :style "padding:30px;width:230px;height:140px;" :class "schedule layout vertical center"
+                                                 (icon :class "big" :icon "date-range")
                                                  (vertical-break)
                                                  "The Event Schedule"))
                                          (card :class "card" :style "padding:20px;"
                                                (button (ps (select-page 3))
-                                                 :style "padding:30px;" :class "sharing layout vertical center"
+                                                 :style "padding:30px;width:230px;height:140px;" :class "sharing layout vertical center"
                                                  (:div :class "layout horizontal center"
-                                                       (icon :icon "places:airport-shuttle") "&nbsp;&nbsp;"
-                                                       (icon :icon "notification:airline-seat-individual-suite"))
+                                                       (icon :class "big" :icon "places:airport-shuttle") "&nbsp;&nbsp;"
+                                                       (icon :class "big" :icon "notification:airline-seat-individual-suite"))
                                                  (vertical-break)
                                                  "Ride & Couch Sharing"))
                                          (card :class "card" :style "padding:20px;"
                                                (button (ps (visit-email-list))
-                                                 :style "padding:30px;" :class "email-list layout vertical center"
-                                                 (icon :icon "communication:email")
+                                                 :style "padding:30px;width:230px;height:140px;" :class "email-list layout vertical center"
+                                                 (icon :class "big" :icon "communication:email")
                                                  (vertical-break)
                                                  "Join the Email List"))
                                          (card :class "card" :style "padding:20px;"
                                                (button (ps (visit-source-code))
-                                                 :style "padding:30px;" :class "source-code layout vertical center"
-                                                 (icon :icon "code")
+                                                 :style "padding:30px;width:230px;height:140px;" :class "source-code layout vertical center"
+                                                 (icon :class "big" :icon "code")
                                                  (vertical-break)
-                                                 "View The Code For This Site")))
+                                                 "Code For This Site")))
                              (animatable (render-press-release stream))
                              (animatable (render-schedule stream))
                              (animatable (render-sharing stream))))
