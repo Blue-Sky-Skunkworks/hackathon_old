@@ -12,6 +12,7 @@
       (:head
        (:title "Missoula Civic Hackathon")
        (:script :src "js/webcomponentsjs/webcomponents-lite.js" :type "text/javascript")
+       (:link :rel "icon" :href "images/favicon.png" :type "image/png")
        (:link :rel "import" :href (if *use-cdn* (cdn-url "polymer" "polymer") "js/polymer/polymer.html"))
        (iter (for el in '("polymer"
                           "iron-flex-layout"
