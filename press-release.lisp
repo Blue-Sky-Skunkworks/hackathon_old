@@ -110,8 +110,8 @@ J. Washington Foundation, Moonlight Kitchens, Nora McDougall-Collins
 Cartering , Blue Sky Stewardship, Montana Code School, and the
 University of Montana.")
 
-            (:p "Sponsorship opportunities still available, please contact
-us at <a href=\"mailto:info@blueskystewardship.org\">info@blueskystewardship.org</a>.")
+            (:p "Sponsorship opportunities are still available,
+interested parties please contact us at <a href=\"mailto:info@blueskystewardship.org\">info@blueskystewardship.org</a>.")
 
             (:h2 "ABOUT BLUE SKY STEWARDSHIP:")
 
