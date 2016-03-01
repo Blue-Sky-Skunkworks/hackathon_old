@@ -49,38 +49,24 @@
                                                        "Get your Tickets Here!"
                                                        (vertical-break)
                                                        (fab :class "big" :icon "notification:confirmation-number"))))
-                                         (card :class "card" :style "padding:20px;"
-                                               (button (ps (visit-wiki)) :style "padding:30px;width:230px;height:140px;"
-                                                       :class "visit-wiki layout vertical center"
-                                                       (icon :class "big" :icon "editor:mode-edit")
-                                                       (vertical-break)
-                                                       "The Hackathon Wiki"))
-                                         (card :class "card" :style "padding:20px"
-                                               (button (ps (select-page 2))
-                                                 :style "padding:30px;width:230px;height:140px;" :class "schedule layout vertical center"
-                                                 (icon :class "big" :icon "date-range")
-                                                 (vertical-break)
-                                                 "The Event Schedule"))
-                                         (card :class "card" :style "padding:20px;"
-                                               (button (ps (select-page 3))
-                                                 :style "padding:30px;width:230px;height:140px;" :class "sharing layout vertical center"
-                                                 (:div :class "layout horizontal center"
-                                                       (icon :class "big" :icon "places:airport-shuttle") "&nbsp;&nbsp;"
-                                                       (icon :class "big" :icon "notification:airline-seat-individual-suite"))
-                                                 (vertical-break)
-                                                 "Ride & Couch Sharing"))
-                                         (card :class "card" :style "padding:20px;"
-                                               (button (ps (visit-email-list))
-                                                 :style "padding:30px;width:230px;height:140px;" :class "email-list layout vertical center"
-                                                 (icon :class "big" :icon "communication:email")
-                                                 (vertical-break)
-                                                 "Join the Email List"))
-                                         (card :class "card" :style "padding:20px;"
-                                               (button (ps (visit-source-code))
-                                                 :style "padding:30px;width:230px;height:140px;" :class "source-code layout vertical center"
-                                                 (icon :class "big" :icon "code")
-                                                 (vertical-break)
-                                                 "Code For This Site")))
+                                         (iter (for (name onclick icon text) in
+                                                    `(("visit-wiki" ,(ps (visit-wiki)) "editor:mode-edit" "The Hackathon Wiki")
+                                                      ("schedule" ,(ps (select-page 2)) "date-range" "The Event Schedule")
+                                                      ("sharing" ,(ps (select-page 3)) ("places:airport-shuttle"
+                                                                                        "notification:airline-seat-individual-suite")
+                                                                 "Ride & Couch Sharing")
+                                                      ("email-list" ,(ps (visit-email-list)) "communication:email" "Join the Email List")
+                                                      ("source-code" ,(ps (visit-source-code)) "code" "Code For This Site")))
+                                               (card :class "card" :style "padding:20px;"
+                                                     (button onclick :style "padding:30px;width:230px;height:140px;"
+                                                             :class (concatenate 'string name " layout vertical center")
+                                                             (if (consp icon)
+                                                                 (htm (:div :class "layout horizontal center"
+                                                                            (iter (for els on icon)
+                                                                                  (icon :class "big" :icon (car els))
+                                                                                  (when (cdr els) (str "&nbsp;&nbsp;")))))
+                                                                 (icon :class "big" :icon icon))
+                                                             (vertical-break) (esc text)))))
                              (animatable (render-press-release stream))
                              (animatable (render-schedule stream))
                              (animatable (render-sharing stream))))
