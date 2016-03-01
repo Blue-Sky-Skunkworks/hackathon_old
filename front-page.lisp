@@ -4,7 +4,7 @@
 ;(defparameter *use-cdn* nil)
 
 (defun cdn-url (dir name)
-  (format nil "https://rawgit.com/download/polymer-cdn/~A/lib/~A/~A.html" *use-cdn* dir name))
+  (format nil "https://cdn.rawgit.com/download/polymer-cdn/~A/lib/~A/~A.html" *use-cdn* dir name))
 
 (defun render-front-page ()
   (html-to-string
@@ -56,7 +56,7 @@
                                                        :style "padding:30px;width:230px;height:200px;" :class "buy-ticket"
                                                        (:div :class "layout vertical center"
                                                              "Get your Tickets Here!"
-                                                             (vertical-break)
+                                                             (vertical-break "30px")
                                                              (fab :tabindex -1 :class "big" :icon "notification:confirmation-number")))))
                                          (iter (for (name onclick icon text) in
                                                     `(("visit-wiki" ,(ps (visit-wiki)) "editor:mode-edit" "The Hackathon Wiki")
@@ -71,7 +71,7 @@
                                                       ("source-code" ,(ps (visit-source-code)) "code" "Code For This Site")))
                                                (card :class "card"
                                                      (:div :class "card-content" :style "padding:20px;"
-                                                           (button onclick :style "padding:36px 20px 20px 20px;width:230px;height:170px;"
+                                                           (button onclick :style "padding:36px 20px 20px 20px;width:230px;height:150px;"
                                                                    :class (concatenate 'string name " layout vertical center")
                                                                    (if (consp icon)
                                                                        (htm (:div :class "layout horizontal center"
