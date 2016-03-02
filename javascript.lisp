@@ -92,12 +92,13 @@
                (return hit)
                (if error (console "ERROR: get-by-id" id)))))
 
-       (defun setup-packing (container-id item &optional (gutter 10))
-         (let* ((container (get-by-id container-id))
-                (pack (new (*packery container
-                                     (create :item-selector (+ "." item)
-                                             :gutter gutter)))))
-           (setf (@ container pack) pack)))
+       (defun setup-packing (container-id item &optional (gutter 20))
+        (let ((container (get-by-id container-id)))
+          (if (@ container pack)
+               ((@ container pack layout))
+               (setf (@ container pack) (new (*packery container
+                                                       (create :item-selector (+ "." item)
+                                                               :gutter gutter)))))))
 
        (defun select-page (index)
          (let ((pages (get-by-id "pages")))
@@ -131,13 +132,12 @@
          (visit-url "https://github.com/Blue-Sky-Skunkworks/hackathon"))
 
        (defun setup-routing ()
-        ((@ page base) "")
-        (page "/" (lambda () (select-page 0)))
-        (page "/press-release" (lambda () (select-page 1)))
-        (page "/schedule" (lambda () (select-page 2)))
-        (page "/sharing" (lambda () (select-page 3)))
-        (page "/sponsors" (lambda () (select-page 4)))
-        (page (create :hashbang t)))
+         (page "/" (lambda () (select-page 1) (setup-packing "top-grid" "card")))
+         (page "/press-release" (lambda () (select-page 2)))
+         (page "/schedule" (lambda () (select-page 3)))
+         (page "/sharing" (lambda () (select-page 4)))
+         (page "/sponsors" (lambda () (select-page 5) (setup-packing "sponsors" "card")))
+         (page (create :hashbang t)))
 
        )))))
 

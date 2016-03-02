@@ -42,10 +42,11 @@
        (:link :rel "import" :href "custom.html"))
 
       (:body :class "fullbleed layout vertical"
-             (animated-pages :id "pages" :class "flex" :style "visibility:hidden;padding:20px;"
+             (animated-pages :id "pages" :class "flex" :style "padding:20px;"
                              :entry-animation "fade-in-animation"
                              :exit-animation "fade-out-animation"
                              :selected 0
+                             (animatable) ; initial loading shows and transitions to next
                              (animatable :id "top-grid"
                                          (card :class "card" :style "cursor:pointer;" :onclick "page(\"/press-release\")"
                                                (:div :class "card-content layout vertical center" :style "padding:30px;"
@@ -66,9 +67,7 @@
                                                                                         "notification:airline-seat-individual-suite")
                                                                  "Ride & Couch Sharing")
                                                       ("email-list" ,(ps (visit-email-list)) "communication:email" "Join the Email List")
-                                                      ("sponsors"
-                                                       "page(\"/sponsors\");setupPacking(\"sponsors\",\"card\",20);"
-                                                       "card-giftcard" "Our Sponsors")
+                                                      ("sponsors" "page(\"/sponsors\");" "card-giftcard" "Our Sponsors")
                                                       ("source-code" ,(ps (visit-source-code)) "code" "Code For This Site")))
                                                (card :class "card"
                                                      (:div :class "card-content" :style "padding:20px;"
@@ -84,9 +83,6 @@
                              (animatable (render-press-release stream))
                              (animatable (render-schedule stream))
                              (animatable (render-sharing stream))
-                             (animatable (render-sponsors stream))))
-                             (:script (str (ps (when-ready (lambda ()
-                                             (show "pages")
-                                             (setup-packing "top-grid" "card" 20)
-                                             (setup-routing))))))))))
+                             (animatable (render-sponsors stream)))
+             (:script (str (ps (when-ready (lambda () (setup-routing))))))))))
 
