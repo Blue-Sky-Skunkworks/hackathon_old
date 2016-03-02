@@ -38,20 +38,21 @@ solutions to the problems we all face daily in the towns
 we live. Local technical experts, professors and civic
 leaders will be on hand to coach teams.")
 
-            (:p "\"The opportunity to meet other developers and people with
+            (:p "“The opportunity to meet other developers and people with
 pressing civic problems and to work towards a common goal, while at
 the same time having fun, learning much, and making friends, is truly
-valuable and often-times rarely experienced.\" says William
+valuable and often-times rarely experienced.” says William
 Halliburton who attended Spokane SpoCode Civic Hackathon 2014.")
 
-            (:p "\"Although I am not a computer programmer, I love the idea of working
+            (:p "“Although I am not a computer programmer, I love the idea of working
 with fellow Missoulians to accomplish something for this great city
 that will serve not just this locality but potentially localities all
 over. If we can solve a problem here, who's to say that it can't at
-the very least be tested in other cities.\" says community member Luke
+the very least be tested in other cities.” says community member Luke
 Robinson.")
 
-            "<< add one more quote >>"
+            (:p "“In the real world of work, purpose finding is what
+leaders do.” -  Robert E. Quinn")
 
             (:h2 "Why attend a Civic Hackathon Event?")
 
@@ -82,7 +83,10 @@ Montana 59812.")
 
             (:h2 "What Are Other Civic Hackathons Accomplishing?")
 
-            "<< add in some descriptions of current and past hackathon projects >>"
+            "Hackathons <a target='_blank'
+href='http://devpost.com/hackathons'>around the world</a> are busy
+working toward better communities. Read <a target='_blank'
+href='http://www.codeforamerica.org/blog/2016/02/04/this-month-in-civictech-january-hacking/'>This Month in #CivicTech: January Hacking</a>. "
 
             (:h2 "How can I sign up?")
 
