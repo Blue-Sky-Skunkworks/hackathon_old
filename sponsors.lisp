@@ -15,7 +15,7 @@
                         '(("Washington Companies" "http://www.washcorp.com/" "WC")
                           ("Dennis & Phyllis Washington Foundation" "http://www.dpwfoundation.org/" ("DPW"))
                           ("Moonlight Kitchens" "http://moonlightkitchens.com/" "MK")
-                          ("Nora McDougall-Collins Catering" "http://montanawebmaster.com/")
+                          ;; ("Nora McDougall-Collins Catering" "http://montanawebmaster.com/")
                           ("Blue Sky Stewardship" "http://blueskystewardship.org" "BSS")
                           ("Montana Code School" "http://montanacodeschool.com/" "MCS")
                           ("The University of Montana" "http://www.umt.edu/" ("UM"))))
