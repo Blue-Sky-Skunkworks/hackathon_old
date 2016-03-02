@@ -98,7 +98,9 @@ exclusive Missoula Civic Hackathon perks.")
 
                               (:h2 "How are we attempting to mitigate our ecological footprint?")
 
-                              (:p "The Missoula Civic Hackathon is a Zero-Waste
+                              (:p "The Missoula Civic Hackathon is a
+<a target='blank'
+href='http://www.missoulaclimate.org/zero-waste.html'>Zero Waste</a>
 sponsored event and dinnerware and composting services will be
 provided. We have set up a <a href=\"#!/sharing\"
 onclick=\"page('/sharing');\">ride and couch sharing service</a> that
