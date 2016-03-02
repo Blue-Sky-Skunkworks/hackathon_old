@@ -61,10 +61,10 @@
                                                              (vertical-break "30px")
                                                              (fab :tabindex -1 :class "big" :icon "notification:confirmation-number")))))
                                          (iter (for (name onclick icon text) in
-                                                    `(("visit-wiki" ,(ps (visit-wiki)) "editor:mode-edit" "The Hackathon Wiki")
-                                                      ("schedule" "page(\"/schedule\");" "date-range" "The Event Schedule")
+                                                    `(("schedule" "page(\"/schedule\");" "date-range" "The Event Schedule")
+                                                      ("visit-wiki" ,(ps (visit-wiki)) "editor:mode-edit" "The Hackathon Wiki")
                                                       ("sharing" "page(\"/sharing/\");" ("places:airport-shuttle"
-                                                                                        "notification:airline-seat-individual-suite")
+                                                                                         "notification:airline-seat-individual-suite")
                                                                  "Ride & Couch Sharing")
                                                       ("email-list" ,(ps (visit-email-list)) "communication:email" "Join the Email List")
                                                       ("sponsors" "page(\"/sponsors\");" "card-giftcard" "Our Sponsors")
