@@ -137,6 +137,7 @@
          (page "/schedule" (lambda () (select-page 3)))
          (page "/sharing" (lambda () (select-page 4)))
          (page "/sponsors" (lambda () (select-page 5) (setup-packing "sponsors" "card")))
+         (page "/code-of-conduct" (lambda () (select-page 6)))
          (page (create :hashbang t)))
 
        )))))

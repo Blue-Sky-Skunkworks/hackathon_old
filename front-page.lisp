@@ -71,6 +71,7 @@
                                                                  "Ride & Couch Sharing")
                                                       ("email-list" ,(ps (visit-email-list)) "communication:email" "Join the Email List")
                                                       ("sponsors" "page(\"/sponsors\");" "card-giftcard" "Our Sponsors")
+                                                      ("conduct" "page(\"/code-of-conduct\");" "gavel" "Code of Conduct")
                                                       ("source-code" ,(ps (visit-source-code)) "code" "Code For This Site")))
                                                (card :class "card"
                                                      (:div :class "card-content" :style "padding:20px;"
@@ -86,6 +87,7 @@
                              (animatable (render-press-release stream))
                              (animatable (render-schedule stream))
                              (animatable (render-sharing stream))
-                             (animatable (render-sponsors stream)))
+                             (animatable (render-sponsors stream))
+                             (animatable (render-code-of-conduct stream)))
              (:script (str (ps (when-ready (lambda () (setup-routing))))))))))
 

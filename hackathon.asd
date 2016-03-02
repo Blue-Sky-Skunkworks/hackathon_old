@@ -13,5 +13,6 @@
                (:file "schedule")
                (:file "sharing")
                (:file "sponsors")
+               (:file "code-of-conduct")
                (:file "initialize"))
   :depends-on (:helpers :cl-who :parenscript :hunchentoot))
