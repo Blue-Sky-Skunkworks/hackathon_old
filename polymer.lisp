@@ -6,6 +6,9 @@
 (defmacro icon (&body body)
   `(html (:iron-icon ,@body)))
 
+(defmacro pages (&body body)
+  `(html (:iron-pages ,@body)))
+
 (defmacro toolbar (&body body)
   `(html (:paper-toolbar ,@body)))
 

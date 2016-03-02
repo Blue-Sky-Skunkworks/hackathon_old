@@ -17,6 +17,7 @@
        (:link :rel "import" :href (if *use-cdn* (cdn-url "polymer" "polymer.html") "js/polymer/polymer.html"))
        (iter (for el in '("polymer"
                           "iron-flex-layout"
+                          "iron-pages"
                           "iron-icons"
                           ("iron-icons" "places-icons")
                           ("iron-icons" "editor-icons")
@@ -53,8 +54,13 @@
                              (animatable :id "top-grid"
                                          (card :elevation 5 :class "card" :style "cursor:pointer;" :onclick "page(\"/press-release\")"
                                                (:div :class "card-content layout vertical center" :style "padding:30px;"
-                                                     (:img :style "margin-bottom:20px;" :src "/images/missoula-civic-hackathon-logo-1.png") (ripple)
-                                                     (button "page(\"/press-release\"); " "Press Release")))
+                                                     (pages
+                                                      :id "logos" :style "width:522px;height:582px;"
+                                                      :selected 0
+                                                      (iter (for id in '(1 2 3 4 5 6))
+                                                            (htm (:img :style "margin-bottom:20px;"
+                                                                       :src (format nil "/images/logo-~A.png" id))))) (ripple)
+                                                                       (button "page(\"/press-release\"); " "Press Release")))
                                          (card :elevation 2 :class "card"
                                                (:div :class "card-content" :style "padding:20px;"
                                                      (button (ps (visit-tickets))
@@ -89,5 +95,5 @@
                              (animatable (render-sharing stream))
                              (animatable (render-sponsors stream))
                              (animatable (render-code-of-conduct stream)))
-             (:script (str (ps (when-ready (lambda () (setup-routing))))))))))
+             (:script (str (ps (when-ready (lambda () (setup-routing) (animate-logos))))))))))
 
