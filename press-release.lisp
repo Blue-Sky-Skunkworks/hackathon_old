@@ -93,11 +93,13 @@ exclusive Missoula Civic Hackathon perks.")
 
             (:h2 "How are we attempting to mitigate our ecological footprint?")
 
-            (:p "The Missoula Civic Hackathon is a Zero-Waste sponsored event and
-dinnerware and composting services will be provided. A ride and couch
-sharing forum is located online at <<insert link>> that participants
-traveling from other cities are encouraged to utilize. All meat served
-at the event is locally grown, grass-fed and grass-finished.")
+            (:p "The Missoula Civic Hackathon is a Zero-Waste
+sponsored event and dinnerware and composting services will be
+provided. We have set up a <a href=\"#!/sharing\"
+onclick=\"page('/sharing');\">ride and couch sharing service</a> that
+participants traveling from other cities are encouraged to
+utilize. All meat served at the event is locally grown, grass-fed and
+grass-finished.")
 
             (:h2 "About our local sponsors:")
 
