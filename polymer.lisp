@@ -88,3 +88,9 @@
 
 (defmacro label (&body body)
   `(html (:iron-label ,@body)))
+
+(defmacro gmap (&body body)
+  `(html (:google-map ,@body)))
+
+(defmacro map-marker (&body body)
+  `(html (:google-map-marker ,@body)))

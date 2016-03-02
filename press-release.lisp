@@ -1,5 +1,7 @@
 (in-package :hackathon)
 
+(defparameter *venue* '("46.8625418" "-113.9848200"))
+
 (defun render-press-release (stream)
   (html
     (header-panel :mode "seamed"
@@ -85,9 +87,19 @@ skills will be encouraged to help on multiple projects.")
                               (:p "The detailed Missoula Civic Hackathon Schedule can be found online at
 <a target=\"_blank\" href=\"http://missoulacivichackathon/\">http://missoulacivichackathon/</a>. The hours of the event are Saturday,
 March 26, 2016 from 9:00 a.m. through the night to 6:00 p.m Sunday,
-March 27.  It will be held on the University of Montana Campus at the
-Phillis J. Washington Education Center, 32 Campus Drive, Missoula,
-Montana 59812.")
+March 27.")
+
+                              (:p "It will be held on the University
+of Montana Campus at the")
+                              (:div :class "layout vertical center"
+                                    (:center
+                                     "Phillis J. Washington Education Center<br>32
+Campus Drive<br>Missoula, Montana 59812.")
+                                    (vertical-break)
+                                    (gmap :style "height:300px;width:500px;" :latitude (car *venue*) :longitude (cadr *venue*) :zoom 14
+                                          (map-marker :latitude (car *venue*) :longitude (cadr *venue*)
+                                                      :icon "images/map-icon.png"
+                                                      :title "Missoula Civic Hackathon")))
 
                               (:h2 "What Are Other Civic Hackathons Accomplishing?")
 
@@ -141,12 +153,5 @@ researching and demonstrating solutions to Missoula's food production,
 processing, distribution, and waste systems. Blue Sky Stewardship is
 supported by the High Stakes Foundation, the Montana Institute for
 Sustainable Transportation, generous private donors, and a team of
-volunteers.")
+volunteers."))))))
 
-
-
-
-
-
-
-                              )))))

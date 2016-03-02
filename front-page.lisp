@@ -34,7 +34,8 @@
                           ("neon-animation" "neon-animatable")
                           ("neon-animation" "neon-animated-pages")
                           ("neon-animation/animations" "fade-in-animation")
-                          ("neon-animation/animations" "fade-out-animation")))
+                          ("neon-animation/animations" "fade-out-animation")
+                          "google-map"))
              (let ((name (if (consp el) (second el) el))
                    (dir (if (consp el) (first el) el)))
                (htm (:link :rel "import" :href
