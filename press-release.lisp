@@ -66,12 +66,19 @@ leaders do.” -  Robert E. Quinn")
 
                               (:h2 "How is it done?")
 
-                              (:p "Beginning with an <a style=\"display:inline-block\" target=\"_blank\" href=\"https://en.wikipedia.org/wiki/Open_Space_Technology\">open space technology</a>
-unconference on Saturday morning, attendees bring their best ideas and
-inspire others to join their team. Over Saturday and Sunday teams
-focus on developing solutions, validating their ideas, and building a
-working prototype. On Sunday evening teams demo their prototypes and
-receive valuable feedback from a panel of experts.")
+                              (:p "Beginning with an open to the
+public <a style=\"display:inline-block\" target=\"_blank\"
+href=\"https://en.wikipedia.org/wiki/Open_Space_Technology\">open
+space technology</a> unconference on Saturday morning, citizens bring
+their best ideas and inspire others to join their projects. Over
+Saturday and Sunday teams focus on developing solutions, validating
+their ideas, and building a working prototype. On Sunday evening teams
+demo their prototypes and receive valuable feedback from a panel of
+experts.")
+
+                              (:p "This is not a competition, but
+rather an opportunity to collaborate. People with relevant needed
+skills will be encouraged to help on multiple projects.")
 
                               (:h2 "When and where is it?")
 
@@ -100,7 +107,7 @@ exclusive Missoula Civic Hackathon perks.")
 
                               (:p "The Missoula Civic Hackathon is a
 <a target='blank'
-href='http://www.missoulaclimate.org/zero-waste.html'>Zero Waste</a>
+href='http://www.missoulaclimate.org/zero-waste.html'>Zero Waste</a>
 sponsored event and dinnerware and composting services will be
 provided. We have set up a <a href=\"#!/sharing\"
 onclick=\"page('/sharing');\">ride and couch sharing service</a> that
