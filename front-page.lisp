@@ -51,11 +51,11 @@
                              :selected 0
                              (animatable) ; initial loading shows and transitions to next
                              (animatable :id "top-grid"
-                                         (card :class "card" :style "cursor:pointer;" :onclick "page(\"/press-release\")"
+                                         (card :elevation 5 :class "card" :style "cursor:pointer;" :onclick "page(\"/press-release\")"
                                                (:div :class "card-content layout vertical center" :style "padding:30px;"
                                                      (:img :style "margin-bottom:20px;" :src "/images/missoula-civic-hackathon-logo-1.png") (ripple)
                                                      (button "page(\"/press-release\"); " "Press Release")))
-                                         (card :class "card"
+                                         (card :elevation 2 :class "card"
                                                (:div :class "card-content" :style "padding:20px;"
                                                      (button (ps (visit-tickets))
                                                        :style "padding:30px;width:230px;height:200px;" :class "buy-ticket"
