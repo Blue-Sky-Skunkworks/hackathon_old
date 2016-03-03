@@ -24,6 +24,6 @@
                               (:h1 "Sunday, March 27")
                               (:h3 "<span class='schedule'>8:00 AM</span>Breakfast")
                               (:h3 "<span class='schedule'>Noon</span>Lunch")
-                              (:h3 "<span class='schedule'>3:00 PM</span>Last commit")
-                              (:h3 "<span class='schedule'>3:00 PM - 5:30 PM</span>Team Presentations and Judging")
+                              (:h3 "<span class='schedule'>2:00 PM</span>Last commit")
+                              (:h3 "<span class='schedule'>2:00 PM - 5:30 PM</span>Team Presentations")
                               (:h3 "<span class='schedule'>5:30 PM</span>Dinner and Award Presentation"))))))
