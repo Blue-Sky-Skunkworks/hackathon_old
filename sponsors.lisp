@@ -10,7 +10,7 @@
             (:h1 :style "margin-bottom:0px;" "Thanks to all of the Missoula Civic Hackathon's sponsors")
             (:h4 :style "margin-top:5px;" "Sonsorship opportunities are still " (:a :href "mailto:info@blueskystewardship.org" "available") ".")
             (vertical-break "30px")
-            (:div :id "sponsors"
+            (:div :id "sponsors" :style "padding:10px 60px 10px 60px;"
              (iter (for (name url image) in
                         '(("Washington Companies" "http://www.washcorp.com/" "WC")
                           ("Dennis & Phyllis Washington Foundation" "http://www.dpwfoundation.org/" ("DPW"))
