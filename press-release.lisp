@@ -90,10 +90,10 @@ March 27.")
                               (:p "It will be held on the University
 of Montana Campus at the")
                               (:div :class "layout vertical center"
-                                    (:span :style "cursor:pointer;" :onclick "setMapZoom(18);" "Phillis J. Washington Education Center")
-                                    (:span :style "cursor:pointer;" :onclick "setMapZoom(15);" "32 Campus Drive")
-                                    (:span (:span :style "cursor:pointer;" :onclick "setMapZoom(12);" "Missoula, ")
-                                           (:span :style "cursor:pointer;" :onclick "setMapZoom(5);" "Montana 59812."))
+                                    (:span :class "location" :onclick "setMapZoom(18);" "Phillis J. Washington Education Center")
+                                    (:span :class "location" :onclick "setMapZoom(15);" "32 Campus Drive")
+                                    (:span (:span :class "location" :onclick "setMapZoom(12);" "Missoula, ")
+                                           (:span :class "location" :onclick "setMapZoom(5);" "Montana 59812."))
                                     (vertical-break)
                                     (gmap :id "map" :style "height:300px;width:500px;" :latitude (car *venue*) :longitude (cadr *venue*) :zoom 14
                                           (map-marker :latitude (car *venue*) :longitude (cadr *venue*)
