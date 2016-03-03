@@ -148,7 +148,13 @@
            (when (= index 5) (setf index -1))
            (setf index (+ index 1))
            (setf (@ el selected) index)
-           (animate-logos))))))))
+           (animate-logos)))
+
+       (defun set-map-zoom (z)
+         (let ((el (get-by-id "map")))
+           (setf (@ el zoom) z)))
+
+       )))))
 
 (defun js-file ()
   *js-file*)

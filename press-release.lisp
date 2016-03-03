@@ -92,11 +92,12 @@ March 27.")
                               (:p "It will be held on the University
 of Montana Campus at the")
                               (:div :class "layout vertical center"
-                                    (:center
-                                     "Phillis J. Washington Education Center<br>32
-Campus Drive<br>Missoula, Montana 59812.")
+                                    (:span :style "cursor:pointer;" :onclick "setMapZoom(18);" "Phillis J. Washington Education Center")
+                                    (:span :style "cursor:pointer;" :onclick "setMapZoom(15);" "32 Campus Drive")
+                                    (:span (:span :style "cursor:pointer;" :onclick "setMapZoom(12);" "Missoula, ")
+                                           (:span :style "cursor:pointer;" :onclick "setMapZoom(5);" "Montana 59812."))
                                     (vertical-break)
-                                    (gmap :style "height:300px;width:500px;" :latitude (car *venue*) :longitude (cadr *venue*) :zoom 14
+                                    (gmap :id "map" :style "height:300px;width:500px;" :latitude (car *venue*) :longitude (cadr *venue*) :zoom 14
                                           (map-marker :latitude (car *venue*) :longitude (cadr *venue*)
                                                       :icon "images/map-icon.png"
                                                       :title "Missoula Civic Hackathon")))
