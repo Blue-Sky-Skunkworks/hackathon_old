@@ -1,7 +1,5 @@
 (in-package :hackathon)
 
-(defparameter *venue* '("46.8625418" "-113.9848200"))
-
 (defun render-press-release (stream)
   (html
     (header-panel :mode "seamed"

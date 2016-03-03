@@ -1,5 +1,7 @@
 (in-package :hackathon)
 
+(defparameter *venue* '(46.8625418 -113.9848200))
+
 (defparameter *use-cdn* "1.2.3.2")
 ;(defparameter *use-cdn* nil)
 
@@ -15,6 +17,7 @@
                                                  "js/webcomponentsjs/webcomponents-lite.js") )
        (:link :rel "icon" :href "images/favicon.png" :type "image/png")
        (:link :rel "import" :href (if *use-cdn* (cdn-url "polymer" "polymer.html") "js/polymer/polymer.html"))
+       (:script (str (ps* `(progn (defvar *vlat* ,(car *venue*)) (defvar *vlon* ,(cadr *venue*))))))
        (iter (for el in '("polymer"
                           "iron-flex-layout"
                           "iron-pages"
@@ -56,12 +59,12 @@
                                          (card :elevation 5 :class "card" :style "cursor:pointer;" :onclick "page(\"/press-release\")"
                                                (:div :class "card-content layout vertical center" :style "padding:30px;"
                                                      (pages
-                                                      :id "logos" :style "width:522px;height:582px;"
-                                                      :selected 0
-                                                      (iter (for id in '(1 2 3 4 5 6))
-                                                            (htm (:img :style "margin-bottom:20px;"
-                                                                       :src (format nil "/images/logo-~A.png" id))))) (ripple)
-                                                                       (button "page(\"/press-release\"); " "Press Release")))
+                                                       :id "logos" :style "width:522px;height:582px;"
+                                                       :selected 0
+                                                       (iter (for id in '(1 2 3 4 5 6))
+                                                             (htm (:img :style "margin-bottom:20px;"
+                                                                        :src (format nil "/images/logo-~A.png" id))))) (ripple)
+                                                                        (button "page(\"/press-release\"); " "Press Release")))
                                          (card :elevation 2 :class "card"
                                                (:div :class "card-content" :style "padding:20px;"
                                                      (button (ps (visit-tickets))

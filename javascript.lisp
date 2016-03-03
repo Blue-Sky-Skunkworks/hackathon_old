@@ -152,7 +152,9 @@
 
        (defun set-map-zoom (z)
          (let ((el (get-by-id "map")))
-           (setf (@ el zoom) z)))
+           (setf (@ el zoom) z
+                 (@ el latitude) *vlat*
+                 (@ el longitude) *vlon*)))
 
        )))))
 
