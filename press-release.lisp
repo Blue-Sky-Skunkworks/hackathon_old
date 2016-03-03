@@ -109,10 +109,12 @@ href='http://www.codeforamerica.org/blog/2016/02/04/this-month-in-civictech-janu
 
                               (:h2 "How can I sign up?")
 
-                              (:p "Interested parties can register at <a target=\"_blank\" href=\"http://missoulacivichackathon/\">http://missoulacivichackathon/</a>
-Registration includes breakfast, lunch, and dinner on Saturday as well
-as breakfast and lunch on Sunday. Attendees will also receive
-exclusive Missoula Civic Hackathon perks.")
+                              (:p "Interested parties can register at
+<a target=\"_blank\"
+href=\"http://missoulacivichackathon/\">http://missoulacivichackathon/</a>
+Registration includes breakfast, lunch, dinner, and a midnight snack
+on Saturday as well as breakfast and lunch on Sunday. Attendees will
+also receive exclusive Missoula Civic Hackathon perks.")
 
                               (:h2 "How are we attempting to mitigate our ecological footprint?")
 
