@@ -13,7 +13,6 @@
             (:div :id "sponsors" :style "padding:10px 60px 10px 60px;"
              (iter (for (name url image) in
                         '(("Washington Companies" "http://www.washcorp.com/" "WC")
-                          ("Dennis & Phyllis Washington Foundation" "http://www.dpwfoundation.org/" ("DPW"))
                           ("Moonlight Kitchens" "http://moonlightkitchens.com/" "MK")
                           ;; ("Nora McDougall-Collins Catering" "http://montanawebmaster.com/")
                           ("Blue Sky Stewardship" "http://blueskystewardship.org" "BSS")
