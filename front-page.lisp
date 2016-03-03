@@ -8,6 +8,8 @@
 (defun cdn-url (dir name)
   (format nil "https://cdn.rawgit.com/download/polymer-cdn/~A/lib/~A/~A" *use-cdn* dir name))
 
+(defun fonts-css ()  (serve-scss-file (hackathon-file "fonts.scss")))
+
 (defun render-front-page ()
   (html-to-string
     (:html
@@ -16,6 +18,7 @@
        (:script :type "text/javascript" :src (if *use-cdn* (cdn-url "webcomponentsjs" "webcomponents-lite.js")
                                                  "js/webcomponentsjs/webcomponents-lite.js") )
        (:link :rel "icon" :href "images/favicon.png" :type "image/png")
+       (:link :rel "stylesheet" :type "text/css" :href "fonts.css")
        (:link :rel "import" :href (if *use-cdn* (cdn-url "polymer" "polymer.html") "js/polymer/polymer.html"))
        (:script (str (ps* `(progn (defvar *vlat* ,(car *venue*)) (defvar *vlon* ,(cadr *venue*))))))
        (iter (for el in '("polymer"

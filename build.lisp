@@ -32,6 +32,7 @@
 (defun build ()
   (build-website '(("/js.js" build-javascript)
                    ("/js/" populate-javascript)
+                   ("/fonts.css" fonts-css)
                    ("/custom.html" build-custom-stylesheet)
                    ("/index.html" render-front-page))))
 
