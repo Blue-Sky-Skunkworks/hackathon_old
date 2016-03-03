@@ -8,6 +8,8 @@
                            (icon-button :class "toolbar-icon" :style "margin-left:0px;" :icon "arrow-back" :onclick "page(\"/\");"))
                   (:div :style "padding:20px;" :class "schedule layout vertical center"
                         (:div :style "max-width:700px;"
+                              (:div :class "timezone" "All times are Mountain Daylight Time (MDT)")
+
                               (:h1 "Friday, March 25")
                               (:h3 "<span class='schedule'>6:00 PM - 8:00 PM</span>Social Gathering - Location TBD")
                               (vertical-break)
