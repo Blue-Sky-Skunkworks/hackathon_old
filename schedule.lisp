@@ -15,7 +15,7 @@
                               (vertical-break)
                               (:h1 "Saturday, March 26")
                               (:h3 "<span class='schedule'>8:30 AM</span>Doors Open - Coffee, Tea and Snacks")
-                              (:h3 "<span class='schedule'>9:00 AM</span>Introductions")
+                              (:h3 "<span class='schedule'>9:00 AM</span>Introduction")
                               (:h3 "<span class='schedule'>9:20 AM  - Noon</span>Civic Hackathon Unconference")
                               (:h3 "<span class='schedule'>Noon - 1:00PM</span>Lunch")
                               (:h3 "<span class='schedule'>1:00 PM - 2:00PM</span>Pitches and Team Forming")

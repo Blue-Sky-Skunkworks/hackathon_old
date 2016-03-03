@@ -132,7 +132,6 @@ grass-finished.")
 
                               (:p "Thanks to our local sponsors the "
                                   (iter (for els on '(("Washington Companies" "http://www.washcorp.com/")
-                                                      ("Dennis & Phyllis Washington Foundation" "http://www.dpwfoundation.org/")
                                                       ("Moonlight Kitchens" "http://moonlightkitchens.com/")
                                                       ("Nora McDougall-Collins Catering" "http://montanawebmaster.com/")
                                                       ("Blue Sky Stewardship" "http://blueskystewardship.org")
