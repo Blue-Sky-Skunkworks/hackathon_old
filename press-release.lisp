@@ -149,7 +149,7 @@ grass-finished.")
                               (:p "Sponsorship opportunities are still available,
 interested parties please contact us at <a href=\"mailto:info@blueskystewardship.org\">info@blueskystewardship.org</a>.")
 
-                              (:h2 "ABOUT BLUE SKY STEWARDSHIP:")
+                              (:h2 "About Blue Sky Stewardship:")
 
                               (:p "<a target=\"_blank\" href=\"http://blueskystewardship.org\">Blue Sky Stewardship</a> is a local food non-profit focused on
 researching and demonstrating solutions to Missoula's food production,
