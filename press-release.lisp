@@ -84,7 +84,7 @@ skills will be encouraged to help on multiple projects.")
 
                               (:p "The detailed Missoula Civic Hackathon Schedule can be found online at
 <a target=\"_blank\" href=\"http://missoulacivichackathon.org/#!/schedule\">http://missoulacivichackathon.org/</a>. The hours of the event are Saturday,
-March 26, 2016 from 9:00 a.m. through the night to 6:00 p.m Sunday,
+March 26, 2016 from 8:30 a.m. through the night to 7:00 p.m Sunday,
 March 27.")
 
                               (:p "It will be held on the University
