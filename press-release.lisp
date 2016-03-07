@@ -58,11 +58,11 @@ leaders do.” -  Robert E. Quinn")
                               (:h2 "Why attend a Civic Hackathon Event?")
 
                               (:ul
-                               (:li "Education - learn by doing.")
-                               (:li "Build your network - meet talented developers and civic changers.")
-                               (:li "Team dating - build your team.")
-                               (:li "Learn a new skill - flex your technical and social muscles.")
-                               (:li "Join a global community - over hundreds of civic hackathons past, present, and future."))
+                               (:li "Education &mdash; learn by doing.")
+                               (:li "Build your network &mdash; meet talented developers and civic changers.")
+                               (:li "Team dating &mdash; build your team.")
+                               (:li "Learn a new skill &mdash; flex your technical and social muscles.")
+                               (:li "Join a global community &mdash; over hundreds of civic hackathons past, present, and future."))
 
                               (:h2 "How is it done?")
 
