@@ -59,7 +59,7 @@
                              :selected 0
                              (animatable) ; initial loading shows and transitions to next
                              (animatable :id "top-grid"
-                                         (card :elevation 5 :class "card" :style "cursor:pointer;" :onclick "page(\"/press-release\")"
+                                         (card :elevation 5 :class "card press-release" :style "cursor:pointer;" :onclick "page(\"/press-release\")"
                                                (:div :class "card-content layout vertical center" :style "padding:30px;"
                                                      (pages
                                                        :id "logos" :style "width:522px;height:582px;"
