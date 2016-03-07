@@ -66,8 +66,8 @@ leaders do.” -  Robert E. Quinn")
 
                               (:h2 "How is it done?")
 
-                              (:p "Beginning with an open to the
-public <a style=\"display:inline-block\" target=\"_blank\"
+                              (:p "Beginning with a free and open to
+the public <a style=\"display:inline-block\" target=\"_blank\"
 href=\"https://en.wikipedia.org/wiki/Open_Space_Technology\">open
 space technology</a> unconference on Saturday morning, citizens bring
 their best ideas and inspire others to join their projects. Over
