@@ -100,7 +100,22 @@ of Montana Campus at the")
                                                       :icon "images/map-icon.png"
                                                       :title "Missoula Civic Hackathon")))
 
-                              (:h2 "What Are Other Civic Hackathons Accomplishing?")
+                              (:h2 "What do we hope to accomplish?")
+
+                              (:p "The beginning of a citywide dialogue on
+the possibilities of creating information systems that bring to light
+the many pressing issues that we are facing in our own community and
+hence faced by a vast number communities all over the world.")
+
+                              (:p "Issues
+such as sustainability, social justice, loss of fertile land,
+desertification, pollution, disenfranchisement, food production,
+energy, transportation, city planning, urban forest decline, crime,
+water, preservation of species, land management, “waste”, climate
+change, and housing being just a few examples of what is in the minds
+and hearts of many citizens.")
+
+                              (:h2 "What are other civic hackathons accomplishing?")
 
                               "Hackathons <a target='_blank'
 href='http://devpost.com/hackathons'>around the world</a> are busy
