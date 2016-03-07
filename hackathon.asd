@@ -16,4 +16,4 @@
                (:file "sponsors")
                (:file "code-of-conduct")
                (:file "initialize"))
-  :depends-on (:helpers :cl-who :parenscript :hunchentoot))
+  :depends-on (:alexandria :cl-who :parenscript :hunchentoot))

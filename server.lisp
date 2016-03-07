@@ -38,10 +38,8 @@ matches NAME."
   (hunchentoot:start *web-acceptor*))
 
 (defmethod hunchentoot:acceptor-dispatch-request ((acceptor web-acceptor) request)
-  (bugout (request-uri*))
   (iter (for dispatcher in (dispatch-table acceptor))
         (when-let (action (funcall dispatcher request))
-          (bugout action)
           (return (funcall action)))
         (finally (call-next-method))))
 
