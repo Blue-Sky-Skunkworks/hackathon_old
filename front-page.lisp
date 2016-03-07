@@ -102,5 +102,9 @@
                              (animatable (render-sharing stream))
                              (animatable (render-sponsors stream))
                              (animatable (render-code-of-conduct stream)))
-             (:script (str (ps (when-ready (lambda () (setup-routing) (animate-logos))))))))))
+             (:script (str (ps (when-ready (lambda ()
+                                             (setup-routing)
+                                             (animate-logos)
+                                             ;; (animate-sponsors)
+                                             )))))))))
 

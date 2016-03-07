@@ -156,6 +156,17 @@
                  (@ el latitude) *vlat*
                  (@ el longitude) *vlon*)))
 
+       (defun animate-sponsors ()
+         (set-timeout (lambda () (animate-sponsors-worker (get-by-id "sponsors"))) 3000))
+
+       (defun animate-sponsors-worker (el)
+        (let* ((card (@ el first-child)))
+          ((@ el remove-child) card)
+          ((@ el append-child) card)
+          ((@ el pack resize)))
+        (animate-sponsors))
+
+
        )))))
 
 (defun js-file ()
