@@ -11,7 +11,7 @@
                               (:div :class "timezone" "All times are Mountain Daylight Time (MDT)")
 
                               (:h1 "Friday, March 25")
-                              (:h3 "<span class='schedule'>6:00 p.m. &ndash; 8:00 p.m.</span>Social Gathering &mdash; Location TBD")
+                              (:h3 "<span class='schedule'>6:00 p.m. &ndash; :00 p.m.</span>Social Gathering &mdash; Location TBD")
                               (vertical-break)
                               (:h1 "Saturday, March 26")
                               (:h3 "<span class='schedule'>8:30 a.m.</span>Doors Open &mdash; Coffee, Tea and Snacks")
@@ -21,7 +21,7 @@
                               (:h3 "<span class='schedule'>1:00 p.m. &ndash; 2:00 p.m.</span>Pitches and Team Forming")
                               (:h3 "<span class='schedule'>2:00 p.m.</span>The 24 hour clock starts")
                               (:h3 "<span class='schedule'>7:00 p.m.</span>Dinner")
-                              (:h3 "<span class='schedule'>Midnight</span>Coffee, Tea, Snacks")
+                              (:h3 "<span class='schedule'>Midnight</span>Coffee, Tea, and Snacks")
                               (vertical-break)
                               (:h1 "Sunday, March 27")
                               (:h3 "<span class='schedule'>8:00 a.m.</span>Breakfast")
