@@ -21,4 +21,4 @@ It's a simple sketch and is open for much further development.
 It is
 [licensed](https://github.com/Blue-Sky-Skunkworks/hackathon/blob/master/build.lisp)
 for use under a
-[BSD 2-Clause License](https://opensource.org/licenses/bsd-license.php).
+[GNU Gereral Public License, version 3](https://opensource.org/licenses/GPL-3.0).
