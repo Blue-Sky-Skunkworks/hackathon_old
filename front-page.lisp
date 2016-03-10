@@ -67,6 +67,7 @@
                                                        :selected 0
                                                        (iter (for id in '(1 2 3 4 5 6))
                                                              (htm (:img :style "margin-bottom:20px;"
+                                                                        :alt "Hackathon Logo"
                                                                         :src (format nil "/images/logo-~A.png" id))))) (ripple)
                                                                         (button "page(\"/press-release\"); " "Press Release")))
                                          (card :elevation 2 :class "card"
