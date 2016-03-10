@@ -73,9 +73,13 @@
                                          (card :elevation 2 :class "card"
                                                (:div :class "card-content" :style "padding:20px;"
                                                      (button (ps (visit-tickets))
-                                                       :style "padding:30px;width:230px;height:200px;" :class "buy-ticket"
+                                                       :style "padding:20px;width:230px;height:240px;" :class "buy-ticket"
                                                        (:div :class "layout vertical center"
-                                                             "Get your Tickets Here!"
+                                                             (:span "Get your Tickets Here!")
+                                                             (vertical-break "10px")
+                                                             (:span "Saturday Morning Unconference &mdash; Free")
+                                                             (vertical-break "10px")
+                                                             (:span "Hackathon &mdash; $15")
                                                              (vertical-break "30px")
                                                              (fab :tabindex -1 :class "big" :icon "notification:confirmation-number")))))
                                          (iter (for (name onclick icon text) in
