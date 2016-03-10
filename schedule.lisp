@@ -17,8 +17,7 @@
                               (:h1 "Saturday, March 26")
                               (:table :class "schedule"
                                (iter (for (time what sub) in '(("8:30 a.m." "Doors Open &mdash; Coffee, Tea and Snacks")
-                                                               ("9:00 a.m." "Introduction")
-                                                               ("9:20 a.m. &ndash; Noon" "Civic Hackathon Unconference" "(Free and Open to the Public!)")
+                                                               ("9:00 a.m. &ndash; Noon" "Civic Hackathon Unconference" "(Free and Open to the Public!)")
                                                                ("Noon &ndash; 1:00p.m." "Lunch")
                                                                ("1:00 p.m. &ndash; 2:00 p.m." "Pitches and Team Forming")
                                                                ("2:00 p.m." "The 24 hour clock starts")
