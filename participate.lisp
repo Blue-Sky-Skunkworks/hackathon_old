@@ -7,7 +7,7 @@
                            (:span :style "margin-left:0px;" :class "title" "Participate from Anywhere")
                            (icon-button :class "toolbar-icon" :style "margin-left:0px;" :icon "arrow-back" :onclick "page(\"/\");"))
                   (:div :style "padding:20px;" :class "layout vertical center"
-                        (:div :style "max-width:700px;"
+                        (:div :style "max-width:700px;margin-top:30px;"
                               "We have set up a <a
                         href='https://plus.google.com/events/c8g3dfagp5l86nfbol4mf44e7sc'
                         target='_blank'>Google Hangouts</a> that will
