@@ -138,6 +138,7 @@
          (page "/sharing" (lambda () (select-page 4)))
          (page "/sponsors" (lambda () (select-page 5) (setup-packing "sponsors" "card" 60)))
          (page "/code-of-conduct" (lambda () (select-page 6)))
+         (page "/participate" (lambda () (select-page 7)))
          (page (create :hashbang t)))
 
        (defun animate-logos ()

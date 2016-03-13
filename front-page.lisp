@@ -85,6 +85,7 @@
                                          (iter (for (name onclick icon text) in
                                                     `(("schedule" "page(\"/schedule\");" "date-range" "The Event Schedule")
                                                       ("visit-wiki" ,(ps (visit-wiki)) "editor:mode-edit" "The Hackathon Wiki")
+                                                      ("participate" "page(\"/participate\");" "places:all-inclusive" "Participate from Anywhere")
                                                       ("sharing" "page(\"/sharing/\");" ("places:airport-shuttle"
                                                                                          "notification:airline-seat-individual-suite")
                                                                  "Ride & Couch Sharing")
@@ -107,7 +108,8 @@
                              (animatable (render-schedule stream))
                              (animatable (render-sharing stream))
                              (animatable (render-sponsors stream))
-                             (animatable (render-code-of-conduct stream)))
+                             (animatable (render-code-of-conduct stream))
+                             (animatable (render-participate stream)))
              (:script (str (ps (when-ready (lambda ()
                                              (setup-routing)
                                              (animate-logos)
