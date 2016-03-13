@@ -2,7 +2,7 @@
 
 ## Static Website Generator for the Missoula Civic Hackathon
 
-This simple lisp program generates a static
+This [common lisp](http://www.sbcl.org) program generates a static
 [polymer](https://www.polymer-project.org) website to showcase the
 first [Missoula Civic Hackathon](http://missoulacivichackathon.org).
 
