@@ -6,6 +6,8 @@ This [common lisp](http://www.sbcl.org) program generates a static
 [polymer](https://www.polymer-project.org) website to showcase the
 first [Missoula Civic Hackathon](http://missoulacivichackathon.org).
 
+Fork it and throw your own civic hackathon!
+
 It
 [builds](https://github.com/Blue-Sky-Skunkworks/hackathon/blob/master/build.lisp)
 a few web pages using

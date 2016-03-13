@@ -10,7 +10,7 @@
                         (:div :style "max-width:700px;margin-top:30px;"
                               "We have set up a <a
                         href='https://plus.google.com/events/c8g3dfagp5l86nfbol4mf44e7sc'
-                        target='_blank'>Google Hangouts</a> that will
+                        target='_blank'>Google Hangout</a> that will
                         be streaming live from one of the large
                         smartboards in the main hall. We can set up
                         others in each space as needed, but this will
