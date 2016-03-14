@@ -16,5 +16,6 @@
                (:file "sharing")
                (:file "sponsors")
                (:file "code-of-conduct")
+               (:file "participate")
                (:file "initialize"))
   :depends-on (:alexandria :cl-who :parenscript :hunchentoot))

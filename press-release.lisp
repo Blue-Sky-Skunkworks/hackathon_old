@@ -106,7 +106,6 @@ of Montana Campus at the")
 the possibilities of creating information systems that bring to light
 the many pressing issues that we are facing in our own community and
 hence faced by a vast number communities all over the world.")
-
                               (:p "Issues such as sustainability, loss
 of fertile land, desertification, pollution, disenfranchisement, local
 financing, food production, energy, transportation, city planning,
