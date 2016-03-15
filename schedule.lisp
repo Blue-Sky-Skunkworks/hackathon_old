@@ -25,9 +25,9 @@
                                                                ("Midnight" "Coffee, Tea, and Snacks")))
                                      (htm (:tr (:th (str time)) (:td
                                                                  (if sub
-                                                                     (htm (:div :class "layout vertical"
-                                                                                (:span (str what))
-                                                                                (:span :class "schedule-sub" (str sub))))
+                                                                     (button (ps (visit-tickets)) :class "free-ticket layout vertical center"
+                                                                             (:span (str what))
+                                                                             (:span (str sub)))
                                                                      (str what)))))))
 
                               (vertical-break)
