@@ -81,94 +81,97 @@
   (concatenate
    'string
    (let ((ps:*js-string-delimiter* #\'))
-    (ps*
-     '(progn
+     (ps*
+      '(progn
 
-       (defvar *trace-level* 0)
+        (defvar *trace-level* 0)
 
-       (defun get-by-id (id &optional (error t))
-         (let ((hit ((@ document get-element-by-id) id)))
-           (if hit
-               (return hit)
-               (if error (console "ERROR: get-by-id" id)))))
+        (defun get-by-id (id &optional (error t))
+          (let ((hit ((@ document get-element-by-id) id)))
+            (if hit
+                (return hit)
+                (if error (console "ERROR: get-by-id" id)))))
 
-       (defun setup-packing (container-id item &optional (gutter 20))
-        (let ((container (get-by-id container-id)))
-          (if (@ container pack)
-               ((@ container pack layout))
-               (setf (@ container pack) (new (*packery container
-                                                       (create :item-selector (+ "." item)
-                                                               :gutter gutter)))))))
+        (defun setup-packing (container-id item &optional (gutter 20))
+          (let ((container (get-by-id container-id)))
+            (if (@ container pack)
+                ((@ container pack layout))
+                (setf (@ container pack) (new (*packery container
+                                                        (create :item-selector (+ "." item)
+                                                                :gutter gutter)))))))
 
-       (defun select-page (index)
-         (let ((pages (get-by-id "pages")))
-           (setf (@ pages selected) index)))
+        (defun select-page (index)
+          (let ((pages (get-by-id "pages")))
+            (setf (@ pages selected) index)))
 
-       (defun show (id)
-         (with-id (o id)
-           (setf (@ o style visibility) "visible")))
+        (defun show (id)
+          (with-id (o id)
+            (setf (@ o style visibility) "visible")))
 
-       (defun hide (id)
-         (with-id (o id)
-           (setf (@ o style visibility) "hidden")))
+        (defun hide (id)
+          (with-id (o id)
+            (setf (@ o style visibility) "hidden")))
 
-       (defun when-ready (fn)
-         ((@ document add-event-listener) "WebComponentsReady"
-          (lambda () (funcall fn))))
+        (defun when-ready (fn)
+          ((@ document add-event-listener) "WebComponentsReady"
+           (lambda () (funcall fn))))
 
-       (defun visit-url (url)
-         ((@ window open) url "_blank"))
+        (defun visit-url (url)
+          ((@ window open) url "_blank"))
 
-       (defun visit-email-list ()
-         (visit-url "https://groups.google.com/forum/#!forum/blue-sky-skunkworks"))
+        (defun visit-email-list ()
+          (visit-url "https://groups.google.com/forum/#!forum/blue-sky-skunkworks"))
 
-       (defun visit-wiki ()
-         (visit-url "https://github.com/Blue-Sky-Skunkworks/missoula-civic-hackathon-notes/wiki"))
+        (defun visit-wiki ()
+          (visit-url "https://github.com/Blue-Sky-Skunkworks/missoula-civic-hackathon-notes/wiki"))
 
-       (defun visit-tickets ()
-         (visit-url "https://www.eventbrite.com/e/missoula-civic-hackathon-2016-tickets-21898542129"))
+        (defun visit-tickets ()
+          (visit-url "https://www.eventbrite.com/e/missoula-civic-hackathon-2016-tickets-21898542129"))
 
-       (defun visit-source-code ()
-         (visit-url "https://github.com/Blue-Sky-Skunkworks/hackathon"))
+        (defun visit-source-code ()
+          (visit-url "https://github.com/Blue-Sky-Skunkworks/hackathon"))
 
-       (defun setup-routing ()
-         (page "/" (lambda () (select-page 1) (setup-packing "top-grid" "card")))
-         (page "/press-release" (lambda () (select-page 2)))
-         (page "/schedule" (lambda () (select-page 3)))
-         (page "/sharing" (lambda () (select-page 4)))
-         (page "/sponsors" (lambda () (select-page 5) (setup-packing "sponsors" "card" 60)))
-         (page "/code-of-conduct" (lambda () (select-page 6)))
-         (page "/participate" (lambda () (select-page 7)))
-         (page (create :hashbang t)))
+        (defun setup-routing ()
+          (page "/" (lambda () (select-page 1) (setup-packing "top-grid" "card")))
+          (page "/press-release" (lambda () (select-page 2)))
+          (page "/schedule" (lambda () (select-page 3)))
+          (page "/sharing" (lambda () (select-page 4)))
+          (page "/sponsors" (lambda () (select-page 5) (setup-packing "sponsors" "card" 60)))
+          (page "/code-of-conduct" (lambda () (select-page 6)))
+          (page "/participate" (lambda () (select-page 7)))
+          (page (create :hashbang t)))
 
-       (defun animate-logos ()
-         (set-timeout (lambda () (animate-logo (get-by-id "logos"))) 5000))
+        (defun animate-logos ()
+          (set-timeout (lambda () (animate-logo (get-by-id "logos"))) 5000))
 
-       (defun animate-logo (el)
-        (let ((index (parse-int (@ el selected))))
-           (when (= index 5) (setf index -1))
-           (setf index (+ index 1))
-           (setf (@ el selected) index)
-           (animate-logos)))
+        (defun animate-logo (el)
+          (let ((index (parse-int (@ el selected))))
+            (when (= index 5) (setf index -1))
+            (setf index (+ index 1))
+            (setf (@ el selected) index)
+            (animate-logos)))
 
-       (defun set-map-zoom (z)
-         (let ((el (get-by-id "map")))
-           (setf (@ el zoom) z
-                 (@ el latitude) *vlat*
-                 (@ el longitude) *vlon*)))
+        (defun set-map-zoom (z)
+          (let ((el (get-by-id "map")))
+            (setf (@ el zoom) z
+                  (@ el latitude) *vlat*
+                  (@ el longitude) *vlon*)))
 
-       (defun animate-sponsors ()
+        (defun randomize-children (el)
+          (loop
+             for i from (@ el children length) downto 0
+             do ((@ el append-child) (aref (@ el children) (ps:\| (* ((@ *math random)) i) 0)))))
+
+        (defun-trace animate-sponsors ()
          (set-timeout (lambda () (animate-sponsors-worker (get-by-id "sponsors"))) 3000))
 
-       (defun animate-sponsors-worker (el)
-        (let* ((card (@ el first-child)))
-          ((@ el remove-child) card)
-          ((@ el append-child) card)
-          ((@ el pack resize)))
-        (animate-sponsors))
+        (defun-trace animate-sponsors-worker (el)
+         (randomize-children el)
+         ((@ el pack layout))
+         (animate-sponsors))
 
 
-       )))))
+        )))))
 
 (defun js-file ()
   *js-file*)
