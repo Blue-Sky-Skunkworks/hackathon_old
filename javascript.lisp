@@ -167,7 +167,8 @@
 
         (defun-trace animate-sponsors-worker (el)
          (randomize-children el)
-         ((@ el pack layout))
+         (setf (@ el pack) nil) ;; FIXME would rather reanimate into the new order
+         (setup-packing "sponsors" "card" 60)
          (animate-sponsors))
 
 
