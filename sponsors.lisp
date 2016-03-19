@@ -19,6 +19,7 @@
                           ("Free Cycles" "http://www.freecycles.org" "FC")
                           ("Montana Code School" "http://montanacodeschool.com/" "MCS")
                           ("The University of Montana" "http://www.umt.edu/" ("UM"))
+                          ("Home ReSource" "http://www.homeresource.org/" "HR")
                           ("Montana Institute for Sustainable Transportation" "http://www.strans.org/" "MIST")))
                    (card :class "card"
                          (:div :class (concatenate 'string "card-content" (when (consp image) " grey"))
