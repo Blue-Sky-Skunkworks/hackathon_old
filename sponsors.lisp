@@ -12,7 +12,7 @@
                         (vertical-break "30px")
                         (:div :id "sponsors" :style "padding:10px 60px 10px 60px;"
                               (iter (for index from 0)
-                                    (for (name url image) in
+                                    (for (name url image grey) in
                                          '(("Washington Companies" "http://www.washcorp.com/" "WC")
                                            ("Moonlight Kitchens" "http://moonlightkitchens.com/" "MK")
                                            ;; ("Nora McDougall-Collins Catering" "http://montanawebmaster.com/")
@@ -21,13 +21,16 @@
                                            ("Montana Code School" "http://montanacodeschool.com/" "MCS")
                                            ("Geodata Services Inc." "http://www.geodataservicesinc.com/" "GD")
                                            ("Re: Industries" "http://www.reindustries.org/" "RI")
-                                           ("The University of Montana" "http://www.umt.edu/" ("UM"))
+                                           ("The University of Montana" "http://www.umt.edu/" "UM" t)
                                            ("Home ReSource" "http://www.homeresource.org/" "HR")
                                            ("Omega Alpha Recycling Systems" "http://www.omega-alpharecycling.com/" "OARS")
                                            ("Montana Institute for Sustainable Transportation" "http://www.strans.org/" "MIST")))
-                                    (card :class "card" :id (format nil "card-~A" index)
-                                          (:div :class (concatenate 'string "card-content" (when (consp image) " grey"))
-                                                (:a :target "_blank" :href url
-                                                    (if image
-                                                        (htm (:img :alt name :src (format nil "images/sponsors/~A.png" (if (consp image) (car image) image))))
-                                                        (esc name)))))))))))
+                                    (multiple-value-bind (width height) (png-image-size
+                                                                         (hackathon-file (format nil "images/sponsors/~A.png" image)))
+                                      (card :class "card" :id (format nil "card-~A" index)
+                                            (:div :class (concatenate 'string "card-content" (when grey " grey"))
+                                                  (:a :target "_blank" :href url
+                                                      (if image
+                                                          (htm (:img :alt name :width width :height height
+                                                                     :src (format nil "images/sponsors/~A.png" image)))
+                                                          (esc name))))))))))))

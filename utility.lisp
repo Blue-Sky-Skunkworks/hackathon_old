@@ -32,6 +32,7 @@
   (with-output-to-string (str)
     (sb-ext:run-program program args :output str :error str :search t)))
 
-
-
+(defun png-image-size (filename)
+  (unless (probe-file filename) (error "Missing ~S." filename))
+  (values-list (mapcar #'parse-integer (split-sequence #\x (third (split-sequence #\space (run-program-to-string "identify" (list filename))))))))
 

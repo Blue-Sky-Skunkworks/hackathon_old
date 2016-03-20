@@ -18,4 +18,4 @@
                (:file "code-of-conduct")
                (:file "participate")
                (:file "initialize"))
-  :depends-on (:alexandria :cl-who :parenscript :hunchentoot))
+  :depends-on (:alexandria :cl-who :parenscript :hunchentoot :split-sequence))
