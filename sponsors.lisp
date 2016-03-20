@@ -19,6 +19,8 @@
                                            ("Blue Sky Stewardship" "http://blueskystewardship.org" "BSS")
                                            ("Free Cycles" "http://www.freecycles.org" "FC")
                                            ("Montana Code School" "http://montanacodeschool.com/" "MCS")
+                                           ("Geodata Services Inc." "http://www.geodataservicesinc.com/" "GD")
+                                           ("Re: Industries" "http://www.reindustries.org/" "RI")
                                            ("The University of Montana" "http://www.umt.edu/" ("UM"))
                                            ("Home ReSource" "http://www.homeresource.org/" "HR")
                                            ("Omega Alpha Recycling Systems" "http://www.omega-alpharecycling.com/" "OARS")
