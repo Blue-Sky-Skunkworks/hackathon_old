@@ -2,8 +2,12 @@
 
 (defparameter *venue* '(46.8625418 -113.9848200))
 
-(defparameter *use-cdn* "1.2.3.2")
-;(defparameter *use-cdn* nil)
+(defparameter *cdn-polymer-version* "1.2.3.2")
+(defparameter *use-cdn* *cdn-polymer-version*)
+
+(defun toggle-cdn ()
+  (setf *use-cdn* (if *use-cdn* nil *cdn-polymer-version*))
+  (note "~Asing the CDN~@[ (version ~A)~]." (if *use-cdn* "U" "Not u") *use-cdn*))
 
 (defun cdn-url (dir name)
   (format nil "https://cdn.rawgit.com/download/polymer-cdn/~A/lib/~A/~A" *use-cdn* dir name))
@@ -113,6 +117,6 @@
              (:script (str (ps (when-ready (lambda ()
                                              (setup-routing)
                                              (animate-logos)
-                                             ;; (animate-sponsors)
+                                             (animate-sponsors)
                                              )))))))))
 
