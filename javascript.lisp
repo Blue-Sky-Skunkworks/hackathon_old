@@ -162,15 +162,13 @@
              for i from (@ el children length) downto 0
              do ((@ el append-child) (aref (@ el children) (ps:\| (* ((@ *math random)) i) 0)))))
 
-        (defun-trace animate-sponsors ()
-         (set-timeout (lambda () (animate-sponsors-worker (get-by-id "sponsors"))) 3000))
+        (defun animate-sponsors ()
+          (set-timeout (lambda () (animate-sponsors-worker (get-by-id "sponsors"))) 10000))
 
-        (defun-trace animate-sponsors-worker (el)
-         (randomize-children el)
-         (setf (@ el pack) nil) ;; FIXME would rather reanimate into the new order
-         (setup-packing "sponsors" "card" 60)
-         (animate-sponsors))
-
+        (defun animate-sponsors-worker (el)
+          (randomize-children el)
+          ((@ el pack fit) (aref (@ el children) 0) 0 0)
+          (animate-sponsors))
 
         )))))
 
