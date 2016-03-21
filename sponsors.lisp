@@ -8,7 +8,8 @@
                            (icon-button :class "toolbar-icon" :style "margin-left:0px;" :icon "arrow-back" :onclick "page(\"/\");"))
                   (:div :style "padding:20px;" :class "layout vertical"
                         (:h1 :style "margin-bottom:0px;" "Thanks to all of the Missoula Civic Hackathon's sponsors")
-                        (:h4 :style "margin-top:5px;" "Sonsorship opportunities are still " (:a :href "mailto:info@blueskystewardship.org" "available") ".")
+                        (:h4 :style "margin-top:5px;" "Sonsorship opportunities are still "
+                             (:a :href "mailto:info@blueskystewardship.org" "available") ".")
                         (vertical-break "30px")
                         (:div :id "sponsors" :style "padding:10px 60px 10px 60px;"
                               (iter (for index from 0)
