@@ -2,7 +2,7 @@
 (defpackage hackathon
   (:use common-lisp cl-who iterate hunchentoot local-time split-sequence)
   (:import-from parenscript ps ps*)
-  (:import-from alexandria with-output-to-file when-let))
+  (:import-from alexandria with-output-to-file when-let if-let))
 
 (defpackage hackathon-js
   (:use common-lisp parenscript)

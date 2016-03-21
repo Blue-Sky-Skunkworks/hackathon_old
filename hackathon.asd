@@ -2,6 +2,7 @@
   :serial t
   :components ((:static-file "hackathon.asd")
                (:file "package")
+               (:file "slime")
                (:file "config")
                (:file "utility")
                (:file "css")
