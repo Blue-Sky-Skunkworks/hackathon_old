@@ -33,7 +33,8 @@ matches NAME."
                        :access-log-destination (hackathon-file (format nil "log/access-~A.log" (now)))
                        :message-log-destination (hackathon-file (format nil "log/message-~A.log" (now)))
                        :dispatch-table (mapcar 'format-dispatch
-                                               `((:exact "/" render-front-page)
+                                               `((:prefix "/t/" handle-tracker-request)
+                                                 (:exact "/" render-front-page)
                                                  (:folder "/" ,(hackathon-file "build/"))))))
   (hunchentoot:start *web-acceptor*))
 
