@@ -35,7 +35,7 @@
                               (:table :class "schedule"
                                       (iter (for (time what) in '(("8:00 a.m." "Breakfast")
                                                                   ("Noon" "Lunch")
-                                                                  ("2:00 p.m." "Last commit")
-                                                                  ("2:30 p.m. &ndash; 5:30 p.m." "Team Presentations")
-                                                                  ("5:30 p.m." "Awards")))
+                                                                  ("3:00 p.m." "Last commit")
+                                                                  ("3:30 p.m. &ndash; 4:30 p.m." "Team Presentations")
+                                                                  ("4:30 p.m. &ndash; 5:00 p.m." "Voting and Awards")))
                                      (htm (:tr (:th (str time)) (:td (str what)))))))))))
