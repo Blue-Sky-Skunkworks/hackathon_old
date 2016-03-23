@@ -25,6 +25,7 @@
                                            ("Re: Industries" "http://www.reindustries.org/" "RI")
                                            ("The University of Montana" "http://www.umt.edu/" "UM" t)
                                            ("The Good Food Store" "http://www.goodfoodstore.com/" "GFS")
+                                           ("Break Expresso" "https://www.facebook.com/BreakEspressoMissoula/" "BE")
                                            ("Climate Smart Missoula" "http://www.missoulaclimate.org/zero-waste.html" "CS")
                                            ("Home ReSource" "http://www.homeresource.org/" "HR")
                                            ("Montana Institute for Sustainable Transportation" "http://www.strans.org/" "MIST")))
