@@ -22,6 +22,8 @@
                                            ("Omega Alpha Recycling Systems" "http://www.omega-alpharecycling.com/" "OARS")
                                            ("Montana Code School" "http://montanacodeschool.com/" "MCS")
                                            ("Geodata Services Inc." "http://www.geodataservicesinc.com/" "GD")
+                                           ("Rockin' Rudys's" "http://www.rockinrudys.com/" "RR")
+                                           ("Butterfly Herbs" "http://www.butterflyherbs.com/" "BH")
                                            ("Re: Industries" "http://www.reindustries.org/" "RI")
                                            ("The University of Montana" "http://www.umt.edu/" "UM" t)
                                            ("The Good Food Store" "http://www.goodfoodstore.com/" "GFS")
