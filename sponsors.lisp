@@ -16,7 +16,7 @@
                                     (for (name url image grey) in
                                          '(("Washington Companies" "http://www.washcorp.com/" "WC")
                                            ("Moonlight Kitchens" "http://moonlightkitchens.com/" "MK")
-                                           ;; ("Nora McDougall-Collins Catering" "http://montanawebmaster.com/")
+                                           ("Montana Webmasters" "http://montanawebmaster.com/" "MW")
                                            ("Blue Sky Stewardship" "http://blueskystewardship.org" "BSS")
                                            ("Free Cycles" "http://www.freecycles.org" "FC")
                                            ("Omega Alpha Recycling Systems" "http://www.omega-alpharecycling.com/" "OARS")
