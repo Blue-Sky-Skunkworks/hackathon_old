@@ -27,6 +27,7 @@
                                            ("Re: Industries" "http://www.reindustries.org/" "RI")
                                            ("The University of Montana" "http://www.umt.edu/" "UM" t)
                                            ("City Brew Coffee" "http://citybrew.com/" "CB")
+                                           ("Missoula Fresh Market" "http://missoulafm.com/" "FM")
                                            ("The Good Food Store" "http://www.goodfoodstore.com/" "GFS")
                                            ("Break Expresso" "https://www.facebook.com/BreakEspressoMissoula/" "BE")
                                            ("Climate Smart Missoula" "http://www.missoulaclimate.org/zero-waste.html" "CS")
