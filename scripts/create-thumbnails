@@ -1,0 +1,7 @@
+#!/bin/bash
+
+for i in $( ls ); do
+  X=${i%%.*}"t.jpg";
+  echo convert $i -auto-orient -thumbnail 600x1000 -unsharp 0x.5 $X
+  convert $i -auto-orient -thumbnail 600x1000 -unsharp 0x.5 $X
+done
