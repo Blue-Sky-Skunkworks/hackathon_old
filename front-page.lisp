@@ -101,25 +101,30 @@
                                                       ("sponsors" "page(\"/sponsors\");" "card-giftcard" "Our Sponsors")
                                                       ("conduct" "page(\"/code-of-conduct\");" "gavel" "Code of Conduct")
                                                       ("prayer" "page(\"/prayer\");" "flag" "Prayer Flags")
+                                                      ("moon" "page(\"/moon\");" nil render-moon-card)
                                                       ("source-code" ,(ps (visit-source-code)) "code" "Code For This Site")))
                                                (card :class "card"
-                                                     (:div :class "card-content" :style "padding:20px;"
-                                                           (button onclick :style "padding:36px 20px 20px 20px;width:230px;height:150px;"
-                                                                   :class (concatenate 'string name " layout vertical center")
-                                                                   (if (consp icon)
-                                                                       (htm (:div :class "layout horizontal center"
-                                                                                  (iter (for els on icon)
-                                                                                        (icon :class "big" :icon (car els))
-                                                                                        (when (cdr els) (str "&nbsp;&nbsp;")))))
-                                                                       (icon :class "big" :icon icon))
-                                                                   (vertical-break) (esc text))))))
+                                                     (if (null icon)
+                                                         (funcall text stream)
+                                                         (htm (:div :class "card-content" :style "padding:20px;"
+                                                                    (button onclick :style "padding:36px 20px 20px 20px;width:230px;height:150px;"
+                                                                            :class (concatenate 'string name " layout vertical center")
+                                                                            (cond
+                                                                              ((consp icon)
+                                                                               (htm (:div :class "layout horizontal center"
+                                                                                          (iter (for els on icon)
+                                                                                                (icon :class "big" :icon (car els))
+                                                                                                (when (cdr els) (str "&nbsp;&nbsp;"))))))
+                                                                              (t (icon :class "big" :icon icon)))
+                                                                            (vertical-break) (esc text))))))))
                              (animatable (render-press-release stream))
                              (animatable (render-schedule stream))
                              (animatable (render-sharing stream))
                              (animatable (render-sponsors stream))
                              (animatable (render-code-of-conduct stream))
                              (animatable (render-participate stream))
-                             (animatable (render-prayer stream)))
+                             (animatable (render-prayer stream))
+                             (animatable (render-moon stream)))
              (:script (str (ps (when-ready (lambda ()
                                              (setup-routing)
                                              (animate-logos)

@@ -21,4 +21,5 @@
                (:file "code-of-conduct")
                (:file "participate")
                (:file "prayer")
+               (:file "moon")
                (:file "initialize")))
