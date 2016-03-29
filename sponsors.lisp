@@ -14,7 +14,7 @@
                         (:div :id "sponsors" :style "padding:10px 60px 10px 60px;"
                               (iter (for index from 0)
                                     (for (name url image grey) in
-                                         '(("Washington Companies" "http://www.washcorp.com/" "WC")
+                                         '(("Phyllis J. Washington College of Education & Human Sciences" "http://www.coehs.umt.edu/" "PJWEC")
                                            ("Moonlight Kitchens" "http://moonlightkitchens.com/" "MK")
                                            ("Montana Webmasters" "http://montanawebmaster.com/" "MW")
                                            ("Blue Sky Stewardship" "http://blueskystewardship.org" "BSS")
@@ -22,6 +22,7 @@
                                            ("Omega Alpha Recycling Systems" "http://www.omega-alpharecycling.com/" "OARS")
                                            ("Montana Code School" "http://montanacodeschool.com/" "MCS")
                                            ("Geodata Services Inc." "http://www.geodataservicesinc.com/" "GD")
+                                           ("Washington Companies" "http://www.washcorp.com/" "WC")
                                            ("Rockin' Rudys's" "http://www.rockinrudys.com/" "RR")
                                            ("Butterfly Herbs" "http://www.butterflyherbs.com/" "BH")
                                            ("Re: Industries" "http://www.reindustries.org/" "RI")
