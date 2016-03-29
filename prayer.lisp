@@ -25,5 +25,5 @@
                                     :onclick (format nil "showImageGallery(event,\"prayers\",\"https://raw.githubusercontent.com/Blue-Sky-Skunkworks/missoula-civic-hackathon-notes/master/prayers/\",~A);" index)
 
                                     (htm (:img :id (format nil "i-~A" index) :document-id index
-                                               :image-size "1875x1470" :src name :width "600px")))))))))
+                                               :image-size "1875x1470" :src name :width "600px"))))))))
 
