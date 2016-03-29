@@ -54,6 +54,10 @@
 
        (:script :src "js/packery/dist/packery.pkgd.min.js" :type "text/javascript")
        (:script :src "js/page.js/page.js" :type "text/javascript")
+       (:script :src "js/photoswipe/dist/photoswipe.min.js" :type "text/javascript")
+       (:link :rel "stylesheet" :type "text/css" :href "js/photoswipe/dist/photoswipe.css")
+       (:link :rel "stylesheet" :type "text/css" :href "js/photoswipe/dist/default-skin/default-skin.css")
+       (:script :src "inc/photoswipe-ui-default.js" :type "text/javascript")
        (:script :src "js.js" :type "text/javascript")
        (:link :rel "import" :href "custom.html"))
 
@@ -96,6 +100,7 @@
                                                       ("email-list" ,(ps (visit-email-list)) "communication:email" "Join the Email List")
                                                       ("sponsors" "page(\"/sponsors\");" "card-giftcard" "Our Sponsors")
                                                       ("conduct" "page(\"/code-of-conduct\");" "gavel" "Code of Conduct")
+                                                      ("prayer" "page(\"/prayer\");" "flag" "Prayer Flags")
                                                       ("source-code" ,(ps (visit-source-code)) "code" "Code For This Site")))
                                                (card :class "card"
                                                      (:div :class "card-content" :style "padding:20px;"
@@ -113,10 +118,15 @@
                              (animatable (render-sharing stream))
                              (animatable (render-sponsors stream))
                              (animatable (render-code-of-conduct stream))
-                             (animatable (render-participate stream)))
+                             (animatable (render-participate stream))
+                             (animatable (render-prayer stream)))
              (:script (str (ps (when-ready (lambda ()
                                              (setup-routing)
                                              (animate-logos)
                                              (animate-sponsors)
-                                             )))))))))
+                                             )))))
+             (str (slurp-file (hackathon-file "includes/photoswipe.html")))
+
+
+             ))))
 

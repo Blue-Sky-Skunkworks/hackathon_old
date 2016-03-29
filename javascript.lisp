@@ -139,6 +139,7 @@
           (page "/sponsors" (lambda () (select-page 5) (setup-packing "sponsors" "card" 60)))
           (page "/code-of-conduct" (lambda () (select-page 6)))
           (page "/participate" (lambda () (select-page 7)))
+          (page "/prayer" (lambda () (select-page 8)))
           (page (create :hashbang t)))
 
         (defun animate-logos ()
@@ -169,6 +170,61 @@
           (randomize-children el)
           ((@ el pack fit) (aref (@ el children) 0) 0 0)
           (animate-sponsors))
+
+        (defun stop-event (event)
+          (when event
+            (setf (@ event cancel-bubble) t
+                  (@ event stopped) t)
+            (when (@ event stop-propagation)
+              ((@ event stop-propagation)))
+            (if (= (@ navigator app-name) "Netscape")
+                ((@ event prevent-default))
+                (setf (@ (@ window event) return-value) nil)) ; IE
+            ))
+
+        (defvar *gallery*)
+
+        (defun string-starts-with (string prefix)
+          (return (== ((@ string index-of) prefix) 0)))
+
+        (defun all-children (element)
+          (return ((@ element get-elements-by-tag-name) "*")))
+
+        (defun collect-children-with-prefix (root prefix)
+          (let ((rtn (make-array)))
+            (loop for el in (all-children root)
+               do (when (string-starts-with (@ el id) prefix)
+                    ((@ rtn push) el)))
+            (return rtn)))
+
+        (defun collect-container-images (container prefix current-id)
+          (let* (index
+                 (data
+                  (loop for el in (collect-children-with-prefix container "i-")
+                     for i from 0
+                     collect
+                       (let ((wh ((@ ((@ el get-attribute) "image-size") split) "x"))
+                             (id (parse-int ((@ el get-attribute) "document-id")))
+                             (caption  ((@ el get-attribute) "image-caption")))
+                         (when (= current-id id) (setf index i))
+                         (create :src (+ prefix id ".jpg")
+                                 :node-id id :w (aref wh 0) :h (aref wh 1)
+                                 :title caption)))))
+            (return (list index data))))
+
+        (defun show-image-gallery (event container-id prefix id)
+          (stop-event event)
+          (let* ((container (get-by-id container-id))
+                 (images (collect-container-images container prefix id))
+                 (gallery
+                  (new (*photo-swipe (get-by-id "kspswp")
+                                     *photo-swipe-u-i-_default
+                                     ;; KLUDGE had to alter the js to rename the default variable
+                                     ;; couldn't get parenscript to output the capital "D"
+                                     (aref images 1)
+                                     (create :index (aref images 0)))))))
+          (setf *gallery* gallery)
+          ((@ gallery init)))
 
         )))))
 

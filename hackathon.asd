@@ -1,6 +1,6 @@
 (defsystem :hackathon
   :serial t
-  :depends-on ("alexandria" "cl-who" "parenscript" "hunchentoot" "split-sequence" "zpng")
+  :depends-on ("alexandria" "cl-who" "parenscript" "hunchentoot" "split-sequence" "zpng" "cl-json" "cl-ppcre")
   :components ((:static-file "hackathon.asd")
                (:file "package")
                (:file "slime")
@@ -20,4 +20,5 @@
                (:file "sponsors")
                (:file "code-of-conduct")
                (:file "participate")
+               (:file "prayer")
                (:file "initialize")))

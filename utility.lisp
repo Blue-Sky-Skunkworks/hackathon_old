@@ -36,3 +36,19 @@
   (unless (probe-file filename) (error "Missing ~S." filename))
   (values-list (mapcar #'parse-integer (split-sequence #\x (third (split-sequence #\space (run-program-to-string "identify" (list filename))))))))
 
+(defun slurp-file (filename &optional external-format)
+  (with-input-from-file (stream filename :external-format (or external-format :utf-8))
+    (let* ((len (file-length stream))
+           (seq (make-string len))
+           (actual-len (read-sequence seq stream)))
+      (if (< actual-len len)
+        ;; KLUDGE eh, FILE-LENGTH doesn't know about utf8 so we use some duct tape
+        (string-right-trim '(#\nul) seq)
+        seq))))
+
+(defmacro to-json (item)
+  `(json:encode-json-to-string ,item))
+
+(defmacro from-json (item)
+  `(json:decode-json-from-string ,item))
+
