@@ -101,7 +101,7 @@
                                                       ("sponsors" "page(\"/sponsors\");" "card-giftcard" "Our Sponsors")
                                                       ("conduct" "page(\"/code-of-conduct\");" "gavel" "Code of Conduct")
                                                       ("prayer" "page(\"/prayer\");" "flag" "Prayer Flags")
-                                                      ("moon" "page(\"/time\");" "hourglass-empty" "The Time")
+                                                      ("time" "page(\"/time\");" "hourglass-empty" "The Time")
                                                       ("source-code" ,(ps (visit-source-code)) "code" "Code For This Site")))
                                                (card :class "card"
                                                      (if (null icon)

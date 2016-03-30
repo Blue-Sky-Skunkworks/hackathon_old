@@ -140,7 +140,7 @@
           (page "/code-of-conduct" (lambda () (select-page 6)))
           (page "/participate" (lambda () (select-page 7)))
           (page "/prayer" (lambda () (select-page 8)))
-          (page "/moon" (lambda () (select-page 9)))
+          (page "/time" (lambda () (select-page 9)))
           (page (create :hashbang t)))
 
         (defun animate-logos ()
