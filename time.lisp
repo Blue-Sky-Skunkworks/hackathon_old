@@ -6,6 +6,8 @@
                   (toolbar :class "time"
                            (:span :style "margin-left:0px;" :class "title" "The Time")
                            (icon-button :class "toolbar-icon" :style "margin-left:0px;" :icon "arrow-back" :onclick "page(\"/\");"))
-                  (:div :style "padding:20px;background:black;" :class "layout vertical center"
-                        (:img :src "http://api.usno.navy.mil/imagery/moon.png")))))
+                  (:div :style "padding:20px;background:black;" :class "fit layout vertical center-justified"
+                        (:center
+                         (:div :style "width:580px;height:580px;overflow:hidden;"
+                               (:img :style "margin:-220px 0 0 -220px;" :src "http://api.usno.navy.mil/imagery/moon.png")))))))
 
