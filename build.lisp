@@ -30,6 +30,7 @@
          fn)))
 
 (defun build ()
+  (note "~Asing the CDN." (if *use-cdn* "U" "Not u"))
   (build-website '(("/js.js" build-javascript)
                    ("/js/" populate-javascript)
                    ("/fonts.css" fonts-css)
