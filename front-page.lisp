@@ -78,18 +78,18 @@
                                                                         :alt "Hackathon Logo"
                                                                         :src (format nil "/images/logo-~A.png" id))))) (ripple)
                                                                         (button "page(\"/press-release\"); " "Press Release")))
-                                         (card :elevation 2 :class "card"
-                                               (:div :class "card-content" :style "padding:20px;"
-                                                     (button (ps (visit-tickets))
-                                                       :style "padding:20px;width:230px;height:240px;" :class "buy-ticket"
-                                                       (:div :class "layout vertical center"
-                                                             (:span "Get your Tickets Here!")
-                                                             (vertical-break "10px")
-                                                             (:span "Saturday Morning Unconference &mdash; Free")
-                                                             (vertical-break "10px")
-                                                             (:span "Hackathon &mdash; $15")
-                                                             (vertical-break "30px")
-                                                             (fab :tabindex -1 :class "big" :icon "notification:confirmation-number")))))
+                                         ;; (card :elevation 2 :class "card"
+                                         ;;       (:div :class "card-content" :style "padding:20px;"
+                                         ;;             (button (ps (visit-tickets))
+                                         ;;               :style "padding:20px;width:230px;height:240px;" :class "buy-ticket"
+                                         ;;               (:div :class "layout vertical center"
+                                         ;;                     (:span "Get your Tickets Here!")
+                                         ;;                     (vertical-break "10px")
+                                         ;;                     (:span "Saturday Morning Unconference &mdash; Free")
+                                         ;;                     (vertical-break "10px")
+                                         ;;                     (:span "Hackathon &mdash; $15")
+                                         ;;                     (vertical-break "30px")
+                                         ;;                     (fab :tabindex -1 :class "big" :icon "notification:confirmation-number")))))
                                          (iter (for (name onclick icon text) in
                                                     `(("schedule" "page(\"/schedule\");" "date-range" "The Event Schedule")
                                                       ("visit-wiki" ,(ps (visit-wiki)) "editor:mode-edit" "The Hackathon Wiki")
@@ -101,7 +101,7 @@
                                                       ("sponsors" "page(\"/sponsors\");" "card-giftcard" "Our Sponsors")
                                                       ("conduct" "page(\"/code-of-conduct\");" "gavel" "Code of Conduct")
                                                       ("prayer" "page(\"/prayer\");" "flag" "Prayer Flags")
-                                                      ("moon" "page(\"/moon\");" nil render-moon-card)
+                                                      ("moon" "page(\"/time\");" "hourglass-empty" "The Time")
                                                       ("source-code" ,(ps (visit-source-code)) "code" "Code For This Site")))
                                                (card :class "card"
                                                      (if (null icon)
@@ -124,7 +124,7 @@
                              (animatable (render-code-of-conduct stream))
                              (animatable (render-participate stream))
                              (animatable (render-prayer stream))
-                             (animatable (render-moon stream)))
+                             (animatable (render-time stream)))
              (:script (str (ps (when-ready (lambda ()
                                              (setup-routing)
                                              (animate-logos)
