@@ -11,7 +11,7 @@
                               (:h1 "FOR IMMEDIATE RELEASE")
                               (:table
                                (:tr (:td :style "padding-right:20px;" "Event Name:") (:td "Missoula Civic Hackathon"))
-                               (:tr (:td :style "padding-right:20px;" "Event Dates:") (:td "March 26-27, 2016"))
+                               (:tr (:td :style "padding-right:20px;" "Event Dates:") (:td "June 25-26, 2016"))
                                (:tr (:td :style "padding-right:20px;vertical-align:top;" "Event Location:") (:td
                                                                                                              "Phyllis J. Washington Education Center" (:br)
                                                                                                              "32 Campus Drive" (:br)
@@ -30,30 +30,30 @@ to Build Solutions to Civic Problems")
 
                               (:h2 "What's happening and who's it for?")
 
-                              (:p "Missoula is set to host its first Civic Hackathon from
-March 26 through the 27th, 2016. Civic Hackathons are
-events where developers, designers, artists, students,
-researchers, civic leaders, and citizens come together to
-share ideas, form teams, and work towards tangible
-solutions to the problems we all face daily in the towns
-we live. Local technical experts, professors and civic
-leaders will be on hand to coach teams.")
+                              (:p "Missoula is set to host its second
+Civic Hackathon from June 25 through the 26th, 2016. Civic Hackathons
+are events where developers, designers, artists, students,
+researchers, civic leaders, and citizens come together to share ideas,
+form teams, and work towards tangible solutions to the problems we all
+face daily in the towns we live. Local technical experts, professors
+and civic leaders will be on hand to coach teams.")
 
-                              (:p "“The opportunity to meet other developers and people with
-pressing civic problems and to work towards a common goal, while at
-the same time having fun, learning much, and making friends, is truly
-valuable and often-times rarely experienced.” says William
-Halliburton who attended Spokane SpoCode Civic Hackathon 2014.")
+                              (:p "“The opportunity to meet other
+developers and people with pressing civic problems and to work towards
+a common goal, while at the same time having fun, learning much, and
+making friends, is truly valuable and often-times rarely experienced.”
+says William Halliburton who attended Spokane SpoCode Civic Hackathon
+2014.")
 
-                              (:p "“Although I am not a computer programmer, I love the idea of working
-with fellow Missoulians to accomplish something for this great city
-that will serve not just this locality but potentially localities all
-over. If we can solve a problem here, who's to say that it can't at
-the very least be tested in other cities.” says community member Luke
-Robinson.")
+                              (:p "“Although I am not a computer
+programmer, I love the idea of working with fellow Missoulians to
+accomplish something for this great city that will serve not just this
+locality but potentially localities all over. If we can solve a
+problem here, who's to say that it can't at the very least be tested
+in other cities.” says community member Luke Robinson.")
 
-                              (:p "“In the real world of work, purpose finding is what
-leaders do.” -  Robert E. Quinn")
+                              (:p "“In the real world of work, purpose
+finding is what leaders do.” - Robert E. Quinn")
 
                               (:h2 "Why attend a Civic Hackathon Event?")
 
@@ -84,8 +84,8 @@ skills will be encouraged to help on multiple projects.")
 
                               (:p "The detailed Missoula Civic Hackathon Schedule can be found online at
 <a target=\"_blank\" href=\"http://missoulacivichackathon.org/#!/schedule\">http://missoulacivichackathon.org/</a>. The hours of the event are Saturday,
-March 26, 2016 from 8:30 a.m. through the night to 7:00 p.m Sunday,
-March 27.")
+June 25, 2016 from 8:30 a.m. through the night to 6:00 p.m Sunday,
+June 26.")
 
                               (:p "It will be held on the University
 of Montana Campus at the")
