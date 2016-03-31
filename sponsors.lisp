@@ -1,5 +1,30 @@
 (in-package :hackathon)
 
+(defparameter *sponsors*
+  '(("Blue Sky Stewardship" "http://blueskystewardship.org" "BSS")))
+
+(defparameter *spring-2016-sponsors*
+  '(("Phyllis J. Washington College of Education & Human Sciences" "http://www.coehs.umt.edu/" "PJWEC")
+    ("Moonlight Kitchens" "http://moonlightkitchens.com/" "MK")
+    ("Montana Webmasters" "http://montanawebmaster.com/" "MW")
+    ("Blue Sky Stewardship" "http://blueskystewardship.org" "BSS")
+    ("Free Cycles" "http://www.freecycles.org" "FC")
+    ("Omega Alpha Recycling Systems" "http://www.omega-alpharecycling.com/" "OARS")
+    ("Montana Code School" "http://montanacodeschool.com/" "MCS")
+    ("Geodata Services Inc." "http://www.geodataservicesinc.com/" "GD")
+    ("Washington Companies" "http://www.washcorp.com/" "WC")
+    ("Rockin' Rudys's" "http://www.rockinrudys.com/" "RR")
+    ("Butterfly Herbs" "http://www.butterflyherbs.com/" "BH")
+    ("Re: Industries" "http://www.reindustries.org/" "RI")
+    ("The University of Montana" "http://www.umt.edu/" "UM" t)
+    ("City Brew Coffee" "http://citybrew.com/" "CB")
+    ("Missoula Fresh Market" "http://missoulafm.com/" "FM")
+    ("The Good Food Store" "http://www.goodfoodstore.com/" "GFS")
+    ("Break Expresso" "https://www.facebook.com/BreakEspressoMissoula/" "BE")
+    ("Climate Smart Missoula" "http://www.missoulaclimate.org/zero-waste.html" "CS")
+    ("Home ReSource" "http://www.homeresource.org/" "HR")
+    ("Montana Institute for Sustainable Transportation" "http://www.strans.org/" "MIST")))
+
 (defun render-sponsors (stream)
   (html
     (header-panel :mode "seamed"
@@ -13,27 +38,7 @@
                         (vertical-break "30px")
                         (:div :id "sponsors" :style "padding:10px 60px 10px 60px;"
                               (iter (for index from 0)
-                                    (for (name url image grey) in
-                                         '(("Phyllis J. Washington College of Education & Human Sciences" "http://www.coehs.umt.edu/" "PJWEC")
-                                           ("Moonlight Kitchens" "http://moonlightkitchens.com/" "MK")
-                                           ("Montana Webmasters" "http://montanawebmaster.com/" "MW")
-                                           ("Blue Sky Stewardship" "http://blueskystewardship.org" "BSS")
-                                           ("Free Cycles" "http://www.freecycles.org" "FC")
-                                           ("Omega Alpha Recycling Systems" "http://www.omega-alpharecycling.com/" "OARS")
-                                           ("Montana Code School" "http://montanacodeschool.com/" "MCS")
-                                           ("Geodata Services Inc." "http://www.geodataservicesinc.com/" "GD")
-                                           ("Washington Companies" "http://www.washcorp.com/" "WC")
-                                           ("Rockin' Rudys's" "http://www.rockinrudys.com/" "RR")
-                                           ("Butterfly Herbs" "http://www.butterflyherbs.com/" "BH")
-                                           ("Re: Industries" "http://www.reindustries.org/" "RI")
-                                           ("The University of Montana" "http://www.umt.edu/" "UM" t)
-                                           ("City Brew Coffee" "http://citybrew.com/" "CB")
-                                           ("Missoula Fresh Market" "http://missoulafm.com/" "FM")
-                                           ("The Good Food Store" "http://www.goodfoodstore.com/" "GFS")
-                                           ("Break Expresso" "https://www.facebook.com/BreakEspressoMissoula/" "BE")
-                                           ("Climate Smart Missoula" "http://www.missoulaclimate.org/zero-waste.html" "CS")
-                                           ("Home ReSource" "http://www.homeresource.org/" "HR")
-                                           ("Montana Institute for Sustainable Transportation" "http://www.strans.org/" "MIST")))
+                                    (for (name url image grey) in *sponsors*)
                                     (multiple-value-bind (width height) (png-image-size
                                                                          (hackathon-file (format nil "images/sponsors/~A.png" image)))
                                       (card :class "card" :id (format nil "card-~A" index)
