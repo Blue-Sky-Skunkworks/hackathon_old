@@ -53,7 +53,7 @@
                            (if *use-cdn* (cdn-url dir (format nil "~A.html" name)) (format nil "js/~A/~A.html" dir name))))))
 
        (:script :src "js/packery/dist/packery.pkgd.min.js" :type "text/javascript")
-       (:script :src "js/page.js/page.js" :type "text/javascript")
+       (:script :src "js/page/page.js" :type "text/javascript")
        (:script :src "js/photoswipe/dist/photoswipe.min.js" :type "text/javascript")
        (:link :rel "stylesheet" :type "text/css" :href "js/photoswipe/dist/photoswipe.css")
        (:link :rel "stylesheet" :type "text/css" :href "js/photoswipe/dist/default-skin/default-skin.css")

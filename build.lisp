@@ -3,9 +3,6 @@
 (defun build-webpage-directory (path fn)
   )
 
-(defun populate-javascript ()
-  (cl-fad:list-directory (hackathon-file "bower_components/")))
-
 (defun build-webpage-generated (path fn)
   (ensure-directories-exist path)
   (with-output-to-file (stream path :if-exists :supersede :if-does-not-exist :create)
@@ -32,7 +29,6 @@
 (defun build ()
   (note "~Asing the CDN." (if *use-cdn* "U" "Not u"))
   (build-website '(("/js.js" build-javascript)
-                   ("/js/" populate-javascript)
                    ("/fonts.css" fonts-css)
                    ("/custom.html" build-custom-stylesheet)
                    ("/index.html" render-front-page))))
