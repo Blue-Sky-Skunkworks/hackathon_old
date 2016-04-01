@@ -131,8 +131,5 @@
                                              (animate-logos)
                                              (animate-sponsors)
                                              )))))
-             (str (slurp-file (hackathon-file "includes/photoswipe.html")))
-
-
-             ))))
+             (str (slurp-file (hackathon-file "includes/photoswipe.html")))))))
 
