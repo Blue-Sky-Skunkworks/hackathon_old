@@ -269,11 +269,7 @@
             ((@ cx line-to) 173 198)
             ((@ cx clip))
 
-            ((@ cx begin-path))
-            (setf (@ cx line-width) 29)
-            ((@ cx arc) 173 181 62 0 (* (@ *math *p-i) 2) t)
-            ((@ cx stroke))
-
+            (arc cx 173 181 62 :line-width 29)
 
             )
 
