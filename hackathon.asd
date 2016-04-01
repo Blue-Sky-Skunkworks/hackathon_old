@@ -22,5 +22,4 @@
                (:file "participate")
                (:file "prayer")
                (:file "time")
-               (:file "logo")
                (:file "initialize")))

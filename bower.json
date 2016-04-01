@@ -1,30 +1,29 @@
 {
-    "name": "hackathon",
-    "homepage": "https://github.com/Blue-Sky-Skunkworks/hackathon.git",
-    "description": "Static website generator for the Missoula Civic Hackathon 2016.",
-    "main": "",
-    "moduleType": [],
-    "authors": [
-        "William Halliburton"
-    ],
-    "license": "MIT",
-    "private": true,
-    "ignore": [
-        "**/.*",
-        "node_modules",
-        "bower_components",
-        "test",
-        "tests"
-    ],
-    "dependencies": {
-        "packery": null,
-        "photoswipe": null,
-        "iron-elements": null,
-        "paper-elements": null,
-        "neon-elements": null,
-        "google-map": null,
-        "page": null,
-        "suncalc": null,
-        "d3": null,
-    }
+  "name": "hackathon",
+  "homepage": "https://github.com/Blue-Sky-Skunkworks/hackathon.git",
+  "description": "Static website generator for the Missoula Civic Hackathon 2016.",
+  "main": "",
+  "moduleType": [],
+  "authors": [
+    "William Halliburton"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+      "packery": null,
+      "photoswipe": null,
+      "iron-elements": null,
+      "paper-elements": null,
+      "neon-elements": null,
+      "google-map": null,
+      "page": null,
+      "suncalc": null
+  }
 }
