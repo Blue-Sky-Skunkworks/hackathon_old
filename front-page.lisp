@@ -70,15 +70,12 @@
                              (animatable :id "top-grid"
                                          (card :elevation 5 :class "card press-release" :style "cursor:pointer;" :onclick "page(\"/press-release\")"
                                                (:div :class "card-content layout vertical center" :style "padding:30px;"
-                                                     (pages
-                                                       :id "logos" :style "width:522px;height:582px;"
-                                                       :selected 0
-                                                       (iter (for id in '(1 2 3 4 5 6))
-                                                             (htm (:img :style "margin-bottom:20px;"
-                                                                        :alt "Hackathon Logo"
-                                                                        :width 522 :height 582
-                                                                        :src (format nil "/images/logo-~A.png" id))))) (ripple)
-                                                                        (button "page(\"/press-release\"); " "Press Release")))
+                                                     (:img :style "margin-bottom:20px;"
+                                                           :alt "Hackathon Logo"
+                                                           :width 522 :height 582
+                                                           :src "/images/logo-1.png")
+                                                     (ripple)
+                                                     (button "page(\"/press-release\"); " "Press Release")))
                                          ;; (card :elevation 2 :class "card"
                                          ;;       (:div :class "card-content" :style "padding:20px;"
                                          ;;             (button (ps (visit-tickets))
@@ -128,7 +125,6 @@
                              (animatable (render-time stream)))
              (:script (str (ps (when-ready (lambda ()
                                              (setup-routing)
-                                             (animate-logos)
                                              (animate-sponsors)
                                              )))))
              (str (slurp-file (hackathon-file "includes/photoswipe.html")))))))

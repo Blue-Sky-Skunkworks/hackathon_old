@@ -143,16 +143,6 @@
           (page "/time" (lambda () (select-page 9)))
           (page (create :hashbang t)))
 
-        (defun animate-logos ()
-          (set-timeout (lambda () (animate-logo (get-by-id "logos"))) 5000))
-
-        (defun animate-logo (el)
-          (let ((index (parse-int (@ el selected))))
-            (when (= index 5) (setf index -1))
-            (setf index (+ index 1))
-            (setf (@ el selected) index)
-            (animate-logos)))
-
         (defun set-map-zoom (z)
           (let ((el (get-by-id "map")))
             (setf (@ el zoom) z
