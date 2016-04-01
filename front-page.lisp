@@ -70,10 +70,7 @@
                              (animatable :id "top-grid"
                                          (card :elevation 5 :class "card press-release" :style "cursor:pointer;" :onclick "page(\"/press-release\")"
                                                (:div :class "card-content layout vertical center" :style "padding:30px;"
-                                                     (:img :style "margin-bottom:20px;"
-                                                           :alt "Hackathon Logo"
-                                                           :width 522 :height 582
-                                                           :src "/images/logo-1.png")
+                                                     (render-logo stream)
                                                      (ripple)
                                                      (button "page(\"/press-release\"); " "Press Release")))
                                          ;; (card :elevation 2 :class "card"
