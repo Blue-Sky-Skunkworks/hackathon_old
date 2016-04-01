@@ -77,6 +77,9 @@
            (console *trace-level* ,sname "returned" rtn)
            (return rtn))))))
 
+
+(defun js-file ()
+  *js-file*)
 (defparameter *js-file*
   (concatenate
    'string
@@ -219,60 +222,60 @@
 
         (defvar *logo-cell* nil)
 
-        (defun-trace animate-logo ()
-         (let ((img ((@  document create-element) "img")))
-           (setf *logo-cell* img
-                 (@ img src) "/images/logo-cell.png")
-           ((@ img add-event-listener) "load" animate-logo-go)))
+        (defun arc (cx x y radius &key (start 0) (end (* (@ *math *p-i) 2)) fill line-width)
+          ((@ cx begin-path))
+          (when line-width (setf (@ cx line-width) line-width))
+          ((@ cx arc) x y radius start end t)
+          (if fill
+              ((@ cx fill))
+              ((@ cx stroke))))
 
-        (defun-trace animate-logo-go ()
-         (let* ((canvas (get-by-id "logo"))
-                (cx ((@ canvas get-context) "2d")))
-           (loop
-              for row from 0 to 7
-              do
-                (loop for col from 0 to 7
-                   do ((@ cx draw-image) *logo-cell* (+ 1 (* col 43)) (+ 2 (* row 42)))))
+        (defun animate-logo ()
+          (let ((img ((@  document create-element) "img")))
+            (setf *logo-cell* img
+                  (@ img src) "/images/logo-cell.png")
+            ((@ img add-event-listener) "load" animate-logo-go)))
 
-
-           (setf (@ cx fill-style) "white"
-                 (@ cx stroke-style) "white")
-           ((@ cx begin-path))
-           ((@ cx arc) 173 181 33 0 (* (@ *math *p-i) 2) t)
-           ((@ cx fill))
-
-           ((@ cx begin-path))
-           (setf (@ cx line-width) 29)
-           ((@ cx arc) 173 181 111 0 (* (@ *math *p-i) 2) t)
-           ((@ cx stroke))
-
-           ((@ cx begin-path))
-           (let ((theta (- (@ *math *p-i) (* (@ *math *p-i) (/ 69 180)))))
-             ((@ cx arc) 173 181 111 theta (+ theta (- (/ (@ *math *p-i) 4.4))) t))
-           ((@ cx line-to) 173 181)
-           ((@ cx fill))
-
-           ((@ cx begin-path))
-           ((@ cx move-to) 173 164)
-           ((@ cx line-to) 0 164)
-           ((@ cx line-to) 0 0)
-           ((@ cx line-to) 350 0)
-           ((@ cx line-to) 350 340)
-           ((@ cx line-to) 0 340)
-           ((@ cx line-to) 0 198)
-           ((@ cx line-to) 173 198)
-           ((@ cx clip))
-
-           ((@ cx begin-path))
-           (setf (@ cx line-width) 29)
-           ((@ cx arc) 173 181 62 0 (* (@ *math *p-i) 2) t)
-           ((@ cx stroke))
+        (defun animate-logo-go ()
+          (let* ((canvas (get-by-id "logo"))
+                 (cx ((@ canvas get-context) "2d")))
+            (loop
+               for row from 0 to 7
+               do
+                 (loop for col from 0 to 7
+                    do ((@ cx draw-image) *logo-cell* (+ 1 (* col 43)) (+ 2 (* row 42)))))
 
 
-           )
+            (setf (@ cx fill-style) "white"
+                  (@ cx stroke-style) "white")
 
-         ))))))
+            (arc cx 173 181 33 :fill t)
+            (arc cx 173 181 111 :line-width 29)
 
-(defun js-file ()
-  *js-file*)
+            ((@ cx begin-path))
+            (let ((theta (- (@ *math *p-i) (* (@ *math *p-i) (/ 69 180)))))
+              ((@ cx arc) 173 181 111 theta (+ theta (- (/ (@ *math *p-i) 4.4))) t))
+            ((@ cx line-to) 173 181)
+            ((@ cx fill))
+
+            ((@ cx begin-path))
+            ((@ cx move-to) 173 164)
+            ((@ cx line-to) 0 164)
+            ((@ cx line-to) 0 0)
+            ((@ cx line-to) 350 0)
+            ((@ cx line-to) 350 340)
+            ((@ cx line-to) 0 340)
+            ((@ cx line-to) 0 198)
+            ((@ cx line-to) 173 198)
+            ((@ cx clip))
+
+            ((@ cx begin-path))
+            (setf (@ cx line-width) 29)
+            ((@ cx arc) 173 181 62 0 (* (@ *math *p-i) 2) t)
+            ((@ cx stroke))
+
+
+            )
+
+          ))))))
 
