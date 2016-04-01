@@ -1,5 +1,8 @@
 .~
 .sass-cache/
 log/
-build/
 bower_components/
+!/build
+/build/*
+!/build/js
+!/build/images
