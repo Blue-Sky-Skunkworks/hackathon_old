@@ -6,3 +6,4 @@ bower_components/
 /build/*
 !/build/js
 !/build/images
+!/build/includes

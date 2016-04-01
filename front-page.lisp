@@ -57,7 +57,7 @@
        (:script :src "js/photoswipe/dist/photoswipe.min.js" :type "text/javascript")
        (:link :rel "stylesheet" :type "text/css" :href "js/photoswipe/dist/photoswipe.css")
        (:link :rel "stylesheet" :type "text/css" :href "js/photoswipe/dist/default-skin/default-skin.css")
-       (:script :src "inc/photoswipe-ui-default.js" :type "text/javascript")
+       (:script :src "includes/photoswipe-ui-default.js" :type "text/javascript")
        (:script :src "js.js" :type "text/javascript")
        (:link :rel "import" :href "custom.html"))
 
