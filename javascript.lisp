@@ -217,6 +217,23 @@
           (setf *gallery* gallery)
           ((@ gallery init)))
 
+        (defvar *logo-cell* nil)
+
+        (defun-trace animate-logo ()
+         (let ((img ((@  document create-element) "img")))
+           (setf *logo-cell* img
+                 (@ img src) "/images/logo-cell.png")
+           ((@ img add-event-listener) "load" animate-logo-go)))
+
+        (defun-trace animate-logo-go ()
+         (let* ((canvas (get-by-id "logo"))
+                (c ((@ canvas get-context) "2d")))
+           (loop
+              for row from 0 to 7
+              do
+                (loop for col from 0 to 7
+                   do ((@ c draw-image) *logo-cell* (* col 42) (* row 42))))
+           ))
         )))))
 
 (defun js-file ()

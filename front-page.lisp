@@ -123,6 +123,5 @@
              (:script (str (ps (when-ready (lambda ()
                                              (setup-routing)
                                              (animate-sponsors)
-                                             )))))
+                                             (animate-logo))))))
              (str (slurp-file (hackathon-file "includes/photoswipe.html")))))))
-
