@@ -269,9 +269,5 @@
             ((@ cx line-to) 173 198)
             ((@ cx clip))
 
-            (arc cx 173 181 62 :line-width 29)
-
-            )
-
-          ))))))
+            (arc cx 173 181 62 :line-width 29))))))))
 
