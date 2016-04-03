@@ -125,6 +125,9 @@
         (defun visit-email-list ()
           (visit-url "https://groups.google.com/forum/#!forum/missoula-civic-hackathon"))
 
+        (defun join-school ()
+          (visit-url "https://groups.google.com/forum/#!forum/missoula-civic-hackathon-students"))
+
         (defun visit-wiki ()
           (visit-url "https://github.com/Blue-Sky-Skunkworks/missoula-civic-hackathon-notes/wiki"))
 
@@ -145,6 +148,7 @@
           (page "/prayer" (lambda () (select-page 8)))
           (page "/time" (lambda () (select-page 9)))
           (page "/government" (lambda () (select-page 10)))
+          (page "/school" (lambda () (select-page 11)))
           (page (create :hashbang t)))
 
 

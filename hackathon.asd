@@ -24,4 +24,5 @@
                (:file "time")
                (:file "logo")
                (:file "government")
+               (:file "school")
                (:file "initialize")))

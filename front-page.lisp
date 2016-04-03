@@ -99,6 +99,7 @@
                                                       ("conduct" "page(\"/code-of-conduct\");" "gavel" "Code of Conduct")
                                                       ("prayer" "page(\"/prayer\");" "flag" "Prayer Flags")
                                                       ("time" "page(\"/time\");" "hourglass-empty" "The Time")
+                                                      ("school" "page(\"/school\");" "social:school" "The Programming School")
                                                       ("source-code" ,(ps (visit-source-code)) "code" "Code For This Site")))
                                                (card :class "card"
                                                      (if (null icon)
@@ -122,9 +123,11 @@
                              (animatable (render-participate stream))
                              (animatable (render-prayer stream))
                              (animatable (render-time stream))
-                             (animatable (render-government stream)))
+                             (animatable (render-government stream))
+                             (animatable (render-school stream)))
              (:script (str (ps (when-ready (lambda ()
                                              (setup-routing)
                                              (animate-sponsors)
                                              (animate-logo))))))
              (str (slurp-file (hackathon-file "includes/photoswipe.html")))))))
+
