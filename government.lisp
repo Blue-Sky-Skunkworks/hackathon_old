@@ -1,7 +1,7 @@
 (in-package :hackathon)
 
 (defparameter *government*
-   '(("Senator John Tester" "http://www.tester.senate.gov/" "Tester")))
+   '(("Senator John Tester" "http://www.tester.senate.gov/" "Tester" render-tester-button)))
 
 (defun render-government (stream)
   (html
@@ -14,13 +14,17 @@
                         (vertical-break "30px")
                         (:div :id "government" :style "padding:10px 60px 10px 60px;"
                               (iter (for index from 0)
-                                    (for (name url image grey) in *government*)
+                                    (for (name url image additional) in *government*)
                                     (multiple-value-bind (width height) (png-image-size
                                                                          (hackathon-file (format nil "images/government/~A.png" image)))
                                       (card :class "card" :id (format nil "card-~A" index)
-                                            (:div :class (concatenate 'string "card-content" (when grey " grey"))
+                                            (:div :class "card-content layout vertical center"
                                                   (:a :target "_blank" :href url
                                                       (if image
                                                           (htm (:img :alt name :width width :height height
                                                                      :src (format nil "images/government/~A.png" image)))
-                                                          (esc name))))))))))))
+                                                          (esc name)))
+                                                  (when additional (funcall additional stream)))))))))))
+
+(defun render-tester-button (stream)
+  (button "viewTestersMessage();" "Read the Senator's Message"))

@@ -147,6 +147,13 @@
           (page "/government" (lambda () (select-page 10)))
           (page (create :hashbang t)))
 
+
+        (defun visit-url (url)
+          ((@ window open) url "_blank"))
+
+        (defun view-testers-message ()
+          (visit-url "/includes/Senator-Tester-Spring-2016-Hackathon-Message.pdf"))
+
         (defun set-map-zoom (z)
           (let ((el (get-by-id "map")))
             (setf (@ el zoom) z
