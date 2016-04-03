@@ -2,15 +2,11 @@
 
 ;; 1875x1470
 
+(defparameter *prayer-count* 8)
+
 (defun list-prayers ()
-  (iter (for el
-             ;; in
-             ;; (from-json
-             ;;  (flexi-streams:octets-to-string
-             ;; (drakma:http-request "https://api.github.com/repos/Blue-Sky-Skunkworks/missoula-civic-hackathon-notes/contents/prayers")))
-             from 1 to 8)
-        (collect
-         (format nil "https://raw.githubusercontent.com/Blue-Sky-Skunkworks/missoula-civic-hackathon-notes/master/prayers/~At.jpg" el))))
+  (iter (for el from 1 to *prayer-count*)
+        (collect (format nil "images/prayers/~At.jpg" el))))
 
 (defun render-prayer (stream)
   (html
@@ -22,8 +18,7 @@
                         (iter (for name in (list-prayers))
                               (for index from 1)
                               (card :class "prayer"
-                                    :onclick (format nil "showImageGallery(event,\"prayers\",\"https://raw.githubusercontent.com/Blue-Sky-Skunkworks/missoula-civic-hackathon-notes/master/prayers/\",~A);" index)
-
+                                    :onclick (format nil "showImageGallery(event,\"prayers\",\"images/prayers/\",~A);" index)
                                     (htm (:img :id (format nil "i-~A" index) :document-id index
                                                :image-size "1875x1470" :src name :width "600px"))))))))
 
