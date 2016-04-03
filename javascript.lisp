@@ -144,6 +144,7 @@
           (page "/participate" (lambda () (select-page 7)))
           (page "/prayer" (lambda () (select-page 8)))
           (page "/time" (lambda () (select-page 9)))
+          (page "/government" (lambda () (select-page 10)))
           (page (create :hashbang t)))
 
         (defun set-map-zoom (z)

@@ -23,4 +23,5 @@
                (:file "prayer")
                (:file "time")
                (:file "logo")
+               (:file "government")
                (:file "initialize")))

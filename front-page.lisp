@@ -34,6 +34,7 @@
                           ("iron-icons" "editor-icons")
                           ("iron-icons" "notification-icons")
                           ("iron-icons" "communication-icons")
+                          ("iron-icons" "social-icons")
                           "paper-styles"
                           "paper-button"
                           "paper-icon-button"
@@ -94,6 +95,7 @@
                                                                  "Ride & Couch Sharing")
                                                       ("email-list" ,(ps (visit-email-list)) "communication:email" "Join the Email List")
                                                       ("sponsors" "page(\"/sponsors\");" "card-giftcard" "Our Sponsors")
+                                                      ("government" "page(\"/government\");" "social:location-city" "Friends in Government")
                                                       ("conduct" "page(\"/code-of-conduct\");" "gavel" "Code of Conduct")
                                                       ("prayer" "page(\"/prayer\");" "flag" "Prayer Flags")
                                                       ("time" "page(\"/time\");" "hourglass-empty" "The Time")
@@ -119,7 +121,8 @@
                              (animatable (render-code-of-conduct stream))
                              (animatable (render-participate stream))
                              (animatable (render-prayer stream))
-                             (animatable (render-time stream)))
+                             (animatable (render-time stream))
+                             (animatable (render-government stream)))
              (:script (str (ps (when-ready (lambda ()
                                              (setup-routing)
                                              (animate-sponsors)
