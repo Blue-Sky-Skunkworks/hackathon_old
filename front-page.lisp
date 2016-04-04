@@ -99,7 +99,7 @@
                                                       ("conduct" "page(\"/code-of-conduct\");" "gavel" "Code of Conduct")
                                                       ("prayer" "page(\"/prayer\");" "flag" "Prayer Flags")
                                                       ("time" "page(\"/time\");" "hourglass-empty" "The Time")
-                                                      ("school" "page(\"/school\");" "social:school" "The Programming School")
+                                                      ("school" "page(\"/school\");" "social:school" "Hackathon Programming School")
                                                       ("source-code" ,(ps (visit-source-code)) "code" "Code For This Site")))
                                                (card :class "card"
                                                      (if (null icon)

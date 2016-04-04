@@ -2,7 +2,6 @@
 
 (defparameter *sponsors*
   '(("Phyllis J. Washington College of Education & Human Sciences" "http://www.coehs.umt.edu/" "PJWEC")
-    ("Blue Sky Stewardship" "http://blueskystewardship.org" "BSS")
     ("Montana Code School" "http://montanacodeschool.com/" "MCS")))
 
 (defparameter *spring-2016-sponsors*
