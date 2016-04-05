@@ -25,4 +25,5 @@
                (:file "logo")
                (:file "government")
                (:file "school")
+               (:file "media")
                (:file "initialize")))

@@ -149,6 +149,7 @@
           (page "/time" (lambda () (select-page 9)))
           (page "/government" (lambda () (select-page 10)))
           (page "/school" (lambda () (select-page 11)))
+          (page "/media" (lambda () (select-page 12) (setup-packing "medias" "card" 60)))
           (page (create :hashbang t)))
 
 

@@ -100,6 +100,7 @@
                                                       ("prayer" "page(\"/prayer\");" "flag" "Prayer Flags")
                                                       ("time" "page(\"/time\");" "hourglass-empty" "The Time")
                                                       ("school" "page(\"/school\");" "social:school" "Hackathon Programming School")
+                                                      ("media" "page(\"/media\");" "visibility" "Media Coverage")
                                                       ("source-code" ,(ps (visit-source-code)) "code" "Code For This Site")))
                                                (card :class "card"
                                                      (if (null icon)
@@ -124,7 +125,8 @@
                              (animatable (render-prayer stream))
                              (animatable (render-time stream))
                              (animatable (render-government stream))
-                             (animatable (render-school stream)))
+                             (animatable (render-school stream))
+                             (animatable (render-media stream)))
              (:script (str (ps (when-ready (lambda ()
                                              (setup-routing)
                                              (animate-sponsors)
