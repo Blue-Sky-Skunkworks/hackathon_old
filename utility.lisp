@@ -52,3 +52,19 @@
 (defmacro from-json (item)
   `(json:decode-json-from-string ,item))
 
+(defun mkstr (&rest args)
+  (with-output-to-string (s)
+    (dolist (a args) (when a (princ a s)))))
+
+(defun symb (&rest args)
+  (values (intern (apply #'mkstr args))))
+
+(defun ksymb (&rest args)
+  (values (intern (apply #'mkstr args) :keyword)))
+
+(defmacro with-assoc-values ((alist names &key (test 'eql)) &body body)
+  (with-gensyms (data)
+    `(let* ((,data ,alist)
+            ,@(iter (for name in (ensure-list names))
+                    (collect `(,(symb (string-upcase name)) (assoc-value ,data ,name :test ',test)))))
+       ,@body)))
