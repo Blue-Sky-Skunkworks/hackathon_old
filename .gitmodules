@@ -1,6 +1,6 @@
 [submodule "brigade-information"]
 	path = brigade-information
-	url = https://github.com/Blue-Sky-Skunkworks/brigade-information
+	url = git@github.com:Blue-Sky-Skunkworks/brigade-information.git
 [submodule "missoula-civic-hackathon-notes.wiki"]
 	path = missoula-civic-hackathon-notes.wiki
 	url = git@github.com:Blue-Sky-Skunkworks/missoula-civic-hackathon-notes.wiki.git
