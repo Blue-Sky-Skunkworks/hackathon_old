@@ -19,7 +19,7 @@
     (:html
       (:head
        (:title "Missoula Civic Hackathon")
-       (str *analytics*)
+       (when *use-cdn* (str *analytics*))
        (:script :type "text/javascript" :src (if *use-cdn* (cdn-url "webcomponentsjs" "webcomponents-lite.js")
                                                  "js/webcomponentsjs/webcomponents-lite.js") )
        (:link :rel "icon" :href "images/favicon.png" :type "image/png")
