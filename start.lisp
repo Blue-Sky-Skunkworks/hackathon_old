@@ -106,7 +106,7 @@
     (cdr (assoc 'asdf:load-op (asdf:component-depends-on 'asdf:prepare-op (asdf:find-system system)))))
 
   (defparameter *excluded-libraries*
-    '(:helpers :deck-client :event-client :sail))
+    '())
 
   (defun support-libraries (systems)
     (loop for system in systems
@@ -145,17 +145,8 @@
 
 (format t "PID ~A~%" (sb-unix:unix-getpid))
 
-(require :stefil)
-;; stefil is capturing the now closed library.errors.txt file
-;; (setf stefil::*test-run-standard-output* *standard-output*)
-
 (format t "loading the ~(~A~)...~%" *project*)
 
-(with-backtrace-exit
-  (let ((asdf:*asdf-verbose* nil)
-        (*compile-verbose* nil)
-        (*compile-print* nil))
-    (require 'helpers)))
 
 (let ((count 0))
   (defun progress-macroexpand-hook (expander form env)
@@ -180,15 +171,23 @@
       (handler-bind ((sb-ext:compiler-note #'muffle-warning))
         (require *project*)))))
 
-(helpers:start-swank)
+(require 'swank)
+
+(defun start-swank (&optional (port 4005))
+  (loop for try-port from port
+     do (handler-case
+            (progn
+              (swank:create-server :dont-close t :port try-port)
+              (return try-port))
+          (sb-bsd-sockets:address-in-use-error ()
+            ;; (warn "SWANK port ~a taken, trying the next." try-port)
+            ))))
+
+(start-swank)
 
 (format t "~%initializing...~%")
 
 (funcall (find-symbol "INITIALIZE" *project*))
-
-(when *run-all-tests*
-  (format t "Running all tests...~2%")
-  (funcall (find-symbol "RUN-TESTS" :helpers)))
 
 ;; (when *report-code-coverage*
 ;;   (let ((dir "/mnt/projects/coverage-reports/" ))

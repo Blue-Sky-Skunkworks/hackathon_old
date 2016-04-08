@@ -34,7 +34,7 @@
                    ("/index.html" render-front-page))))
 
 (defun build-custom-stylesheet ()
-  (helpers:slurp-file (hackathon-file "custom.html")))
+  (slurp-file (hackathon-file "custom.html")))
 
 (defun build-javascript () (hackathon-js::js-file))
 
