@@ -2,7 +2,14 @@
 
 (defparameter *sponsors*
   '(("Phyllis J. Washington College of Education & Human Sciences" "http://www.coehs.umt.edu/" "PJWEC")
-    ("Montana Code School" "http://montanacodeschool.com/" "MCS")))
+    ("Blue Sky Stewardship" "http://blueskystewardship.org" "BSS")
+    ("Montana Code School" "http://montanacodeschool.com/" "MCS")
+    ("Free Cycles" "http://www.freecycles.org" "FC")
+    ("The University of Montana" "http://www.umt.edu/" "UM" t)
+    ("Re: Industries" "http://www.reindustries.org/" "RI")
+    ("Montana Institute for Sustainable Transportation" "http://www.strans.org/" "MIST")
+    ("Geodata Services Inc." "http://www.geodataservicesinc.com/" "GD")
+    ("Code for America" "http://www.codeforamerica.org" "CFA")))
 
 (defparameter *spring-2016-sponsors*
   '(("Phyllis J. Washington College of Education & Human Sciences" "http://www.coehs.umt.edu/" "PJWEC")
