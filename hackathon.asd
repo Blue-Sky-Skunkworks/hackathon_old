@@ -1,10 +1,9 @@
 (defsystem :hackathon
   :serial t
-  :depends-on ("alexandria" "cl-who" "parenscript" "hunchentoot" "split-sequence" "zpng" "cl-json" "cl-ppcre")
+  :depends-on ("alexandria" "cl-who" "parenscript" "hunchentoot" "split-sequence" "zpng" "cl-json" "cl-ppcre" "iterate" "local-time")
   :components ((:static-file "hackathon.asd")
                (:file "package")
                (:file "slime")
-               (:file "config")
                (:file "utility")
                (:file "css")
                (:file "tracker")
