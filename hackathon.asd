@@ -25,4 +25,5 @@
                (:file "government")
                (:file "school")
                (:file "media")
+               (:file "wiki")
                (:file "initialize")))

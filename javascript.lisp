@@ -35,6 +35,13 @@
             `((@ ,@var style ,a)
                        ,(if (and b (member a *pixel-styles*)) `(+ ,b "px") b)))))
 
+(defun ensure-string (el)
+  (if (null el) ""
+    (typecase el
+      (symbol (symbol-name el))
+      (string el)
+      (t (princ-to-string el)))))
+
 (defun string-starts-with (string prefix &key (test #'char=))
   "Returns true if STRING starts with PREFIX."
   (let ((prefix (ensure-string prefix))
@@ -63,7 +70,7 @@
                               (cons car cdr))))))))
     (s tree)))
 
-(defpsmacro defun-trace (name args &rest body)
+(defpsmacro defun (name args &rest body)
   (let* ((sname (ps::symbol-to-js-string name))
          (tname (ps-gensym name))
          (this (ps-gensym "this"))
@@ -157,6 +164,8 @@
           (page "/government" (lambda () (select-page 10)))
           (page "/school" (lambda () (select-page 11)))
           (page "/media" (lambda () (select-page 12) (setup-packing "medias" "card" 60)))
+          (page "/wiki/:page" (lambda (ctx) (select-page 13) (setup-wiki (@ ctx params page))))
+          (page "/wiki" (lambda () (page "/wiki/Home")))
           (page (create :hashbang t)))
 
 
@@ -313,6 +322,26 @@
             (arc cx 173 181 62 :line-width 29)
             ((@ cx restore)))
 
-          (set-timeout (lambda () (animate-logo-go)) 6000)
-          ))))))
+          (set-timeout (lambda () (animate-logo-go)) 6000))
+
+        ;; "https://raw.github.com/wiki/Blue-Sky-Skunkworks/missoula-civic-hackathon-notes/Home.md"
+        (defun setup-wiki (page)
+         (let* ((req (create-element "iron-request"))
+                (promise ((@ req send) (create :url (+ "/wiki/" page ".md")))))
+           ((@ promise then) handle-wiki-response handle-wiki-error)))
+
+        (defun handle-wiki-response (val)
+         (let ((el (get-by-id "wiki-body")))
+           (set-inner-html el (marked (@ val response)))))
+
+        (defun handle-wiki-error (val)
+          (console "wiki error" val))
+
+        (defun get-inner-html (el)
+          (return (slot-value el 'inner-h-t-m-l)))
+
+        (defun select-ilink (ilink)
+         (page (+ "/wiki/" ((@ ilink replace) (regex "/ /g") "-"))))
+
+        )))))
 

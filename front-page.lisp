@@ -30,6 +30,7 @@
                           "iron-flex-layout"
                           "iron-pages"
                           "iron-icons"
+                          "iron-ajax"
                           ("iron-icons" "places-icons")
                           ("iron-icons" "editor-icons")
                           ("iron-icons" "notification-icons")
@@ -53,6 +54,7 @@
                (htm (:link :rel "import" :href
                            (if *use-cdn* (cdn-url dir (format nil "~A.html" name)) (format nil "js/~A/~A.html" dir name))))))
 
+       (:script :src "includes/marked.js" :type "text/javascript")
        (:script :src "js/packery/dist/packery.pkgd.min.js" :type "text/javascript")
        (:script :src "js/page/page.js" :type "text/javascript")
        (:script :src "js/photoswipe/dist/photoswipe.min.js" :type "text/javascript")
@@ -88,7 +90,7 @@
                                          ;;                     (fab :tabindex -1 :class "big" :icon "notification:confirmation-number")))))
                                          (iter (for (name onclick icon text) in
                                                     `(("schedule" "page(\"/schedule\");" "date-range" "The Event Schedule")
-                                                      ("visit-wiki" ,(ps (visit-wiki)) "editor:mode-edit" "The Hackathon Wiki")
+                                                      ("wiki" "page(\"/wiki/Home\");" "editor:mode-edit" "The Hackathon Wiki")
                                                       ("participate" "page(\"/participate\");" "places:all-inclusive" "Participate from Anywhere")
                                                       ("sharing" "page(\"/sharing/\");" ("places:airport-shuttle"
                                                                                          "notification:airline-seat-individual-suite")
@@ -126,7 +128,8 @@
                              (animatable (render-time stream))
                              (animatable (render-government stream))
                              (animatable (render-school stream))
-                             (animatable (render-media stream)))
+                             (animatable (render-media stream))
+                             (animatable (render-wiki stream)))
              (:script (str (ps (when-ready (lambda ()
                                              (setup-routing)
                                              (animate-sponsors)
