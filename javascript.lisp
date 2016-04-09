@@ -327,7 +327,7 @@
 
           (set-timeout (lambda () (animate-logo-go)) 6000))
 
-        (defvar *wiki-url* "http://cdn.rawgit.com/wiki/Blue-Sky-Skunkworks/missoula-civic-hackathon-notes")
+        (defvar *wiki-url* "http://rawgit.com/wiki/Blue-Sky-Skunkworks/missoula-civic-hackathon-notes")
 
         (defun setup-wiki (page)
           (let* ((req (create-element "iron-request"))
