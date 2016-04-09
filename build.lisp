@@ -27,7 +27,7 @@
          fn)))
 
 (defun build ()
-  (note "~Asing the CDN." (if *use-cdn* "U" "Not u"))
+  (note "~An production." (if *production* "I" "Not i"))
   (build-website '(("/js.js" build-javascript)
                    ("/fonts.css" fonts-css)
                    ("/custom.html" build-custom-stylesheet)

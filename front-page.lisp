@@ -3,14 +3,14 @@
 (defparameter *venue* '(46.8625418 -113.9848200))
 
 (defparameter *cdn-polymer-version* "1.2.3.2")
-(defparameter *use-cdn* *cdn-polymer-version*)
+(defparameter *production* *cdn-polymer-version*)
 
-(defun toggle-cdn ()
-  (setf *use-cdn* (if *use-cdn* nil *cdn-polymer-version*))
-  (note "~Asing the CDN~@[ (version ~A)~]." (if *use-cdn* "U" "Not u") *use-cdn*))
+(defun toggle-production ()
+  (setf *production* (if *production* nil *cdn-polymer-version*))
+  (note "~An production~@[ (CDN version ~A)~]." (if *production* "I" "Not i") *production*))
 
 (defun cdn-url (dir name)
-  (format nil "https://cdn.rawgit.com/download/polymer-cdn/~A/lib/~A/~A" *use-cdn* dir name))
+  (format nil "https://cdn.rawgit.com/download/polymer-cdn/~A/lib/~A/~A" *production* dir name))
 
 (defun fonts-css ()  (serve-scss-file (hackathon-file "fonts.scss")))
 
@@ -19,12 +19,12 @@
     (:html
       (:head
        (:title "Missoula Civic Hackathon")
-       (when *use-cdn* (str *analytics*))
-       (:script :type "text/javascript" :src (if *use-cdn* (cdn-url "webcomponentsjs" "webcomponents-lite.js")
+       (when *production* (str *analytics*))
+       (:script :type "text/javascript" :src (if *production* (cdn-url "webcomponentsjs" "webcomponents-lite.js")
                                                  "js/webcomponentsjs/webcomponents-lite.js") )
        (:link :rel "icon" :href "images/favicon.png" :type "image/png")
        (:link :rel "stylesheet" :type "text/css" :href "fonts.css")
-       (:link :rel "import" :href (if *use-cdn* (cdn-url "polymer" "polymer.html") "js/polymer/polymer.html"))
+       (:link :rel "import" :href (if *production* (cdn-url "polymer" "polymer.html") "js/polymer/polymer.html"))
        (:script (str (ps* `(progn (defvar *vlat* ,(car *venue*)) (defvar *vlon* ,(cadr *venue*))))))
        (iter (for el in '("polymer"
                           "iron-flex-layout"
@@ -52,7 +52,7 @@
              (let ((name (if (consp el) (second el) el))
                    (dir (if (consp el) (first el) el)))
                (htm (:link :rel "import" :href
-                           (if *use-cdn* (cdn-url dir (format nil "~A.html" name)) (format nil "js/~A/~A.html" dir name))))))
+                           (if *production* (cdn-url dir (format nil "~A.html" name)) (format nil "js/~A/~A.html" dir name))))))
 
        (:script :src "includes/marked.js" :type "text/javascript")
        (:script :src "js/packery/dist/packery.pkgd.min.js" :type "text/javascript")
