@@ -9,6 +9,7 @@
     ("Re: Industries" "http://www.reindustries.org/" "RI")
     ("Montana Institute for Sustainable Transportation" "http://www.strans.org/" "MIST")
     ("Geodata Services Inc." "http://www.geodataservicesinc.com/" "GD")
+    ("ESRI" "http://esri.com/" "ESRI")
     ("Code for America" "http://www.codeforamerica.org" "CFA")))
 
 (defparameter *spring-2016-sponsors*
