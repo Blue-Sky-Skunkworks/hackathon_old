@@ -1,3 +1,9 @@
 [submodule "missoula-civic-hackathon-notes.wiki"]
 	path = missoula-civic-hackathon-notes.wiki
 	url = git@github.com:Blue-Sky-Skunkworks/missoula-civic-hackathon-notes.wiki.git
+[submodule "modules/twemoji"]
+	path = modules/twemoji
+	url = https://github.com/twitter/twemoji.git
+[submodule "modules/twemoji-awesome"]
+	path = modules/twemoji-awesome
+	url = https://github.com/ellekasai/twemoji-awesome.git

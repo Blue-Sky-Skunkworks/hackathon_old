@@ -4,6 +4,9 @@
 
 (defparameter *production* nil)
 
+(defmacro production (yes &optional no)
+  `(if *production* ,yes ,no))
+
 (defun toggle-production ()
   (setf *production* (not *production*))
   (note "~An production." (if *production* "I" "Not i")))
@@ -18,12 +21,12 @@
     (:html
       (:head
        (:title "Missoula Civic Hackathon")
-       (when *production* (str *analytics*))
-       (:script :type "text/javascript" :src (if *production* (cdn-url "webcomponentsjs" "webcomponents-lite.js")
-                                                 "js/webcomponentsjs/webcomponents-lite.js") )
+       (production (str *analytics*))
+       (:script :type "text/javascript" :src (production (cdn-url "webcomponentsjs" "webcomponents-lite.js")
+                                                         "js/webcomponentsjs/webcomponents-lite.js") )
        (:link :rel "icon" :href "images/favicon.png" :type "image/png")
        (:link :rel "stylesheet" :type "text/css" :href "fonts.css")
-       (:link :rel "import" :href (if *production* (cdn-url "polymer" "polymer.html") "js/polymer/polymer.html"))
+       (:link :rel "import" :href (production (cdn-url "polymer" "polymer.html") "js/polymer/polymer.html"))
        (:script (str (ps* `(progn (defvar *production* ,(if *production* t nil)) (defvar *vlat* ,(car *venue*)) (defvar *vlon* ,(cadr *venue*))))))
        (iter (for el in '("polymer"
                           "iron-flex-layout"
@@ -51,8 +54,10 @@
              (let ((name (if (consp el) (second el) el))
                    (dir (if (consp el) (first el) el)))
                (htm (:link :rel "import" :href
-                           (if *production* (cdn-url dir (format nil "~A.html" name)) (format nil "js/~A/~A.html" dir name))))))
+                           (production (cdn-url dir (format nil "~A.html" name)) (format nil "js/~A/~A.html" dir name))))))
 
+       (:script :src (production "http://twemoji.maxcdn.com/2/twemoji.min.js" "modules/twemoji/twemoji.min.js") :type "text/javascript")
+       (:link :rel "stylesheet" :type "text/css" :href "modules/twemoji-awesome/twemoji-awesome.css")
        (:script :src "includes/marked.js" :type "text/javascript")
        (:script :src "js/packery/dist/packery.pkgd.min.js" :type "text/javascript")
        (:script :src "js/page/page.js" :type "text/javascript")

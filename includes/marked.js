@@ -457,7 +457,8 @@ var inline = {
   autolink: /^<([^ >]+(@|:\/)[^ >]+)>/,
   url: noop,
   tag: /^<!--[\s\S]*?-->|^<\/?\w+(?:"[^"]*"|'[^']*'|[^'">])*?>/,
-  ilink: /^!?\[\[(inside)\]\]/,
+  emoji: /^:([a-zA-Z0-9-_]*):/,
+  ilink: /^\[\[(inside)\]\]/,
   link: /^!?\[(inside)\]\(href\)/,
   reflink: /^!?\[(inside)\]\s*\[([^\]]*)\]/,
   nolink: /^!?\[((?:\[[^\]]*\]|[^\[\]])*)\]/,
@@ -577,7 +578,7 @@ InlineLexer.prototype.output = function(src) {
     , cap;
 
   while (src) {
-    // escape
+      // escape
     if (cap = this.rules.escape.exec(src)) {
       src = src.substring(cap[0].length);
       out += cap[1];
@@ -627,22 +628,19 @@ InlineLexer.prototype.output = function(src) {
 
     // link
       if (cap = this.rules.link.exec(src)) {
-      console.log("link");
-
-
           src = src.substring(cap[0].length);
-      this.inLink = true;
-      out += this.outputLink(cap, {
-        href: cap[2],
-        title: cap[3]
-      });
-      this.inLink = false;
-      continue;
-    }
+          this.inLink = true;
+          out += this.outputLink(cap, {
+              href: cap[2],
+              title: cap[3]
+          });
+          this.inLink = false;
+          continue;
+      }
+
     // ilink
     if (cap = this.rules.ilink.exec(src)) {
         src = src.substring(cap[0].length);
-        console.log("ilink",cap);
         this.inLink = true;
         if (cap[1].charAt(0) === "/"){
             if (cap[1].endsWith(".png")){
@@ -673,6 +671,14 @@ InlineLexer.prototype.output = function(src) {
       this.inLink = false;
       continue;
     }
+
+    // emoji
+    if (cap = this.rules.emoji.exec(src)) {
+        src = src.substring(cap[0].length);
+        out += this.renderer.emoji(cap[1]);
+      continue;
+    }
+
 
     // strong
     if (cap = this.rules.strong.exec(src)) {
@@ -711,8 +717,8 @@ InlineLexer.prototype.output = function(src) {
 
     // text
     if (cap = this.rules.text.exec(src)) {
-      src = src.substring(cap[0].length);
-      out += this.renderer.text(escape(this.smartypants(cap[0])));
+        src = src.substring(cap[0].length);
+        out += this.renderer.text(escape(this.smartypants(cap[0])));
       continue;
     }
 
@@ -801,6 +807,10 @@ Renderer.prototype.imglink = function(imglink) {
 
 Renderer.prototype.ilink = function(ilink) {
   return "<paper-button class='ilink' onclick='selectIlink(\"" + ilink + "\");'>" + ilink + "</paper-button>";
+};
+
+Renderer.prototype.emoji = function(name) {
+    return "<i class='twa twa-" + name.replace(/_/g,"-") + "'></i>";
 };
 
 Renderer.prototype.code = function(code, lang, escaped) {
