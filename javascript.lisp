@@ -327,10 +327,12 @@
         (defvar *wiki-url* "http://cdn.rawgit.com/wiki/Blue-Sky-Skunkworks/missoula-civic-hackathon-notes")
 
         (defun setup-wiki (page)
-         (let* ((req (create-element "iron-request"))
-                (promise ((@ req send)
-                          (create :url (+ (if *production* *wiki-url* "/wiki") "/" page ".md")))))
-           ((@ promise then) handle-wiki-response handle-wiki-error)))
+          (let* ((req (create-element "iron-request"))
+                 (title (get-by-id "wiki-title"))
+                 (promise ((@ req send)
+                           (create :url (+ (if *production* *wiki-url* "/wiki") "/" page ".md")))))
+            ((@ promise then) handle-wiki-response handle-wiki-error)
+            (set-inner-html title (+ "The Missoula Civic Hackathon Wiki — " ((@ page replace) (regex "/-/g") " ")))))
 
         (defun handle-wiki-response (val)
          (let ((el (get-by-id "wiki-body")))
