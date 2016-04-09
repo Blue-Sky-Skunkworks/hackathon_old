@@ -810,7 +810,7 @@ Renderer.prototype.ilink = function(ilink) {
 };
 
 Renderer.prototype.emoji = function(name) {
-    return "<i class='twa twa-" + name.replace(/_/g,"-") + "'></i>";
+    return "<i class='twa twa-3x twa-" + name.replace(/_/g,"-") + "'></i>";
 };
 
 Renderer.prototype.code = function(code, lang, escaped) {
