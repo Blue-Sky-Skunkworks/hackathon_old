@@ -57,7 +57,7 @@
                            (production (cdn-url dir (format nil "~A.html" name)) (format nil "js/~A/~A.html" dir name))))))
 
        (:script :src (production "http://twemoji.maxcdn.com/2/twemoji.min.js" "modules/twemoji/twemoji.min.js") :type "text/javascript")
-       (:link :rel "stylesheet" :type "text/css" :href "modules/twemoji-awesome/twemoji-awesome.css")
+       (:link :rel "stylesheet" :type "text/css" :href "includes/twemoji-awesome.css")
        (:script :src "includes/marked.js" :type "text/javascript")
        (:script :src "js/packery/dist/packery.pkgd.min.js" :type "text/javascript")
        (:script :src "js/page/page.js" :type "text/javascript")
