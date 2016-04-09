@@ -118,6 +118,9 @@
                                                                 :gutter gutter)))))))
 
         (defun select-page (index)
+          (cond
+            ((= index 3) (setf (@ document title) "Missoula Civic Hackathon Schedule"))
+            (t (setf (@ document title) "Missoula Civic Hackathon")))
           (let ((pages (get-by-id "pages")))
             (setf (@ pages selected) index)))
 
@@ -332,7 +335,9 @@
                  (promise ((@ req send)
                            (create :url (+ (if *production* *wiki-url* "/wiki") "/" page ".md")))))
             ((@ promise then) handle-wiki-response handle-wiki-error)
-            (set-inner-html title (+ "The Missoula Civic Hackathon Wiki — " ((@ page replace) (regex "/-/g") " ")))))
+            (let ((text (+ "The Missoula Civic Hackathon Wiki — " ((@ page replace) (regex "/-/g") " "))))
+              (setf (@ document title) text)
+              (set-inner-html title text))))
 
         (defun handle-wiki-response (val)
          (let ((el (get-by-id "wiki-body")))
