@@ -796,7 +796,7 @@ Renderer.prototype.datalink = function(datalink) {
 };
 
 Renderer.prototype.imglink = function(imglink) {
-  return "<img src=\"/wiki" + imglink + "\" />";
+    return "<img src=\"" + (PRODUCTION ? WIKIURL : "/wiki") + imglink + "\" />";
 };
 
 Renderer.prototype.ilink = function(ilink) {

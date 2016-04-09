@@ -2,15 +2,14 @@
 
 (defparameter *venue* '(46.8625418 -113.9848200))
 
-(defparameter *cdn-polymer-version* "1.2.3.2")
-(defparameter *production* *cdn-polymer-version*)
+(defparameter *production* nil)
 
 (defun toggle-production ()
-  (setf *production* (if *production* nil *cdn-polymer-version*))
-  (note "~An production~@[ (CDN version ~A)~]." (if *production* "I" "Not i") *production*))
+  (setf *production* (not *production*))
+  (note "~An production." (if *production* "I" "Not i")))
 
 (defun cdn-url (dir name)
-  (format nil "https://cdn.rawgit.com/download/polymer-cdn/~A/lib/~A/~A" *production* dir name))
+  (format nil "http://rawgit.com/Download/polymer-cdn/master/lib/~A/~A" dir name))
 
 (defun fonts-css ()  (serve-scss-file (hackathon-file "fonts.scss")))
 
@@ -25,7 +24,7 @@
        (:link :rel "icon" :href "images/favicon.png" :type "image/png")
        (:link :rel "stylesheet" :type "text/css" :href "fonts.css")
        (:link :rel "import" :href (if *production* (cdn-url "polymer" "polymer.html") "js/polymer/polymer.html"))
-       (:script (str (ps* `(progn (defvar *vlat* ,(car *venue*)) (defvar *vlon* ,(cadr *venue*))))))
+       (:script (str (ps* `(progn (defvar *production* ,(if *production* t nil)) (defvar *vlat* ,(car *venue*)) (defvar *vlon* ,(cadr *venue*))))))
        (iter (for el in '("polymer"
                           "iron-flex-layout"
                           "iron-pages"

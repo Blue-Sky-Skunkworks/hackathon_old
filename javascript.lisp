@@ -324,18 +324,19 @@
 
           (set-timeout (lambda () (animate-logo-go)) 6000))
 
-        ;; "https://raw.github.com/wiki/Blue-Sky-Skunkworks/missoula-civic-hackathon-notes/Home.md"
+        (defvar *wiki-url* "http://cdn.rawgit.com/wiki/Blue-Sky-Skunkworks/missoula-civic-hackathon-notes")
+
         (defun setup-wiki (page)
          (let* ((req (create-element "iron-request"))
-                (promise ((@ req send) (create :url (+ "/wiki/" page ".md")))))
+                (promise ((@ req send)
+                          (create :url (+ (if *production* *wiki-url* "/wiki") "/" page ".md")))))
            ((@ promise then) handle-wiki-response handle-wiki-error)))
 
         (defun handle-wiki-response (val)
          (let ((el (get-by-id "wiki-body")))
            (set-inner-html el (marked (@ val response)))))
 
-        (defun handle-wiki-error (val)
-          (console "wiki error" val))
+        (defun handle-wiki-error (val))
 
         (defun get-inner-html (el)
           (return (slot-value el 'inner-h-t-m-l)))
