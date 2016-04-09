@@ -36,6 +36,7 @@ matches NAME."
                                                `((:prefix "/t/" handle-tracker-request)
                                                  (:folder "/wiki/" ,(hackathon-file "missoula-civic-hackathon-notes.wiki/"))
                                                  (:folder "/includes/" ,(hackathon-file "includes/"))
+                                                 (:folder "/fonts/" ,(hackathon-file "fonts/"))
                                                  (:exact "/" render-front-page)
                                                  (:folder "/" ,(hackathon-file "build/"))))))
   (hunchentoot:start *web-acceptor*))
