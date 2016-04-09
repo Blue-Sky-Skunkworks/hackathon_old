@@ -457,7 +457,6 @@ var inline = {
   autolink: /^<([^ >]+(@|:\/)[^ >]+)>/,
   url: noop,
   tag: /^<!--[\s\S]*?-->|^<\/?\w+(?:"[^"]*"|'[^']*'|[^'">])*?>/,
-  emoji: /^:([a-zA-Z0-9-_]*):/,
   ilink: /^\[\[(inside)\]\]/,
   link: /^!?\[(inside)\]\(href\)/,
   reflink: /^!?\[(inside)\]\s*\[([^\]]*)\]/,
@@ -467,6 +466,7 @@ var inline = {
   code: /^(`+)\s*([\s\S]*?[^`])\s*\1(?!`)/,
   br: /^ {2,}\n(?!\s*$)/,
   del: noop,
+  emoji: noop,
   text: /^[\s\S]+?(?=[\\<!\[_*`]| {2,}\n|$)/
 };
 
@@ -509,8 +509,9 @@ inline.gfm = merge({}, inline.normal, {
   escape: replace(inline.escape)('])', '~|])')(),
   url: /^(https?:\/\/[^\s<]+[^<.,:;"')\]\s])/,
   del: /^~~(?=\S)([\s\S]*?\S)~~/,
+  emoji: /^:([A-Za-z0-9_\-\+]+?):/,
   text: replace(inline.text)
-    (']|', '~]|')
+    (']|', ':~]|')
     ('|', '|https?://|')
     ()
 });
@@ -672,14 +673,6 @@ InlineLexer.prototype.output = function(src) {
       continue;
     }
 
-    // emoji
-    if (cap = this.rules.emoji.exec(src)) {
-        src = src.substring(cap[0].length);
-        out += this.renderer.emoji(cap[1]);
-      continue;
-    }
-
-
     // strong
     if (cap = this.rules.strong.exec(src)) {
       src = src.substring(cap[0].length);
@@ -712,6 +705,13 @@ InlineLexer.prototype.output = function(src) {
     if (cap = this.rules.del.exec(src)) {
       src = src.substring(cap[0].length);
       out += this.renderer.del(this.output(cap[1]));
+      continue;
+    }
+
+    // emoji
+    if (cap = this.rules.emoji.exec(src)) {
+        src = src.substring(cap[0].length);
+        out += this.renderer.emoji(cap[1]);
       continue;
     }
 
