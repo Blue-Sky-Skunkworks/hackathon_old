@@ -17,12 +17,13 @@
     "tests"
   ],
   "dependencies": {
-    "packery": null,
-    "photoswipe": null,
-    "iron-elements": null,
-    "paper-elements": null,
-    "neon-elements": null,
-    "google-map": null,
-    "page": null,
+      "packery": null,
+      "photoswipe": null,
+      "iron-elements": null,
+      "paper-elements": null,
+      "neon-elements": null,
+      "google-map": null,
+      "page": null,
+      "suncalc": null
   }
 }
