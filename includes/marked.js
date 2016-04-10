@@ -644,7 +644,7 @@ InlineLexer.prototype.output = function(src) {
         src = src.substring(cap[0].length);
         this.inLink = true;
         if (cap[1].charAt(0) === "/"){
-            if (cap[1].endsWith(".png")){
+            if (cap[1].endsWith(".png") || cap[1].endsWith(".jpg")){
                 out += this.renderer.imglink(cap[1]);
             } else {
                 out += this.renderer.datalink(cap[1]);
