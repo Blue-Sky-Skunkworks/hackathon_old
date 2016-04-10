@@ -70,7 +70,7 @@
                               (cons car cdr))))))))
     (s tree)))
 
-(defpsmacro defun (name args &rest body)
+(defpsmacro defun-trace (name args &rest body)
   (let* ((sname (ps::symbol-to-js-string name))
          (tname (ps-gensym name))
          (this (ps-gensym "this"))
