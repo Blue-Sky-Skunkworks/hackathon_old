@@ -11,7 +11,7 @@
     ("Geodata Services Inc." "http://www.geodataservicesinc.com/" "GD")
     ("ESRI" "http://esri.com/" "ESRI")
     ("OpenDataSoft" "http://opendatasoft.com/" "ODS")
-    ("Code for America" "http://www.codeforamerica.org" "CFA")))
+    ("Code for America" "https://www.codeforamerica.org/brigade/Missoula-Civic-Hackathon/" "CFA")))
 
 (defparameter *spring-2016-sponsors*
   '(("Phyllis J. Washington College of Education & Human Sciences" "http://www.coehs.umt.edu/" "PJWEC")
