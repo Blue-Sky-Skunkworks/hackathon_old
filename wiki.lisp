@@ -22,7 +22,7 @@
                                                     (toolbar :class "wiki-controls"
                                                              ;; (icon-button :icon "close" :onclick "closeWikiControls();")
                                                              )
-                                                    (:div
+                                                    (:div :class "wiki-list"
                                                      (iter (for name in (list-wiki-pages))
                                                            (item :onclick (format nil "stopEvent(event);selectIlink(\"~A\");" name)
                                                                  (esc name))))))))))
