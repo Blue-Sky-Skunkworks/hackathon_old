@@ -3,6 +3,7 @@
   :depends-on ("alexandria" "cl-who" "parenscript" "hunchentoot" "split-sequence" "zpng" "cl-json" "cl-ppcre" "iterate" "local-time")
   :components ((:static-file "hackathon.asd")
                (:file "package")
+               (:file "sharpL")
                (:file "slime")
                (:file "utility")
                (:file "css")
