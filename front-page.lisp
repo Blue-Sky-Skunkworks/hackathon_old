@@ -46,6 +46,8 @@
                           "paper-fab"
                           "paper-toolbar"
                           "paper-header-panel"
+                          "paper-drawer-panel"
+                          "paper-item"
                           ("neon-animation" "neon-animatable")
                           ("neon-animation" "neon-animated-pages")
                           ("neon-animation/animations" "fade-in-animation")

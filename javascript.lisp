@@ -122,7 +122,8 @@
             ((= index 3) (setf (@ document title) "Missoula Civic Hackathon Schedule"))
             (t (setf (@ document title) "Missoula Civic Hackathon")))
           (let ((pages (get-by-id "pages")))
-            (setf (@ pages selected) index)))
+            (unless (=== (@ pages selected) index)
+              (setf (@ pages selected) index))))
 
         (defun show (id)
           (with-id (o id)
