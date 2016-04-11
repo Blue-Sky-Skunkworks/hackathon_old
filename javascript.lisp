@@ -332,13 +332,18 @@
         (defvar *wiki-url* "https://github.com/Blue-Sky-Skunkworks/missoula-civic-hackathon-notes/wiki/")
         (defvar *wiki-page*)
 
-        (defun setup-wiki (page)
+        (defun request (url response-handler &optional (error-handler default-request-error-handler))
           (let* ((req (create-element "iron-request"))
-                 (title (get-by-id "wiki-title"))
-                 (promise ((@ req send)
-                           (create :url (+ (if *production* *raw-wiki-url* "/wiki") "/" page ".md")))))
+                 (promise ((@ req send) (create :url url))))
+            ((@ promise then) response-handler error-handler)))
+
+        (defun default-request-error-handler (val)
+          (console "error in request" val))
+
+        (defun setup-wiki (page)
+          (let ((title (get-by-id "wiki-title")))
+            (request (+ (if *production* *raw-wiki-url* "/wiki") "/" page ".md") handle-wiki-response)
             (setf *wiki-page* page)
-            ((@ promise then) handle-wiki-response handle-wiki-error)
             (let ((text (+ "The Missoula Civic Hackathon Wiki — " ((@ page replace) (regex "/-/g") " "))))
               (setf (@ document title) text)
               (set-inner-html title text))))
@@ -346,8 +351,6 @@
         (defun handle-wiki-response (val)
          (let ((el (get-by-id "wiki-body")))
            (set-inner-html el (marked (@ val response)))))
-
-        (defun handle-wiki-error (val))
 
         (defun get-inner-html (el)
           (return (slot-value el 'inner-h-t-m-l)))
