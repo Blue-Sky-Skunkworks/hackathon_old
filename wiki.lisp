@@ -20,8 +20,10 @@
                                 (:div :drawer t :style "height:100%;overflow-y:auto;cursor:pointer;"
                                       (header-panel :mode "seamed" :class "flex"
                                                     (toolbar :class "wiki-controls"
-                                                             ;; (icon-button :icon "close" :onclick "closeWikiControls();")
-                                                             )
+                                                             (:span :class "title")
+                                                             (icon-button :icon "cloud" :onclick "viewWikiSource();")
+                                                             (icon-button :icon "editor:mode-edit" :onclick "editWiki();")
+                                                             (icon-button :icon "refresh" :onclick "refreshWiki();"))
                                                     (:div :class "wiki-list"
                                                      (iter (for name in (list-wiki-pages))
                                                            (item :onclick (format nil "stopEvent(event);selectIlink(\"~A\");" name)

@@ -802,7 +802,7 @@ Renderer.prototype.datalink = function(datalink) {
 };
 
 Renderer.prototype.imglink = function(imglink) {
-    return "<img src=\"" + (PRODUCTION ? WIKIURL : "/wiki") + imglink + "\" />";
+    return "<img src=\"" + (PRODUCTION ? RAWWIKIURL : "/wiki") + imglink + "\" />";
 };
 
 Renderer.prototype.ilink = function(ilink) {

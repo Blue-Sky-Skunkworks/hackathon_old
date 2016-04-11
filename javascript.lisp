@@ -328,13 +328,16 @@
 
           (set-timeout (lambda () (animate-logo-go)) 6000))
 
-        (defvar *wiki-url* "http://rawgit.com/wiki/Blue-Sky-Skunkworks/missoula-civic-hackathon-notes")
+        (defvar *raw-wiki-url* "http://rawgit.com/wiki/Blue-Sky-Skunkworks/missoula-civic-hackathon-notes")
+        (defvar *wiki-url* "https://github.com/Blue-Sky-Skunkworks/missoula-civic-hackathon-notes/wiki/")
+        (defvar *wiki-page*)
 
         (defun setup-wiki (page)
           (let* ((req (create-element "iron-request"))
                  (title (get-by-id "wiki-title"))
                  (promise ((@ req send)
-                           (create :url (+ (if *production* *wiki-url* "/wiki") "/" page ".md")))))
+                           (create :url (+ (if *production* *raw-wiki-url* "/wiki") "/" page ".md")))))
+            (setf *wiki-page* page)
             ((@ promise then) handle-wiki-response handle-wiki-error)
             (let ((text (+ "The Missoula Civic Hackathon Wiki — " ((@ page replace) (regex "/-/g") " "))))
               (setf (@ document title) text)
@@ -351,6 +354,15 @@
 
         (defun select-ilink (ilink)
          (page (+ "/wiki/" ((@ ilink replace) (regex "/ /g") "-"))))
+
+        (defun refresh-wiki ()
+          (setup-wiki *wiki-page*))
+
+        (defun view-wiki-source ()
+          (visit-url (+ *wiki-url* *wiki-page*)))
+
+        (defun edit-wiki ()
+          (visit-url (+ *wiki-url* *wiki-page* "/_edit")))
 
         )))))
 
