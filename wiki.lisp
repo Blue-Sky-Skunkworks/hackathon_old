@@ -9,9 +9,8 @@
   (probe-file (wiki-page-filename name)))
 
 (defun load-wiki-page (name)
-  (if (wiki-page-exists name)
-      (slurp-file (wiki-page-filename name))
-      (warn "Missing wiki page ~S." name)))
+  (when (wiki-page-exists name)
+    (slurp-file (wiki-page-filename name))))
 
 (defun list-wiki-links (name)
   (let (rtn (text (load-wiki-page name)))
@@ -21,13 +20,16 @@
 
 (defun build-wiki-tree (&optional (root "Home"))
   (let ((hash (make-hash-table :test 'equal)))
-    (labels ((recur (el)
+    (labels ((recur (el &optional ignore)
                (setf (gethash el hash) t)
                (cons
                 (if (wiki-page-exists el) el (format nil "* ~A" el))
-                (iter (for link in (list-wiki-links el))
-                      (unless (gethash link hash)
-                        (collect (recur link)))))))
+                (let ((links (list-wiki-links el)))
+                  (iter (for link in links)
+                        (unless (or
+                                 (member link ignore :test #'string=)
+                                 (gethash link hash))
+                          (collect (recur link links))))))))
       (recur root))))
 
 (defun render-tree (stream fn tree)
@@ -84,3 +86,6 @@
       :onclick (format nil "selectIlink(\"~A\");" name)
       (:span :style (format nil "display:inline-block;width:~Apx;" (* (max 0 (1- level)) 20)))
       (esc name))))
+
+; (render-tree t (lambda (stream level name) (format stream "~A: ~A~%" level name)) (build-wiki-tree))
+
