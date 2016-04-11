@@ -16,8 +16,8 @@
                            (icon-button :class "toolbar-icon" :style "margin-left:0px;" :icon "arrow-back" :onclick "window.history.back();")
                            (icon-button :class "toolbar-icon" :style "margin-left:0px;" :icon "home" :onclick "page(\"/\");"))
                   (drawer-panel :right-drawer t :id "wiki-drawer"
-                                (:div :main t :style "height:100%;overflow-y:auto;" :class "layout vertical center"
-                                      (:div :id "wiki-body" :style "max-width:800px;"))
+                                (:div :main t :style "height:100%;overflow-y:auto;text-align:center;"
+                                      (:div :id "wiki-body" :style "max-width:800px;display:inline-block;text-align:left;"))
                                 (:div :drawer t :style "height:100%;overflow-y:auto;cursor:pointer;"
                                       (header-panel :mode "seamed" :class "flex"
                                                     (toolbar :class "wiki-controls"
@@ -29,3 +29,4 @@
                                                      (iter (for name in (list-wiki-pages))
                                                            (item :onclick (format nil "stopEvent(event);selectIlink(\"~A\");" name)
                                                                  (esc name))))))))))
+
