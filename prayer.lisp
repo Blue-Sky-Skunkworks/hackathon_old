@@ -21,6 +21,7 @@
                                     :onclick (format nil "showImageGallery(event,\"prayers\",\"images/prayers/\",~A);" index)
                                     (htm (:img :id (format nil "i-~A" index) :document-id index
                                                :image-size "1875x1470"
+                                               :alt (format nil "prayer flag ~R" index)
                                                :src "images/blank.png"
                                                :data-echo name
                                                :width "600px"
