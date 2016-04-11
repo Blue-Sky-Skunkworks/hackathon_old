@@ -13,7 +13,8 @@
     (header-panel :mode "seamed"
                   (toolbar :class "wiki"
                            (:span :id "wiki-title" :style "margin-left:0px;" :class "title" "The Missoula Civic Hackathon Wiki")
-                           (icon-button :class "toolbar-icon" :style "margin-left:0px;" :icon "arrow-back" :onclick "window.history.back();"))
+                           (icon-button :class "toolbar-icon" :style "margin-left:0px;" :icon "arrow-back" :onclick "window.history.back();")
+                           (icon-button :class "toolbar-icon" :style "margin-left:0px;" :icon "home" :onclick "page(\"/\");"))
                   (drawer-panel :right-drawer t :id "wiki-drawer"
                                 (:div :main t :style "height:100%;overflow-y:auto;" :class "layout vertical center"
                                       (:div :id "wiki-body" :style "max-width:800px;"))
