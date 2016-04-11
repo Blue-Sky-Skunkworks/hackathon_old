@@ -367,5 +367,10 @@
         (defun edit-wiki ()
           (visit-url (+ *wiki-url* *wiki-page* "/_edit")))
 
-        )))))
+        (defun toggle-wiki-view ()
+          (let ((listing (get-by-id "wiki-listing"))
+                (button (get-by-id "wiki-view-toggle")))
+            (setf (@ button icon) (if (= (@ listing selected) 0) "toc" "list"))
+            (setf (@ listing selected) (if (= (@ listing selected) 0) 1 0))))
 
+        )))))
