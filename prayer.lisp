@@ -10,7 +10,7 @@
 
 (defun render-prayer (stream)
   (html
-    (header-panel :mode "seamed"
+    (header-panel :mode "seamed" :id "prayer-panel"
                   (toolbar :class "prayer"
                            (:span :style "margin-left:0px;" :class "title" "Prayer Flags")
                            (icon-button :class "toolbar-icon" :style "margin-left:0px;" :icon "arrow-back" :onclick "page(\"/\");"))
@@ -20,5 +20,9 @@
                               (card :class "prayer"
                                     :onclick (format nil "showImageGallery(event,\"prayers\",\"images/prayers/\",~A);" index)
                                     (htm (:img :id (format nil "i-~A" index) :document-id index
-                                               :image-size "1875x1470" :src name :width "600px"))))))))
+                                               :image-size "1875x1470"
+                                               :src "images/blank.png"
+                                               :data-echo name
+                                               :width "600px"
+                                               :height "470px"))))))))
 

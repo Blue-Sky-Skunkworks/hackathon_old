@@ -37,7 +37,7 @@
 
 (defun render-sponsors (stream)
   (html
-    (header-panel :mode "seamed"
+    (header-panel :mode "seamed" :id "sponsors-panel"
                   (toolbar :class "sponsors"
                            (:span :style "margin-left:0px;" :class "title" "Missoula Civic Hackathon Sponsors")
                            (icon-button :class "toolbar-icon" :style "margin-left:0px;" :icon "arrow-back" :onclick "page(\"/\");"))
@@ -56,5 +56,6 @@
                                                   (:a :target "_blank" :href url
                                                       (if image
                                                           (htm (:img :alt name :width width :height height
-                                                                     :src (format nil "images/sponsors/~A.png" image)))
+                                                                     :src "images/blank.png"
+                                                                     :data-echo (format nil "images/sponsors/~A.png" image)))
                                                           (esc name))))))))))))

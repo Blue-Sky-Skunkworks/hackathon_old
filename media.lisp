@@ -6,7 +6,7 @@
 
 (defun render-media (stream)
   (html
-    (header-panel :mode "seamed"
+    (header-panel :mode "seamed" :id "media-panel"
                   (toolbar :class "media"
                            (:span :style "margin-left:0px;" :class "title" "Media Coverage of the Missoula Civic Hackathon ")
                            (icon-button :class "toolbar-icon" :style "margin-left:0px;" :icon "arrow-back" :onclick "page(\"/\");"))
@@ -21,5 +21,6 @@
                                                   (:a :target "_blank" :href url
                                                       (if image
                                                           (htm (:img :alt name :width width :height height
-                                                                     :src (format nil "images/media/~A.png" image)))
-                                                          (esc name))))))))                      ))))
+                                                                     :src "images/blank.png"
+                                                                     :data-echo (format nil "images/media/~A.png" image)))
+                                                          (esc name))))))))))))

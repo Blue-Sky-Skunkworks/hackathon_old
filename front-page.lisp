@@ -67,6 +67,7 @@
        (:link :rel "stylesheet" :type "text/css" :href "js/photoswipe/dist/photoswipe.css")
        (:link :rel "stylesheet" :type "text/css" :href "js/photoswipe/dist/default-skin/default-skin.css")
        (:script :src "includes/photoswipe-ui-default.js" :type "text/javascript")
+       (:script :src "js/echojs/dist/echo.min.js" :type "text/javascript")
        (:script :src "js.js" :type "text/javascript")
        (:link :rel "import" :href "custom.html"))
 
@@ -139,6 +140,7 @@
              (:script (str (ps (when-ready (lambda ()
                                              (setup-routing)
                                              (animate-sponsors)
-                                             (animate-logo))))))
+                                             (animate-logo)
+                                             (setup-images))))))
              (str (slurp-file (hackathon-file "includes/photoswipe.html")))))))
 

@@ -123,7 +123,8 @@
             (t (setf (@ document title) "Missoula Civic Hackathon")))
           (let ((pages (get-by-id "pages")))
             (unless (=== (@ pages selected) index)
-              (setf (@ pages selected) index))))
+              (setf (@ pages selected) index)))
+          (unless (= index 1) ((@ echo render))))
 
         (defun show (id)
           (with-id (o id)
@@ -372,5 +373,21 @@
                 (button (get-by-id "wiki-view-toggle")))
             (setf (@ button icon) (if (= (@ listing selected) 0) "toc" "list"))
             (setf (@ listing selected) (if (= (@ listing selected) 0) 1 0))))
+
+        (defun setup-images ()
+          ((@ echo init)
+           (create :offset 100
+                   :throttle 250
+                   :unload nil
+                   :callback (lambda (el op) (console el op))))
+         (dolist (panel '("sponsors-panel" "prayer-panel" "media-panel"))
+           (watch-scrolling panel)))
+
+        (defun watch-scrolling (id)
+          (let ((el (get-by-id id)))
+            ((@ el add-event-listener) "content-scroll" handle-scroll)))
+
+        (defun handle-scroll ()
+          ((@ echo render)))
 
         )))))
