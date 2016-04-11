@@ -643,8 +643,8 @@ InlineLexer.prototype.output = function(src) {
     if (cap = this.rules.ilink.exec(src)) {
         src = src.substring(cap[0].length);
         this.inLink = true;
-        if (cap[1].charAt(0) === "/"){
-            if (cap[1].endsWith(".png") || cap[1].endsWith(".jpg")){
+        if ((cap[1].charAt(0) === "/") || cap[1].startsWith("http")){
+            if (cap[1].toLowerCase().endsWith(".png") || cap[1].toLowerCase().endsWith(".jpg")){
                 out += this.renderer.imglink(cap[1]);
             } else {
                 out += this.renderer.datalink(cap[1]);
@@ -802,7 +802,11 @@ Renderer.prototype.datalink = function(datalink) {
 };
 
 Renderer.prototype.imglink = function(imglink) {
-    return "<img src=\"" + (PRODUCTION ? RAWWIKIURL : "/wiki") + imglink + "\" />";
+    if (imglink.startsWith("http")){
+        return "<img src=\"" + imglink + "\" />";
+    } else {
+        return "<img src=\"" + (PRODUCTION ? RAWWIKIURL : "/wiki") + imglink + "\" />";
+    }
 };
 
 Renderer.prototype.ilink = function(ilink) {
