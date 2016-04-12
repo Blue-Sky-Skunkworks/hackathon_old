@@ -16,6 +16,17 @@
 
 (defun fonts-css ()  (serve-scss-file (hackathon-file "fonts.scss")))
 
+(defun render-constants (stream)
+  (html
+    (:script
+     (str (ps* `(progn (defvar *production* ,(if *production* t nil))
+                       (defvar *vlat* ,(car *venue*))
+                       (defvar *vlon* ,(cadr *venue*))
+                       (defvar *script-name-src* (ps:create
+                                                  :marked "includes/marked.js"
+                                                  ))
+                       ))))))
+
 (defun render-front-page ()
   (html-to-string
     (:html
@@ -27,7 +38,7 @@
        (:link :rel "icon" :href "images/favicon.png" :type "image/png")
        (:link :rel "stylesheet" :type "text/css" :href "fonts.css")
        (:link :rel "import" :href (production (cdn-url "polymer" "polymer.html") "js/polymer/polymer.html"))
-       (:script (str (ps* `(progn (defvar *production* ,(if *production* t nil)) (defvar *vlat* ,(car *venue*)) (defvar *vlon* ,(cadr *venue*))))))
+       (render-constants stream)
        (iter (for el in '("polymer"
                           "iron-flex-layout"
                           "iron-pages"
@@ -60,7 +71,6 @@
 
        (:script :src (production "http://twemoji.maxcdn.com/2/twemoji.min.js" "modules/twemoji/twemoji.min.js") :type "text/javascript")
        (:link :rel "stylesheet" :type "text/css" :href "includes/twemoji-awesome.css")
-       (:script :src "includes/marked.js" :type "text/javascript")
        (:script :src "js/packery/dist/packery.pkgd.min.js" :type "text/javascript")
        (:script :src "js/page/page.js" :type "text/javascript")
        (:script :src "js/photoswipe/dist/photoswipe.min.js" :type "text/javascript")

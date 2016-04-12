@@ -24,6 +24,13 @@
 (defpsmacro remove-node (el)
   `((@ ,el parent-node remove-child) ,el))
 
+(defpsmacro ensure-loaded (name &body body)
+  `(let ((fn (lambda () ,@body))
+         (src (script-name-src ,name)))
+     (if (script-loaded src)
+         (funcall fn)
+         (load-script src fn))))
+
 (defparameter *pixel-styles*
   '(top bottom left right width height border-width))
 
@@ -147,9 +154,6 @@
         (defun join-school ()
           (visit-url "https://groups.google.com/forum/#!forum/missoula-civic-hackathon-students"))
 
-        (defun visit-wiki ()
-          (visit-url "https://github.com/Blue-Sky-Skunkworks/missoula-civic-hackathon-notes/wiki"))
-
         (defun visit-tickets ()
           (visit-url "https://www.eventbrite.com/e/missoula-civic-hackathon-2016-tickets-21898542129"))
 
@@ -169,7 +173,7 @@
           (page "/government" (lambda () (select-page 10)))
           (page "/school" (lambda () (select-page 11)))
           (page "/media" (lambda () (select-page 12) (setup-packing "medias" "card" 60)))
-          (page "/wiki/:page" (lambda (ctx) (select-page 13) (setup-wiki (@ ctx params page))))
+          (page "/wiki/:page" (lambda (ctx) (ensure-loaded :marked (select-page 13) (setup-wiki (@ ctx params page)))))
           (page "/wiki" (lambda () (page "/wiki/Home")))
           (page (create :hashbang t)))
 
@@ -389,5 +393,29 @@
 
         (defun handle-scroll ()
           ((@ echo render)))
+
+        (defvar *scripts* (make-array))
+
+        (defun script-name-src (name)
+         (return (slot-value *script-name-src* name)))
+
+        (defun script-loaded (src)
+          (return (> ((@ *scripts* index-of) src) -1)))
+
+        (defun load-script (src &optional callback)
+          (if (script-loaded src)
+              (console "duplicate script loading" src)
+              (let ((head (aref ((@ document get-elements-by-tag-name) "head") 0))
+                    (script ((@ document create-element) "script")))
+                (when callback (setf (@ script onload) callback))
+                (setf (@ script type) "text/javascript"
+                      (@ script src) src
+                      (@ script onerror) script-load-error)
+                (setf *src* script)
+                ((@ head append-child) script))))
+
+        (defun script-load-error (err)
+          (throw (new (*u-r-i-error (+ "The script " (@ err target src) " is not accessible.")))))
+
 
         )))))
