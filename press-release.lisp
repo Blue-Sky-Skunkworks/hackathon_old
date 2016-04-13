@@ -11,7 +11,7 @@
                               (:h1 "FOR IMMEDIATE RELEASE")
                               (:table
                                (:tr (:td :style "padding-right:20px;" "Event Name:") (:td "Missoula Civic Hackathon"))
-                               (:tr (:td :style "padding-right:20px;" "Event Dates:") (:td "June 25-26, 2016"))
+                               (:tr (:td :style "padding-right:20px;" "Event Dates:") (:td "June 18-19, 2016"))
                                (:tr (:td :style "padding-right:20px;vertical-align:top;" "Event Location:") (:td
                                                                                                              "Phyllis J. Washington Education Center" (:br)
                                                                                                              "32 Campus Drive" (:br)
@@ -31,7 +31,7 @@ to Build Solutions to Civic Problems")
                               (:h2 "What's happening and who's it for?")
 
                               (:p "Missoula is set to host its second
-Civic Hackathon from June 25 through the 26th, 2016. Civic Hackathons
+Civic Hackathon from June 18 through the 19th, 2016. Civic Hackathons
 are events where developers, designers, artists, students,
 researchers, civic leaders, and citizens come together to share ideas,
 form teams, and work towards tangible solutions to the problems we all
@@ -84,8 +84,8 @@ skills will be encouraged to help on multiple projects.")
 
                               (:p "The detailed Missoula Civic Hackathon Schedule can be found online at
 <a target=\"_blank\" href=\"http://missoulacivichackathon.org/#!/schedule\">http://missoulacivichackathon.org/</a>. The hours of the event are Saturday,
-June 25, 2016 from 8:30 a.m. through the night to 6:00 p.m Sunday,
-June 26.")
+June 18, 2016 from 8:30 a.m. through the night to 6:00 p.m Sunday,
+June 19.")
 
                               (:p "It will be held on the University
 of Montana Campus at the")
@@ -95,10 +95,11 @@ of Montana Campus at the")
                                     (:span (:span :class "location" :onclick "setMapZoom(12);" "Missoula, ")
                                            (:span :class "location" :onclick "setMapZoom(5);" "Montana 59812."))
                                     (vertical-break)
-                                    (gmap :id "map" :style "height:300px;width:500px;" :latitude (car *venue*) :longitude (cadr *venue*) :zoom 14
-                                          (map-marker :latitude (car *venue*) :longitude (cadr *venue*)
-                                                      :icon "images/map-icon.png"
-                                                      :title "Missoula Civic Hackathon")))
+                                    ;; (gmap :id "map" :style "height:300px;width:500px;" :latitude (car *venue*) :longitude (cadr *venue*) :zoom 14
+                                    ;;       (map-marker :latitude (car *venue*) :longitude (cadr *venue*)
+                                    ;;                   :icon "images/map-icon.png"
+                                    ;;                   :title "Missoula Civic Hackathon"))
+                                    )
 
                               (:h2 "What do we hope to accomplish?")
 
