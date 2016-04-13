@@ -9,6 +9,6 @@
                   (:div :style "padding:20px;background:black;" :class "fit layout vertical center-justified"
                         (:center
                          (:div :style "width:630px;height:630px;overflow:hidden;"
-                               (:img :style "margin:-200px 0 0 -200px;" :width 1024 :height 1024
-                                     :src "http://api.usno.navy.mil/imagery/moon.png")))))))
+                               (:img :style "margin:-200px 0 0 -200px;" :width 1024 :height 1024 :src "http://api.usno.navy.mil/imagery/moon.png")
+                               ))))))
 

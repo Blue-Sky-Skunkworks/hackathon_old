@@ -110,6 +110,9 @@
 
         (defvar *trace-level* 0)
 
+        (setf (@ *string prototype ends-with)
+         (lambda (suffix) (return (not (== ((@ this index-of) suffix (- (@ this length) (@ suffix length))) -1)))))
+
         (defun get-by-id (id &optional (error t))
           (let ((hit ((@ document get-element-by-id) id)))
             (if hit
@@ -131,7 +134,9 @@
           (let ((pages (get-by-id "pages")))
             (unless (=== (@ pages selected) index)
               (setf (@ pages selected) index)))
-          (unless (= index 1) ((@ echo render))))
+          (unless (= index 1)
+            (unless *images-initialized* (setup-images))
+            ((@ echo render))))
 
         (defun show (id)
           (with-id (o id)
@@ -354,14 +359,14 @@
               (set-inner-html title text))))
 
         (defun handle-wiki-response (val)
-         (let ((el (get-by-id "wiki-body")))
-           (set-inner-html el (marked (@ val response)))))
+          (let ((el (get-by-id "wiki-body")))
+            (set-inner-html el (marked (@ val response)))))
 
         (defun get-inner-html (el)
           (return (slot-value el 'inner-h-t-m-l)))
 
         (defun select-ilink (ilink)
-         (page (+ "/wiki/" ((@ ilink replace) (regex "/ /g") "-"))))
+          (page (+ "/wiki/" ((@ ilink replace) (regex "/ /g") "-"))))
 
         (defun refresh-wiki ()
           (setup-wiki *wiki-page*))
@@ -378,14 +383,18 @@
             (setf (@ button icon) (if (= (@ listing selected) 0) "toc" "list"))
             (setf (@ listing selected) (if (= (@ listing selected) 0) 1 0))))
 
+        (defvar *images-initialized*)
+
         (defun setup-images ()
+          (when *images-initialized* (console "Re-initializing images."))
+          (setf *images-initialized* t)
           ((@ echo init)
            (create :offset 100
                    :throttle 250
                    :unload nil
                    :callback (lambda (el op) (console el op))))
-         (dolist (panel '("sponsors-panel" "prayer-panel" "media-panel"))
-           (watch-scrolling panel)))
+          (dolist (panel '("sponsors-panel" "prayer-panel" "media-panel"))
+            (watch-scrolling panel)))
 
         (defun watch-scrolling (id)
           (let ((el (get-by-id id)))
@@ -397,7 +406,7 @@
         (defvar *scripts* (make-array))
 
         (defun script-name-src (name)
-         (return (slot-value *script-name-src* name)))
+          (return (slot-value *script-name-src* name)))
 
         (defun script-loaded (src)
           (return (> ((@ *scripts* index-of) src) -1)))
@@ -405,14 +414,23 @@
         (defun load-script (src &optional callback)
           (if (script-loaded src)
               (console "duplicate script loading" src)
-              (let ((head (aref ((@ document get-elements-by-tag-name) "head") 0))
-                    (script ((@ document create-element) "script")))
-                (when callback (setf (@ script onload) callback))
-                (setf (@ script type) "text/javascript"
-                      (@ script src) src
-                      (@ script onerror) script-load-error)
-                (setf *src* script)
-                ((@ head append-child) script))))
+              (let* ((head (aref ((@ document get-elements-by-tag-name) "head") 0))
+                     (css ((@ src ends-with) "css"))
+                     (el ((@ document create-element) (if css "link" "script"))))
+                (setf (@ el onload)
+                      (lambda ()
+                        (console "loaded" src)
+                        (when callback (funcall callback)))
+                      (@ el onerror) script-load-error)
+                (cond
+                  (css
+                   (setf (@ el type) "text/css"
+                         (@ el ref) "stylesheet"
+                         (@ el href) src))
+                  (t
+                   (setf (@ el type) "text/javascript"
+                         (@ el src) src)))
+                ((@ head append-child) el))))
 
         (defun script-load-error (err)
           (throw (new (*u-r-i-error (+ "The script " (@ err target src) " is not accessible.")))))
