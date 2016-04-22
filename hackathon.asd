@@ -6,6 +6,7 @@
                (:file "sharpL")
                (:file "slime")
                (:file "utility")
+               (:file "git")
                (:file "css")
                (:file "tracker")
                (:file "server")
