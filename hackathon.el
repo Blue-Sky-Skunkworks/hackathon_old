@@ -6,8 +6,10 @@
 
 
 (setq org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
+                          (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING")
                           (sequence "RESPONDED(r)" "INFO(i)" "REMINDED(m)")
                           (sequence "UPGRADE?(u)")
+                          (sequence "REQUESTED(q)" "SPONSORED(s@)")
                           (sequence "INVITED(i@/!)" "TICKETED(k)" "WELCOMED(e)" "WASTED(w)" "CHINGED(c)" "ATTENDED(a@)"))
       org-todo-keyword-faces
       '(("TODO" :foreground "red" :weight bold)
