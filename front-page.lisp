@@ -31,6 +31,7 @@
   (html-to-string
     (:html
       (:head
+       (fmt "~%<!-- HACKATHON ~A ~A -->~%" (git-latest-commit) (format-timestring nil (now)))
        (:title "Missoula Civic Hackathon")
        (production (str *analytics*))
        (:script :type "text/javascript" :src (production (cdn-url "webcomponentsjs" "webcomponents-lite.js")
