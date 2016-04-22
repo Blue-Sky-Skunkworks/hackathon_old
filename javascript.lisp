@@ -338,7 +338,7 @@
 
           (set-timeout (lambda () (animate-logo-go)) 6000))
 
-        (defvar *raw-wiki-url* "http://rawgit.com/wiki/Blue-Sky-Skunkworks/missoula-civic-hackathon-notes")
+        (defvar *raw-wiki-url* "https://rawgit.com/wiki/Blue-Sky-Skunkworks/missoula-civic-hackathon-notes")
         (defvar *wiki-url* "https://github.com/Blue-Sky-Skunkworks/missoula-civic-hackathon-notes/wiki/")
         (defvar *wiki-page*)
 
