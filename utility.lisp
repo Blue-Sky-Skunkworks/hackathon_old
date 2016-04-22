@@ -8,7 +8,7 @@
 (defun asdf-base-path (name)
   (directory-namestring (asdf:component-pathname (asdf:find-system name))))
 
-(defun hackathon-file (base)
+(defun hackathon-file (&optional base)
   (concatenate 'string (asdf-base-path :hackathon) base))
 
 (defmacro vertical-break (&optional (height "20px"))
@@ -29,6 +29,13 @@
       (sb-thread:with-mutex (*note-lock*)
         (apply #'format t (format nil "~~&;; ~A ~A~~%" (princ-to-string (- (get-universal-time) *note-start-clock*)) control) arguments)
         (finish-output t)))))
+
+(defun ensure-trailing-slash (string &optional (slash-character #\/))
+  (if (char= (aref string (1- (length string))) slash-character)
+    string
+    (with-output-to-string (stream)
+      (write-string string stream)
+      (write-char slash-character stream))))
 
 (defun run-program-to-string (program args)
   (with-output-to-string (str)
